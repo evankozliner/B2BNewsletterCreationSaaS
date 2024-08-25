@@ -3,31 +3,28 @@ html {
   scroll-behavior: smooth;
 }
 header {
-  background-color: #333;
-  padding: 10px 0;
+  background-color: #333; /* Optional: set a background color */
+  padding: 10px 0; /* Optional: add some padding */
 }
 
 nav ul {
-  list-style-type: none;
-  margin: 0;
+  display: flex;
+  max-width: 1200px;
+    margin: 0 auto;
+  justify-content: space-around; /* This will space the items evenly */
+  list-style-type: none; /* Remove bullet points */
   padding: 0;
-  overflow: hidden;
-  text-align: center;
-}
 
-nav ul li {
-  display: inline;
-  margin: 0 35px;
 }
 
 nav ul li a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
+  color: white; /* Optional: set text color */
+  text-decoration: none; /* Remove underline from links */
+  padding: 10px 15px; /* Add padding to the links */
 }
 
 nav ul li a:hover {
-  text-decoration: underline;
+  background-color: #555; /* Optional: change background on hover */
 }
 
 body {
@@ -242,6 +239,17 @@ footer ul {
 @media (max-width: 755px) {
     .row {
         display: block;
+        flex-direction: column;
+    }
+    .content {
+        display: block;
+    }
+    .side-by-side {
+        display: flex;
+        justify-content: normal;
+        align-items: center;
+        padding: 50px 0;
+        border-bottom: 2px solid #fff;
     }
 }
 .row {
