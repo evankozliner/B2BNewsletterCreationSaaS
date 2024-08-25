@@ -379,6 +379,17 @@ footer ul {
     flex-direction: column;
     align-items: center; /* Center the items horizontally */
   }
+    footer ul {
+        display: flex;
+        justify-content: center !important;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    footer ul li {
+        margin: 0;
+        padding: 0;
+    }
 
   .stat-item {
     width: 100%;
