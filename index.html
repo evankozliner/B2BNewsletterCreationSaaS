@@ -13,7 +13,7 @@
     />
     <meta name="author" content="Evan Kozliner" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="aimplylogo2.png" />
+    <link rel="icon" href="logo-small.svg" />
 
     <title>
       Aimply | We make building newsletters easy
@@ -34,29 +34,53 @@
 
     gtag("config", "G-L7YXR0RQTQ");
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.8/lottie.min.js"></script>
   <body>
     <header>
       <nav>
-        <ul>
-          <li><a href="#hero">Aimply</a></li>
-            <li><a href="#cta">Sign Up</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#pricing">Pricing</a></li>
+        <ul >
+          <li>
+              <div class="logo">
+                  <img src="logo-group.svg" alt="" class="logo">
+              </div>
+          </li>
+            <li><a href="#cta" class="hover-underline">Sign Up</a></li>
+            <li><a href="#faq" class="hover-underline">FAQ</a></li>
+            <li><a href="#pricing" class="hover-underline">Pricing</a></li>
         </ul>
       </nav>
     </header>
     <main>
       <section class="hero" id="hero">
-        <h1>Building a Newsletter is <span class="highlight">Hard</span>.</h1>
-          <h2>We make it <b>easy.</b></h2>
-        <div class="hero-buttons">
-            <button class="get-started">Book a free call.</button>
-        </div>
+          <div class="hero-text-group">
+              <div id="lottie-container"></div>
+              <h1>Building a Newsletter is <span class="highlight">Hard</span>.</h1>
+              <h2>We make it <b>easy.</b></h2>
+              <div class="hero-buttons">
+                  <button class="get-started">Book a free call.</button>
+              </div>
+          </div>
     </section>
 
     <section class="problem" id="problem">
-        <h2>Aimply manages the entire newsletter release process for you: From research and writing to monetization.</h2>
-        <p>Now you can keep your business top of mind for your audience  for <b>one tenth the price hiring marketers.</b></p>
+        <div class="single-col-content">
+            <h2>Aimply manages the entire newsletter release process for you.</h2>
+            <p>Now you can keep your business top of mind for your audience  for <b>one tenth the price hiring marketers.</b></p>
+            <div class="stats-container">
+              <div class="stat-item">
+                <div class="stat-number">100,000+</div>
+                <div class="stat-description">NEWSLETTER EMAILS SENT EACH WEEK</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">50%+</div>
+                <div class="stat-description">AVG OPEN RATE</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">5%</div>
+                <div class="stat-description">AVG CTR</div>
+              </div>
+            </div>
+        </div>
     </section>
 
     <section class="grow, side-by-side" id="create">
@@ -67,13 +91,13 @@
             <div class="text">
                 <h2>CREATE</h2>
                 <p>With just 30 minutes of your time we'll create a newsletter that your audience will love.</p>
-                <p>So effective some would consider it cheating.</p>
+                <p>Your competition will think you're cheating.</p>
                 <button>Scale faster</button>
             </div>
         </div>
     </section>
 
-    <section class="monetize, side-by-side" id="monetize">
+    <section class="monetize side-by-side" id="monetize">
         <div class="content">
             <div class="image">
                 <img src="wallet.png" alt="Wallet Balance">
@@ -87,7 +111,7 @@
         </div>
     </section>
 
-    <section class="monetize side-by-side" id="learn">
+    <section class="learn side-by-side" id="learn">
         <div class="content">
             <div class="image">
                 <img src="wallet.png" alt="Wallet Balance">
@@ -129,13 +153,13 @@
                     <div class="tier">
                         <h2>Growth.</h2>
                         <h3 id="growth-price">$150/mo</h3>
-                        <p>For businesses and creators <b>scaling their audiences</b>.</p>
                         <select id="subscriber-count">
-                            <option value="150" selected>Up to 5,000</option>
-                            <option value="250">Up to 10,000</option>
-                            <option value="500">Up to 75,000</option>
-                            <option value="1,000">Up to 200,000</option>
+                            <option value="150" selected>Up to 5,000 subscribers</option>
+                            <option value="250">Up to 10,000 subscribers</option>
+                            <option value="500">Up to 75,000 subscribers</option>
+                            <option value="1,000">Up to 200,000 subscribers</option>
                         </select>
+                        <p>For businesses and creators <b>scaling their audiences</b>.</p>
                         <div class="features">
                             <div class="feature">
                                 <div><p>✔</p></div>
@@ -161,7 +185,7 @@
                         <div class="features">
                             <div class="feature">
                                 <div><p>✔</p></div>
-                                <p>Custom features on request, like event calendars, translation, & stock data.</p>
+                                <p>Custom features on request.</p>
                             </div>
                             <div class="feature">
                                 <div><p>✔</p></div>
@@ -183,12 +207,14 @@
         <section class="testimonial side-by-side" id="testimonial">
             <div class="content">
                 <div class="image">
-                    <img src="wallet.png" alt="Wallet Balance">
+                    <img src="tyler.png" alt="Wallet Balance">
                 </div>
                 <div class="text">
-                    <h3>Augury Invest</h3>
-                    <p>"I've always wanted to add a daily send option to my lineup but every time I attempted to push these out on my own I realized I was making my work week twice as long. <br><br>Since getting started with Aimply I'm now sending 100% more mail (generating 200% more clicks), and my list loves the new daily content."</p>
-                    <p>- Tyler Dypont, Founder of Augury Invest</p>
+                    <div class="testimonial-content">
+                        <img src="augury.png" alt="">
+                        <p>"I've always wanted to add a daily send option to my lineup but every time I attempted to push these out on my own I realized I was making my work week twice as long. <br><br>Since getting started with Aimply I'm now sending 100% more mail (generating 200% more clicks), and my list loves the new daily content."</p>
+                        <p>- Tyler Dypont, Founder of Augury Invest</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -286,6 +312,14 @@
 
     <script src="faq.js"></script>
     <script>
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-container'), // the dom element that will contain the animation
+            renderer: 'svg', // the type of rendering (svg/canvas/html)
+            loop: true, // whether to loop the animation
+            autoplay: true, // whether to start the animation automatically
+            path: 'animation.json' // the path to your Lottie JSON file
+        });
+
     document.getElementById('subscriber-count').addEventListener('change', function() {
         var price = this.value;
         document.getElementById('growth-price').textContent = '$' + price + '/mo';
