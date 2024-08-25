@@ -166,6 +166,10 @@ body {
     margin-bottom: 2.5em;
     font-size: 18px;
 }
+button a {
+    color: white;
+    text-decoration: none;
+}
 
 .single-col-content {
     max-width: 1200px;
