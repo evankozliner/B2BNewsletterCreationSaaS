@@ -146,6 +146,10 @@ body {
     z-index: -1; /* Pushes the animation behind the text content */
     pointer-events: none; /* Ensures that the animation does not interfere with clicking on buttons or links */
 }
+#lottie-container-cauldron, .monetize .content .image, .learn .content .image {
+    max-width: 25em;
+    margin: auto;
+}
 
 .hero h1 {
     font-size: 5.75rem;

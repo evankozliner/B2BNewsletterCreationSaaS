@@ -86,7 +86,7 @@
     <section class="grow, side-by-side" id="create">
         <div class="content">
             <div class="image">
-                <img src="beekeepers-weekly.png" alt="Beekeepers Weekly">
+                <div id="lottie-container-cauldron"></div>
             </div>
             <div class="text">
                 <h2>CREATE</h2>
@@ -100,12 +100,12 @@
     <section class="monetize side-by-side" id="monetize">
         <div class="content">
             <div class="image">
-                <img src="wallet.png" alt="Wallet Balance">
+                <img src="money.png" alt="Wallet Balance">
             </div>
             <div class="text">
                 <h2>MONETIZE</h2>
                 <p>Want to monetize through ads or subscriptions? We'll handle everything.</p>
-                <p>We just can't build whole products for you...yet.</p>
+                <p>We just can't build whole product for you...yet.</p>
                 <button>Start earning</button>
             </div>
         </div>
@@ -114,7 +114,7 @@
     <section class="learn side-by-side" id="learn">
         <div class="content">
             <div class="image">
-                <img src="wallet.png" alt="Wallet Balance">
+                <div id="lottie-container-wizard"></div>
             </div>
             <div class="text">
                 <h2>LEARN</h2>
@@ -126,6 +126,7 @@
     </section>
 
         <section class="pricing">
+            <h2>CHOOSE YOUR PLAN</h2>
             <div class="row" id="pricing">
                 <div class="col">
                     <div class="tier">
@@ -297,6 +298,9 @@
                 <p class="a">
                     We fine-tune our models to your pre-existing content to ensure that
                     whatever we generate has the correct style for your brand.
+                    <br>
+                    <br>
+                    If you don't already have content for us to train on, we'll use one of a few pre-made style guides.
                 </p>
             </article>
         </section>
@@ -318,6 +322,22 @@
             loop: true, // whether to loop the animation
             autoplay: true, // whether to start the animation automatically
             path: 'animation.json' // the path to your Lottie JSON file
+        });
+
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-container-cauldron'), // the dom element that will contain the animation
+            renderer: 'svg', // the type of rendering (svg/canvas/html)
+            loop: true, // whether to loop the animation
+            autoplay: true, // whether to start the animation automatically
+            path: 'cauldron.json' // the path to your Lottie JSON file
+        });
+
+        lottie.loadAnimation({
+            container: document.getElementById('lottie-container-wizard'), // the dom element that will contain the animation
+            renderer: 'svg', // the type of rendering (svg/canvas/html)
+            loop: true, // whether to loop the animation
+            autoplay: true, // whether to start the animation automatically
+            path: 'wizard.json' // the path to your Lottie JSON file
         });
 
     document.getElementById('subscriber-count').addEventListener('change', function() {
