@@ -176,12 +176,15 @@ button a {
     margin: auto;
 }
 
-.problem, .CTA {
+.problem, .CTA, .how-it-works {
     text-align: center;
     padding: 50px 20px;
 }
 .problem {
     background-color: #F5C7EB;
+}
+.how-it-works {
+   background-color: #23C4CC;
 }
 .CTA {
     background-color: black;
