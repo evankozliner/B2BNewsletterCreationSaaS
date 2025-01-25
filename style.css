@@ -8,6 +8,10 @@ header {
     background-color: #FFFFFF;
 }
 
+.qarrow {
+    cursor: pointer;
+}
+
 nav {
     max-width: 1200px;
     margin: auto;
@@ -332,6 +336,9 @@ button:hover {
     background-color: green;
     color: #fff;
 }
+.faq {
+    cursor: pointer;
+}
 .faq div{
     display: flex;
     flex-direction: row;
@@ -404,6 +411,7 @@ button:hover {
     border-radius: 5px;
     padding: 20px;
     background: white;
+    width: 400px;
 }
 
 .stat-number {
