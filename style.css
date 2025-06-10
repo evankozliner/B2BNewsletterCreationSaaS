@@ -203,6 +203,10 @@ body {
 .highlight {
     color: #ff00ff;
 }
+.highlight-testimonial {
+    color: #5C6AC4;
+    font-weight: bold;
+}
 
 .hero-buttons button {
     padding: 10px 20px;
@@ -380,12 +384,6 @@ button:hover {
     max-width: 1000px;
     margin: auto;
     padding: 50px 20px;
-}
-.testimonial-content {
-    background-color: white;
-    border: 5px solid black;
-    border-radius: 10px;
-    padding: 20px;
 }
 
 .testimonial .image img {
@@ -602,3 +600,121 @@ footer ul {
     top: 50%;
     transform: translateY(-50%);
 }
+.testimonial-carousel {
+  background-color: #F5C7EB;
+  overflow: hidden;
+  padding: 50px 20px;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 30px;
+  animation: scroll-left 70s linear infinite;
+  width: max-content;
+}
+
+.testimonial-slide {
+  background: white;
+  border: 5px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row; /* horizontal layout */
+  gap: 20px;
+  padding: 30px;
+  align-items: center;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+.testimonial-left-track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 200px;
+  text-align: center;
+}
+
+.testimonial-left-track .image img {
+  border-radius: 50%;
+}
+
+.name-title p {
+    line-height: 1.5em;
+}
+
+.name-title .name {
+  font-weight: bold;
+  margin: 10px 0 0;
+}
+
+.name-title .title,
+.name-title .company {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.testimonial-content {
+  flex: 1;
+  padding: 0;
+}
+
+.testimonial-content p {
+    line-height: 1.5em;
+}
+
+.testimonial-content img {
+    margin: auto;
+    display: block;
+  max-width: 50px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .testimonial-slide {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+      max-width: 400px;
+      gap: 0;
+  }
+
+  .testimonial-left-track {
+    align-items: center;
+  }
+
+  .testimonial-content {
+    padding: 0;
+      max-width: 400px;
+      max-height: 250px;
+  }
+
+  .testimonial-left-track .image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+  .name-title .name {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  .name-title .title,
+  .name-title .company {
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
