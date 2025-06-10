@@ -609,10 +609,10 @@ footer ul {
 .carousel-track {
   display: flex;
   gap: 30px;
-  animation: scroll-left 70s linear infinite;
+  animation: scroll-right 100s linear infinite; /* adjust speed as needed */
   width: max-content;
+  will-change: transform;
 }
-
 .testimonial-slide {
   background: white;
   border: 5px solid black;
@@ -708,13 +708,14 @@ footer ul {
   }
 }
 
-@keyframes scroll-left {
+@keyframes scroll-right {
   0% {
-    transform: translateX(0);
-  }
-  100% {
     transform: translateX(-50%);
   }
+  100% {
+    transform: translateX(0);
+  }
 }
+
 
 
