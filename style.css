@@ -357,8 +357,8 @@ button:hover {
 }
 .faq article {
     height: fit-content;
-    border-top: 1px solid black;
     border-bottom: 1px solid black;
+    margin-top: 0.5em;
 }
 .faq article span {
     display: flex;
