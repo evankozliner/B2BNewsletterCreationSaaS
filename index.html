@@ -630,24 +630,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <section class="pricing">
             <h2>CHOOSE YOUR PLAN</h2>
+
+<div class="billing-toggle">
+  <button id="yearlyBtn" class="toggle-btn active">Yearly</button>
+  <button id="monthlyBtn" class="toggle-btn">Monthly</button>
+</div>
+
+
             <div class="row" id="pricing">
                 <div class="col">
                     <div class="tier">
                         <h2>Starter.</h2>
-                        <h3>$100/mo</h3>
+                        <h3 id="starter-price">$100/mo</h3>
                         <p>For <b>small businesses and creators</b> looking for a hands-off way to reach their audience.</p>
                         <div class="features">
                             <div class="feature">
                                 <div><p>✔</p></div>
-                                <p>Up to 1,000 subscribers.</p>
+                                <p>24-hour support response SLA.</p>
                             </div>
                             <div class="feature">
                                 <div><p>✔</p></div>
-                                <p>Custom logo and branding.</p>
+                                <p>Custom banner and newsletter design.</p>
                             </div>
                             <div class="feature">
                                 <div><p>✔</p></div>
-                                <p>Source restrictions.</p>
+                                <p>Content repurposing from public websites.</p>
                             </div>
 
                         </div>
@@ -659,23 +666,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <h3 id="growth-price">$150/mo</h3>
                         <select id="subscriber-count">
                             <option value="149" selected>Up to 5,000 subscribers</option>
-                            <option value="250">Up to 10,000 subscribers</option>
+                            <option value="190">Up to 10,000 subscribers</option>
                             <option value="330">Up to 75,000 subscribers</option>
-                            <option value="1,000">Up to 200,000 subscribers</option>
+                            <option value="1000">Up to 200,000 subscribers</option>
                         </select>
                         <p>For businesses and creators <b>scaling their audiences</b>.</p>
                         <div class="features">
                             <div class="feature">
                                 <div><p>✔</p></div>
-                                <p>Custom voice and tone.</p>
+                                <p>Drip Campaigns or LinkedIn included.</p>
                             </div>
                             <div class="feature">
                                 <div><p>✔</p></div>
-                                <p>24-hour support response SLA.</p>
+                                <p>Enriched qualified leads each month.</p>
                             </div>
                             <div class="feature">
                                 <div><p>✔</p></div>
-                                <p>Advanced Analytics and Reporting.</p>
+                                <p>Bi-monthly growth strategy consultation.</p>
                             </div>
 
                         </div>
@@ -697,7 +704,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                             </div>
                             <div class="feature">
                                 <div><p>✔</p></div>
-                                <p>Internal company newsletters.</p>
+                                <p>Custom integrations.</p>
                             </div>
                         </div>
                     </div>
@@ -870,12 +877,68 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             autoplay: true, // whether to start the animation automatically
             path: 'wizard.json' // the path to your Lottie JSON file
         });
-
-    document.getElementById('subscriber-count').addEventListener('change', function() {
-        var price = this.value;
-        document.getElementById('growth-price').textContent = '$' + price + '/mo';
-    });
 </script>
+  <script>
+const yearlyBtn = document.getElementById('yearlyBtn');
+const monthlyBtn = document.getElementById('monthlyBtn');
+const subscriberCount = document.getElementById('subscriber-count');
+const growthPrice = document.getElementById('growth-price');
+const starterPrice = document.getElementById('starter-price');
+
+// Define pricing map
+const pricingMap = {
+  monthly: {
+    149: 149,
+    190: 180,
+    330: 220,
+    1000: 500
+  },
+  annual: {
+    149: 119,
+    190: 144,
+    330: 176,
+    1000: 400
+  }
+};
+
+const starterPricing = {
+  monthly: 120,
+  annual: 100
+};
+
+let billingType = 'annual'; // default
+
+function updatePrices() {
+  const subValue = subscriberCount.value;
+  const gPrice = pricingMap[billingType][subValue];
+  const sPrice = starterPricing[billingType];
+
+  growthPrice.textContent = `$${gPrice}/mo` + (billingType === 'annual' ? '' : '');
+  starterPrice.textContent = `$${sPrice}/mo` + (billingType === 'annual' ? '' : '');
+}
+
+// Toggle logic
+yearlyBtn.addEventListener('click', () => {
+  billingType = 'annual';
+  yearlyBtn.classList.add('active');
+  monthlyBtn.classList.remove('active');
+  updatePrices();
+});
+
+monthlyBtn.addEventListener('click', () => {
+  billingType = 'monthly';
+  monthlyBtn.classList.add('active');
+  yearlyBtn.classList.remove('active');
+  updatePrices();
+});
+
+// Subscriber selector change
+subscriberCount.addEventListener('change', updatePrices);
+
+// Initial load
+updatePrices();
+</script>
+
     <script src="hamburger.js"></script>
     <script src="https://embed.typeform.com/next/embed.js"></script>
   </body>
