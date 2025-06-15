@@ -67,8 +67,12 @@ nav ul li a {
      flex: 1;
 }
 
-.learn {
+.monetize {
     background-color: #F7D6F5;
+}
+.monetize img {
+    max-width: 20em !important;
+    margin-bottom: 1em;
 }
 
 nav ul li a:hover {
@@ -287,10 +291,10 @@ body {
     background-color: #F7D6F5;
 }
 
-.monetize {
+.learn {
     background-color: black;
 }
-.monetize h2, .monetize p {
+.learn h2, .learn p {
     color: white;
 }
 
