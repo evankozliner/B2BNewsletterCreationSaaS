@@ -643,7 +643,7 @@ footer ul {
 .carousel-track {
   display: flex;
   gap: 30px;
-  animation: scroll-right 100s linear infinite; /* adjust speed as needed */
+  animation: scroll-right 190s linear infinite; /* adjust speed as needed */
   width: max-content;
   will-change: transform;
 }
