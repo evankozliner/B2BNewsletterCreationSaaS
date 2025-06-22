@@ -39,12 +39,21 @@ nav ul {
 
 }
 h1 {
-    margin-bottom: 0.5em; /* Adds a bit of space below the h1 */
+    margin: 0;
 }
 
 h2 {
     margin-top: 0.2em; /* Adds a small space above the h2 */
     line-height: 1.2; /* Ensures the text within the h2 is nicely spaced */
+}
+
+.value-prop {
+    width: 65%;
+    margin: auto;
+    line-height: 1.5em;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    margin-top: 1em;
 }
 
 .hero-buttons {
@@ -73,6 +82,11 @@ nav ul li a {
 .monetize img {
     max-width: 20em !important;
     margin-bottom: 1em;
+}
+.monetize .image {
+    height: 512px;
+    display: flex;
+    align-items: center;
 }
 
 nav ul li a:hover {
@@ -177,6 +191,7 @@ body {
 }
 
 .hero-text-group {
+    padding: 5em;
     background-color: #FDFDFD;
     border: 5px solid black;
     border-radius: 10px;
@@ -191,7 +206,7 @@ body {
 #lottie-container {
     position: absolute;
     top: 18em;
-    left: 40em;
+    left: 45em;
     width: 50%;
     height: 50%;
     z-index: -1; /* Pushes the animation behind the text content */
@@ -218,7 +233,6 @@ body {
 .hero-buttons button {
     padding: 10px 20px;
 
-    margin-bottom: 2.5em;
     font-size: 18px;
 }
 button a {
@@ -285,6 +299,10 @@ body {
     align-items: center;
     padding: 50px 0;
     border-bottom: 2px solid #fff;
+}
+
+#lottie-container-wizard, #lottie-container-cauldron {
+    height: 512px;
 }
 
 .grow {
@@ -436,6 +454,14 @@ footer ul {
     list-style-type: none;
 }
 @media (max-width: 755px) {
+    .hero-text-group {
+        margin: auto 20px;
+    }
+    .value-prop {
+        width: 90%;
+       font-size: 1em;
+    }
+
         .nav-links {
         display: none;
         flex-direction: column;
@@ -679,6 +705,9 @@ footer ul {
 }
 
 @media (max-width: 768px) {
+    .hero-text-group {
+        padding: 2em;
+    }
   .testimonial-slide {
     flex-direction: column;
     text-align: center;
