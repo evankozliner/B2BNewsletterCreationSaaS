@@ -488,14 +488,24 @@ footer ul {
       gap: 20px;
     }
 
+
     .sample-card img {
-      max-width: 120px;
+      width: 50%;
       height: auto;
     }
 
     .sample-description {
       font-size: 18px;
       font-weight: 600;
+        color: black;
+    }
+    .sample-container a {
+        color: black;
+        text-decoration: none;
+    }
+    .sample-card-link {
+        color: black;
+        text-decoration: none;
     }
 
 @media (max-width: 755px) {
