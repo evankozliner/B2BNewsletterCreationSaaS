@@ -514,6 +514,10 @@ footer ul {
       text-align: center;
     }
 
+    .sample-card img {
+        width: 100%;
+    }
+
     .samples-title {
       font-size: 36px;
     }
