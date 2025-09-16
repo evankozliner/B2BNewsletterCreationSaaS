@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Protect sample emails from indexing
+Disallow: /samples/sample-emails/
+
+# Allow access to public sample pages
+Allow: /samples/potions-samples/
+Allow: /samples.html
+
+# Point to sitemap
+Sitemap: https://withpotions.com/sitemap.xml
