@@ -222,11 +222,34 @@ function renderTagButtons() {
     `;
 }
 
+// Apply tag filter from URL parameter
+function applyTagFilter(tagName) {
+    // Clear all active states
+    document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
+    
+    // Find and activate the matching tag button
+    const targetButton = document.querySelector(`.tag-btn[data-tag="${tagName}"]`);
+    if (targetButton) {
+        targetButton.classList.add('active');
+        updateDisplay();
+    } else {
+        // If tag not found, activate 'all'
+        document.querySelector('.tag-btn[data-tag="all"]').classList.add('active');
+    }
+}
+
 // Initialize the blog
 function initBlog() {
     buildSearchIndex();
     renderTagButtons();
     renderBlogPosts(blogPosts);
+    
+    // Check for tag parameter in URL and apply filter
+    const urlParams = new URLSearchParams(window.location.search);
+    const tagFromUrl = urlParams.get('tag');
+    if (tagFromUrl) {
+        applyTagFilter(tagFromUrl);
+    }
     
     // Tag filtering using event delegation
     document.querySelector('.blog-tags').addEventListener('click', (e) => {

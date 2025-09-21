@@ -123,7 +123,7 @@ function renderPost(post) {
     // Update tags
     const tagsContainer = document.getElementById('post-tags');
     tagsContainer.innerHTML = post.tags.map(tag => 
-        `<span class="post-tag">${tag}</span>`
+        `<span class="post-tag" data-tag="${tag}">${tag}</span>`
     ).join('');
     
     // Add image after meta if it exists
@@ -190,6 +190,19 @@ function copyToClipboard() {
     });
 }
 
+// Handle tag clicks to navigate to blog index with filter
+function handleTagClicks() {
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('post-tag')) {
+            const tag = e.target.dataset.tag;
+            if (tag) {
+                // Navigate to blog index with tag parameter
+                window.location.href = `index.html?tag=${encodeURIComponent(tag)}`;
+            }
+        }
+    });
+}
+
 // Initialize post page
 function initPostPage() {
     const postId = getPostIdFromUrl();
@@ -203,6 +216,7 @@ function initPostPage() {
     const post = getPostById(postId);
     renderPost(post);
     handleShareButton();
+    handleTagClicks();
 }
 
 // Initialize when DOM is loaded
