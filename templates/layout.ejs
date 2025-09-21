@@ -1,11 +1,16 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="<%= description %>" />
+    <meta
+      name="description"
+      content="<%= description %>"
+    />
     <meta property="og:image" content="https://withpotions.com/PotionsPreview.png" />
-    <meta name="keywords" content="<%= keywords %>" />
+    <meta
+      name="keywords"
+      content="<%= keywords %>"
+    />
     <meta name="author" content="<%= author %>" />
     <link rel="stylesheet" href="<%= baseUrl %><%= styleSheet %>" />
     <% if (additionalCSS && additionalCSS.length > 0) { %>
@@ -15,10 +20,13 @@
     <% } %>
     <link rel="stylesheet" type="text/css" href="<%= baseUrl %>webfonts/prosa-light.css">
     <link rel="icon" href="<%= baseUrl %>airplane.svg" />
-    <title><%= title %></title>
+
+    <title>
+      <%= title %>
+    </title>
     
     <% if (tracking) { %>
-    <!-- Meta Pixel Code -->
+      <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -36,8 +44,9 @@ src="https://www.facebook.com/tr?id=1619668331969779&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
     <% } %>
-</head>
-<!-- Google Tag Manager -->
+
+  </head>
+  <!-- Google Tag Manager -->
 <% if (tracking) { %>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -45,7 +54,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-W879CWPC');</script>
 <!-- End Google Tag Manager -->
-<!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
 <!--  old gtag (keeping temporaryily for debugging purposes-->
 <!--  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D92Y4EVWSY"></script>-->
 <!--  <script>-->

@@ -1,0 +1,98 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+const ejs = require('ejs');
+
+const templatesDir = path.join(__dirname, 'templates');
+const outputDir = __dirname;
+
+// Page configurations
+const pages = [
+    {
+        name: 'index',
+        template: 'pages/index.ejs',
+        output: 'index.html',
+        data: {
+            title: 'Potions | We make building newsletters easy',
+            description: 'Potions helps businesses build newsletters.',
+            keywords: 'Newsletter, Newsletters, Email, Email Marketing, Marketing, Business',
+            author: 'Evan Kozliner',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: true,
+            scripts: ['faq.js', 'hamburger.js', 'https://embed.typeform.com/next/embed.js']
+        }
+    },
+    {
+        name: 'samples',
+        template: 'pages/samples.ejs',
+        output: 'samples.html',
+        data: {
+            title: 'Potions | We make building newsletters easy',
+            description: 'Potions helps businesses build newsletters.',
+            keywords: 'Newsletter, Newsletters, Email, Email Marketing, Marketing, Business',
+            author: 'Evan Kozliner',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: true,
+            scripts: ['hamburger.js']
+        }
+    }
+];
+
+// Function to build a single page
+async function buildPage(pageConfig) {
+    console.log(`Building ${pageConfig.name}...`);
+    
+    try {
+        // Load the page content template
+        const pageTemplatePath = path.join(templatesDir, pageConfig.template);
+        const pageContent = await ejs.renderFile(pageTemplatePath, pageConfig.data);
+        
+        // Render the full layout with the page content
+        const layoutPath = path.join(templatesDir, 'layout.ejs');
+        const templateData = {
+            ...pageConfig.data,
+            body: pageContent
+        };
+        
+        const html = await ejs.renderFile(layoutPath, templateData);
+        
+        // Write the output file
+        const outputPath = path.join(outputDir, pageConfig.output);
+        fs.writeFileSync(outputPath, html);
+        
+        console.log(`✓ Built ${pageConfig.output}`);
+    } catch (error) {
+        console.error(`✗ Error building ${pageConfig.name}:`, error.message);
+        throw error;
+    }
+}
+
+// Main build function
+async function buildSite() {
+    console.log('Building main site pages...');
+    
+    try {
+        // Build all pages
+        for (const pageConfig of pages) {
+            await buildPage(pageConfig);
+        }
+        
+        console.log(`\nBuild complete! Generated ${pages.length} pages.`);
+        console.log('Generated files:');
+        pages.forEach(page => console.log(`  - ${page.output}`));
+        
+    } catch (error) {
+        console.error('Build failed:', error.message);
+        process.exit(1);
+    }
+}
+
+// Run the build
+buildSite();

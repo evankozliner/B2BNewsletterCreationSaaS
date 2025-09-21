@@ -4,7 +4,9 @@
   "description": "Potions blog build system",
   "scripts": {
     "build-blog": "node blog/build-blog.js",
-    "dev": "npm run build-blog && echo 'Blog built successfully!'"
+    "build-site": "node build-site.js",
+    "build": "npm run build-site && npm run build-blog",
+    "dev": "npm run build && echo 'Site built successfully!'"
   },
   "dependencies": {
     "ejs": "^3.1.10",
