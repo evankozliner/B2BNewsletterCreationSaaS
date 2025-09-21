@@ -1,0 +1,17 @@
+{
+  "name": "potions-blog",
+  "version": "1.0.0",
+  "description": "Potions blog build system",
+  "scripts": {
+    "build-blog": "node blog/build-blog.js",
+    "dev": "npm run build-blog && echo 'Blog built successfully!'"
+  },
+  "dependencies": {
+    "marked": "^9.1.6",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {},
+  "keywords": ["blog", "markdown", "static-site"],
+  "author": "Potions",
+  "license": "MIT"
+}
