@@ -59,6 +59,23 @@ const pages = [
             tracking: false,
             scripts: ['hamburger.js']
         }
+    },
+    {
+        name: 'newsletter-service',
+        template: 'pages/newsletter-service.ejs',
+        output: 'newsletter-service.html',
+        data: {
+            title: 'Done-for-You Newsletter Service for Busy Teams',
+            description: 'Potions is a done-for-you newsletter service and platform in one for busy founders and marketers, all at a fraction of the cost of an agency.',
+            keywords: 'Newsletter, Newsletters, Email, Email Marketing, Marketing, Business',
+            author: 'Evan Kozliner',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: true,
+            scripts: ['faq.js', 'hamburger.js', 'https://embed.typeform.com/next/embed.js']
+        }
     }
 ];
 
