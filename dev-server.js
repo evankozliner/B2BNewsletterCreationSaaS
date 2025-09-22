@@ -1,6 +1,7 @@
 const chokidar = require('chokidar');
 const { spawn } = require('child_process');
 const path = require('path');
+const fs = require('fs');
 
 console.log('🚀 Starting development server...');
 
@@ -55,19 +56,40 @@ server.stderr.on('data', (data) => {
 
 console.log('✅ Server ready at: http://localhost:8080');
 
-// Watch for changes in templates and markdown files
-const watcher = chokidar.watch([
-  'templates/layout.ejs',
-  'templates/pages/index.ejs',
-  'templates/pages/blog-index.ejs',
-  'templates/pages/samples.ejs', 
-  'templates/pages/newsletter-service.ejs',
-  'templates/partials/header.ejs',
-  'templates/partials/footer.ejs',
-  'blog/**/*.md',
+// Function to recursively find all files with specific extensions
+function findFiles(dir, extensions) {
+  let results = [];
+  const list = fs.readdirSync(dir);
+  
+  list.forEach(file => {
+    const filePath = path.join(dir, file);
+    const stat = fs.statSync(filePath);
+    
+    if (stat && stat.isDirectory()) {
+      // Recursively search subdirectories
+      results = results.concat(findFiles(filePath, extensions));
+    } else {
+      // Check if file has one of the desired extensions
+      const ext = path.extname(file);
+      if (extensions.includes(ext)) {
+        results.push(filePath);
+      }
+    }
+  });
+  
+  return results;
+}
+
+// Find all files to watch
+const filesToWatch = [
+  ...findFiles('templates', ['.ejs']),
+  ...findFiles('blog', ['.md']),
   'blog/build-blog.js',
   'build-site.js'
-], {
+];
+
+// Watch for changes in templates and markdown files
+const watcher = chokidar.watch(filesToWatch, {
   ignored: /(^|[\/\\])\../, // ignore dotfiles
   persistent: true
 });
