@@ -6,7 +6,8 @@
     "build-blog": "node blog/build-blog.js",
     "build-site": "node build-site.js",
     "build": "npm run build-site && npm run build-blog",
-    "dev": "npm run build && echo 'Site built successfully!'"
+    "dev": "node dev-server.js",
+    "serve": "http-server . -p 8080 -c-1"
   },
   "dependencies": {
     "ejs": "^3.1.10",
@@ -19,5 +20,10 @@
     "static-site"
   ],
   "author": "Potions",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "chokidar": "^4.0.3",
+    "http-server": "^14.1.1",
+    "nodemon": "^3.1.10"
+  }
 }

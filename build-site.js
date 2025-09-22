@@ -42,6 +42,23 @@ const pages = [
             tracking: true,
             scripts: ['hamburger.js']
         }
+    },
+    {
+        name: 'blog-index',
+        template: 'pages/blog-index.ejs',
+        output: 'blog/index.html',
+        data: {
+            title: 'Potions Blog | Master newsletter marketing',
+            description: 'Potions Blog - Master newsletter marketing with actionable playbooks and real life case studies.',
+            keywords: 'Newsletter, Email Marketing, Marketing, Blog, Content Tips',
+            author: 'Potions',
+            baseUrl: '../',
+            styleSheet: 'style.css',
+            additionalCSS: ['blog/blog.css'],
+            showBlogLink: false,
+            tracking: false,
+            scripts: ['hamburger.js']
+        }
     }
 ];
 
@@ -65,6 +82,13 @@ async function buildPage(pageConfig) {
         
         // Write the output file
         const outputPath = path.join(outputDir, pageConfig.output);
+        
+        // Ensure directory exists
+        const outputDirPath = path.dirname(outputPath);
+        if (!fs.existsSync(outputDirPath)) {
+            fs.mkdirSync(outputDirPath, { recursive: true });
+        }
+        
         fs.writeFileSync(outputPath, html);
         
         console.log(`✓ Built ${pageConfig.output}`);
