@@ -76,6 +76,23 @@ const pages = [
             tracking: true,
             scripts: ['faq.js', 'hamburger.js', 'https://embed.typeform.com/next/embed.js']
         }
+    },
+    {
+        name: 'newsletter-platform',
+        template: 'pages/newsletter-platform.ejs',
+        output: 'newsletter-platform.html',
+        data: {
+            title: 'The Newsletter Platform That Does the Work For You | Potions',
+            description: 'Potions is your newsletter platform, email consultant, and content team in one. Send newsletters your audience wants to read without the hassle.',
+            keywords: 'Newsletter, Newsletters, Email, Email Marketing, Platform, Newsletter Platform, Content Creation',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: true,
+            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
+        }
     }
 ];
 
