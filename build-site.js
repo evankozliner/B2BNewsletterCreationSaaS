@@ -83,7 +83,7 @@ const pages = [
         output: 'newsletter-platform.html',
         data: {
             title: 'The Newsletter Platform That Does the Work For You | Potions',
-            description: 'Potions is the only newsletter platform with done-for-you content, email delivery, and list management.',
+            description: 'Potions is your newsletter platform, email consultant, and content team in one. Send newsletters your audience wants to read without the hassle.',
             keywords: 'Newsletter, Newsletters, Email, Email Marketing, Platform, Newsletter Platform, Content Creation',
             author: 'Potions',
             baseUrl: '',
