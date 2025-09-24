@@ -93,6 +93,23 @@ const pages = [
             tracking: true,
             scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
         }
+    },
+    {
+        name: 'newsletter-writing-service',
+        template: 'pages/newsletter-writing-service.ejs',
+        output: 'newsletter-writing-service.html',
+        data: {
+            title: 'On-Brand Newsletter Writing Service Powered by AI | Potions',
+            description: 'Potions is your dedicated newsletter writer and platform in one streamlined service, for a fraction of the cost of both.',
+            keywords: 'Newsletter, Newsletter Writing, Email Writing, Content Writing, Done-for-You, Newsletter Service',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: true,
+            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
+        }
     }
 ];
 
