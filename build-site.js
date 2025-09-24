@@ -93,6 +93,23 @@ const pages = [
             tracking: true,
             scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
         }
+    },
+    {
+        name: 'newsletter-service-for-agencies',
+        template: 'pages/newsletter-service-for-agencies.ejs',
+        output: 'newsletter-service-for-agencies.html',
+        data: {
+            title: 'Done-for-You Newsletter Service for Agencies | Potions',
+            description: 'We write, design, and send newsletters for agencies that nurture leads into clients without draining your team\'s time',
+            keywords: 'Agency Newsletter, Marketing Agency Newsletter, Done-for-You Newsletter, Agency Email Marketing, Newsletter Service for Agencies',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: true,
+            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
+        }
     }
 ];
 
