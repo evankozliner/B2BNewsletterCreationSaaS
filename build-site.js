@@ -93,6 +93,23 @@ const pages = [
             tracking: true,
             scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
         }
+    },
+    {
+        name: 'newsletter-writing-service',
+        template: 'pages/newsletter-writing-service.ejs',
+        output: 'newsletter-writing-service.html',
+        data: {
+            title: 'Your Newsletter Writing Service, Done-for-You, Every Week | Potions',
+            description: 'We plan, write, design, and send your newsletter each week for a fraction of the cost to pay an agency or freelancer.',
+            keywords: 'Newsletter, Newsletter Writing, Email Writing, Content Writing, Done-for-You, Newsletter Service',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: true,
+            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
+        }
     }
 ];
 
