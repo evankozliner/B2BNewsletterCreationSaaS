@@ -127,6 +127,23 @@ const pages = [
             tracking: true,
             scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
         }
+    },
+    {
+        name: 'newsletter-service-for-consultants',
+        template: 'pages/newsletter-service-for-consultants.ejs',
+        output: 'newsletter-service-for-consultants.html',
+        data: {
+            title: 'Done-for-You Newsletter Service for Consultants',
+            description: 'We write, design, and send newsletters for consultants that nurture leads into clients with just 15 minutes of your time per week.',
+            keywords: 'Newsletter, Consultant Newsletter, Email Marketing, Consultancy, Done-for-You Newsletter',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: true,
+            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
+        }
     }
 ];
 
