@@ -405,10 +405,131 @@ button:hover {
     display: none;
     margin-left: .5em;
 }
-.faq, footer {
+.faq {
     max-width: 1000px;
     margin: auto;
     padding: 50px 20px;
+}
+
+footer {
+    padding: 60px 20px 40px;
+    background-color: #fafafa;
+    border-top: 1px solid #eee;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.footer-logo svg {
+    color: #333;
+}
+
+.footer-social {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: #666;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    padding: 0;
+}
+
+.footer-social a:hover {
+    color: #333;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-column a {
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.5;
+    transition: color 0.2s ease;
+    padding: 0;
+}
+
+.footer-column a:hover {
+    color: #333;
+}
+
+.footer-testimonial {
+    text-align: left;
+}
+
+.footer-testimonial p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-info strong {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 2px;
+}
+
+.author-info span {
+    font-size: 13px;
+    color: #666;
 }
 
 .testimonial .image img {
@@ -448,11 +569,7 @@ button:hover {
     line-height: 1.5em;
 }
 
-footer ul {
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
-}
+/* Legacy footer styles - now using new footer structure */
 
     .samples-background {
       background-color: #f6c7e5;
@@ -573,16 +690,24 @@ footer ul {
     flex-direction: column;
     align-items: center; /* Center the items horizontally */
   }
-    footer ul {
-        display: flex;
-        justify-content: center !important;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
     }
-    footer ul li {
-        margin: 0;
-        padding: 0;
+    
+    .footer-left {
+        text-align: center;
+        align-items: center;
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .footer-column {
+        text-align: center;
     }
 
   .stat-item {

@@ -144,6 +144,57 @@ const pages = [
             tracking: true,
             scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
         }
+    },
+    {
+        name: 'newsletter-service-for-b2b-saas',
+        template: 'pages/newsletter-service-for-b2b-saas.ejs',
+        output: 'newsletter-service-for-b2b-saas.html',
+        data: {
+            title: 'Done-for-You Newsletter Service for B2B SaaS Companies',
+            description: 'We build, design, write, and manage newsletters for B2B SaaS companies to nurture leads and support sales.',
+            keywords: 'Newsletter, B2B SaaS Newsletter, Email Marketing, SaaS, Done-for-You Newsletter',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: true,
+            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
+        }
+    },
+    {
+        name: 'newsletter-service-for-small-business',
+        template: 'pages/newsletter-service-for-small-business.ejs',
+        output: 'newsletter-service-for-small-business.html',
+        data: {
+            title: 'Done-for-You Newsletter Service for Small Businesses',
+            description: 'We\'re the newsletter service for small businesses that want completely done-for-you newsletters that turn past leads into repeat customers.',
+            keywords: 'Newsletter, Small Business Newsletter, Email Marketing, Small Business, Done-for-You Newsletter',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: true,
+            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
+        }
+    },
+    {
+        name: 'newsletter-service-for-lawyers',
+        template: 'pages/newsletter-service-for-lawyers.ejs',
+        output: 'newsletter-service-for-lawyers.html',
+        data: {
+            title: 'Done-for-You Newsletter Service for Lawyers',
+            description: 'We\'re the done-for-you newsletter service for lawyers who want to turn leads into cases without hiring writers or managing platforms.',
+            keywords: 'Newsletter, Lawyer Newsletter, Email Marketing, Legal, Done-for-You Newsletter',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: true,
+            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
+        }
     }
 ];
 
