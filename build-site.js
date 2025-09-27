@@ -195,6 +195,23 @@ const pages = [
             tracking: true,
             scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
         }
+    },
+    {
+        name: 'b2b-newsletter-service',
+        template: 'pages/b2b-newsletter-service.ejs',
+        output: 'b2b-newsletter-service.html',
+        data: {
+            title: 'Done-for-You B2B Newsletter Service for Busy Teams',
+            description: 'Get a done-for-you B2B newsletter service and platform that nurtures your old leads into sales conversations.',
+            keywords: 'B2B Newsletter, B2B Email Marketing, Lead Nurturing, Sales Enablement, Done-for-You Newsletter',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: true,
+            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
+        }
     }
 ];
 
