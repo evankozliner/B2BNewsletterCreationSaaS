@@ -11,7 +11,7 @@
                       name="description"
                       content="Potions helps businesses build newsletters."
                     />
-                    <meta property="og:image" content="https://withpotions.com/PotionsPreview.png" />
+                    <meta property="og:image" content="https://withpotions.com/PotionsPreview.webp" />
                     <meta
                       name="keywords"
                       content="Newsletter, Newsletters, Email, Email Marketing, Marketing, Business"
