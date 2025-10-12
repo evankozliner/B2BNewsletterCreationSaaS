@@ -58,7 +58,7 @@ const pages = [
             styleSheet: 'style.css',
             additionalCSS: ['blog/blog.css'],
             showBlogLink: false,
-            tracking: false,
+            tracking: true,
             scripts: ['hamburger.js'],
             canonicalUrl: 'https://withpotions.com/blog/'
         }

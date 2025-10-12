@@ -107,7 +107,7 @@ async function buildPost(markdownFile) {
         styleSheet: 'style.css',
         additionalCSS: ['blog/blog.css', 'blog/post.css'],
         showBlogLink: true,
-        tracking: false,
+        tracking: true,
         scripts: ['hamburger.js'],
         canonicalUrl: `https://withpotions.com/blog/${frontmatter.slug}.html`,
         body: `    <main class="post-main">
