@@ -23,7 +23,8 @@ const pages = [
             additionalCSS: [],
             showBlogLink: false,
             tracking: true,
-            scripts: ['faq.js', 'hamburger.js', 'https://embed.typeform.com/next/embed.js']
+            scripts: ['faq.js', 'hamburger.js', 'https://embed.typeform.com/next/embed.js'],
+            canonicalUrl: 'https://withpotions.com/'
         }
     },
     {
@@ -40,7 +41,8 @@ const pages = [
             additionalCSS: [],
             showBlogLink: false,
             tracking: true,
-            scripts: ['hamburger.js']
+            scripts: ['hamburger.js'],
+            canonicalUrl: 'https://withpotions.com/samples.html'
         }
     },
     {
@@ -57,7 +59,8 @@ const pages = [
             additionalCSS: ['blog/blog.css'],
             showBlogLink: false,
             tracking: false,
-            scripts: ['hamburger.js']
+            scripts: ['hamburger.js'],
+            canonicalUrl: 'https://withpotions.com/blog/'
         }
     },
     {
@@ -74,7 +77,8 @@ const pages = [
             additionalCSS: [],
             showBlogLink: false,
             tracking: true,
-            scripts: ['faq.js', 'hamburger.js', 'https://embed.typeform.com/next/embed.js']
+            scripts: ['faq.js', 'hamburger.js', 'https://embed.typeform.com/next/embed.js'],
+            canonicalUrl: 'https://withpotions.com/newsletter-service.html'
         }
     },
     {
@@ -91,7 +95,8 @@ const pages = [
             additionalCSS: [],
             showBlogLink: false,
             tracking: true,
-            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
+            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js'],
+            canonicalUrl: 'https://withpotions.com/newsletter-platform.html'
         }
     },
     {
@@ -108,7 +113,8 @@ const pages = [
             additionalCSS: [],
             showBlogLink: false,
             tracking: true,
-            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
+            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js'],
+            canonicalUrl: 'https://withpotions.com/newsletter-writing-service.html'
         }
     },
     {
@@ -125,7 +131,8 @@ const pages = [
             additionalCSS: [],
             showBlogLink: false,
             tracking: true,
-            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
+            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js'],
+            canonicalUrl: 'https://withpotions.com/newsletter-service-for-agencies.html'
         }
     },
     {
@@ -142,7 +149,8 @@ const pages = [
             additionalCSS: [],
             showBlogLink: false,
             tracking: true,
-            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
+            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js'],
+            canonicalUrl: 'https://withpotions.com/newsletter-service-for-consultants.html'
         }
     },
     {
@@ -159,7 +167,8 @@ const pages = [
             additionalCSS: [],
             showBlogLink: false,
             tracking: true,
-            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
+            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js'],
+            canonicalUrl: 'https://withpotions.com/newsletter-service-for-b2b-saas.html'
         }
     },
     {
@@ -176,7 +185,8 @@ const pages = [
             additionalCSS: [],
             showBlogLink: false,
             tracking: true,
-            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
+            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js'],
+            canonicalUrl: 'https://withpotions.com/newsletter-service-for-small-business.html'
         }
     },
     {
@@ -193,7 +203,8 @@ const pages = [
             additionalCSS: [],
             showBlogLink: false,
             tracking: true,
-            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
+            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js'],
+            canonicalUrl: 'https://withpotions.com/newsletter-service-for-lawyers.html'
         }
     },
     {
@@ -210,7 +221,8 @@ const pages = [
             additionalCSS: [],
             showBlogLink: false,
             tracking: true,
-            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js']
+            scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js'],
+            canonicalUrl: 'https://withpotions.com/b2b-newsletter-service.html'
         }
     }
 ];
