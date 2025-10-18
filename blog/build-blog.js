@@ -110,6 +110,7 @@ async function buildPost(markdownFile) {
         tracking: true,
         scripts: ['hamburger.js'],
         canonicalUrl: `https://withpotions.com/blog/${frontmatter.slug}.html`,
+        navTargetPage: '/', // Normal page: nav points to homepage
         body: `    <main class="post-main">
         <div class="post-container">
             <div class="post-sidebar">
