@@ -1,10 +1,49 @@
     <main>
-      <section class="hero" id="hero">
-          <!-- Calendly inline widget begin -->
-          <div class="calendly-inline-widget" data-url="https://calendly.com/d/cs2v-38g-5dp/potions-onboarding-call" style="min-width:320px;height:700px;"></div>
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-          <!-- Calendly inline widget end -->
-    </section>
+      <!-- Benefits Section -->
+      <section class="hero booking-benefits-section" id="benefits">
+          <div class="booking-benefits-hero">
+              <h1>Get Your Free Newsletter + Strategy Call</h1>
+              <p class="booking-subtitle">Book a 30-minute call and get a custom newsletter designed and written by us — plus a revenue strategy to drive results.</p>
+              <div class="offer-bullets">
+                  <div class="offer-item">
+                      <span class="check-icon">✓</span>
+                      <span>Free custom newsletter sample</span>
+                  </div>
+                  <div class="offer-item">
+                      <span class="check-icon">✓</span>
+                      <span>Revenue strategy for your newsletter</span>
+                  </div>
+                  <div class="offer-item">
+                      <span class="check-icon">✓</span>
+                      <span>30-minute consultation with experts</span>
+                  </div>
+              </div>
+
+              <div class="booking-testimonial">
+                  <img src="jacob.webp" alt="Jacob Statler" class="testimonial-avatar">
+                  <p class="testimonial-quote">"Best investment I made all year 📈"</p>
+                  <p class="testimonial-author">Jacob Statler</p>
+                  <p class="testimonial-title">CEO, Stat Digital</p>
+              </div>
+
+              <a href="#calendar" class="book-call-btn">
+                  <button class="cta-book-call">Book a Call</button>
+              </a>
+          </div>
+      </section>
+
+      <!-- Calendly Section -->
+      <section class="booking-calendar-section" id="calendar">
+          <div class="calendar-container">
+              <h2>Don't Delay — Book Your Call Now</h2>
+              <p class="calendar-subtitle">Choose a time that works best for you</p>
+
+              <!-- Calendly inline widget begin -->
+              <div class="calendly-inline-widget" data-url="https://calendly.com/d/cs2v-38g-5dp/potions-onboarding-call?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:750px;"></div>
+              <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+              <!-- Calendly inline widget end -->
+          </div>
+      </section>
 
     <section class="problem" id="problem">
         <div class="single-col-content">
@@ -813,4 +852,21 @@ subscriberCount.addEventListener('change', updatePrices);
 
 // Initial load
 updatePrices();
+</script>
+
+<script>
+// Smooth scroll to calendar section
+document.addEventListener('DOMContentLoaded', function() {
+  // Add smooth scroll behavior
+  const bookCallBtn = document.querySelector('.book-call-btn');
+  if (bookCallBtn) {
+    bookCallBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector('#calendar').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  }
+});
 </script>
