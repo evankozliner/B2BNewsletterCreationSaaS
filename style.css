@@ -538,6 +538,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 12px;
+    display: block;
 }
 
 .author-link {
@@ -1030,5 +1031,268 @@ footer {
 .toggle-btn.active {
   background-color: #7367f0; /* Replace with brand color */
   color: white;
+}
+
+/* Booking Page Styles - Two-Step Flow */
+
+/* Benefits Section (Step 1) */
+.booking-benefits-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  background-image: url("landing-page-banner.svg");
+}
+
+.booking-benefits-hero {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  background: white;
+  border: 5px solid black;
+  border-radius: 10px;
+  padding: 3rem 2.5rem 3rem 2.5rem;
+}
+
+.booking-benefits-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.booking-subtitle {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+}
+
+.offer-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+  text-align: left;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.offer-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+}
+
+.check-icon {
+  color: #5D5DED;
+  font-size: 1.5rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.booking-testimonial {
+  text-align: center;
+  padding: 2rem 1.5rem 0 1.5rem;
+  margin: 0 auto;
+  border-top: 2px solid #f0f0f0;
+  max-width: 500px;
+}
+
+.testimonial-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 1.25rem auto;
+  display: block;
+  object-fit: cover;
+}
+
+.testimonial-quote {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+  text-align: center !important;
+  width: 100%;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  font-size: 1rem;
+  text-align: center !important;
+  width: 100%;
+}
+
+.testimonial-title {
+  color: #666;
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  text-align: center !important;
+  width: 100%;
+}
+
+.more-testimonials-link {
+  display: inline-block;
+  color: #5D5DED;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.more-testimonials-link:hover {
+  color: #4848d8;
+  transform: translateX(3px);
+}
+
+.book-call-btn {
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.cta-book-call {
+  background-color: #5D5DED;
+  border: 2px solid #000;
+  color: #FFFFFF;
+  padding: 18px 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.cta-book-call:hover {
+  background-color: #4848d8;
+  transform: translateY(-2px);
+}
+
+/* Calendly Section (Step 2) */
+.booking-calendar-section {
+  min-height: 100vh;
+  background-color: #F5C7EB;
+}
+
+.calendar-container {
+    padding-top: 2rem;
+  margin: 0 auto;
+}
+
+.calendar-container h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.calendar-subtitle {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #555;
+}
+
+.calendar-container .calendly-inline-widget {
+  overflow: hidden;
+}
+
+/* Mobile Responsive Styles for Booking Page */
+@media (max-width: 768px) {
+  .booking-benefits-section {
+    padding: 2rem 16px;
+    min-height: auto;
+  }
+
+  .booking-benefits-hero {
+    padding: 2rem 1.5rem 2rem 1.5rem;
+  }
+
+  .booking-benefits-hero h1 {
+    font-size: 1.75rem !important;
+    margin-bottom: 0.75rem;
+  }
+
+  .booking-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .offer-bullets {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .offer-item {
+    font-size: 0.95rem;
+    gap: 0.75rem;
+  }
+
+  .check-icon {
+    font-size: 1.25rem;
+  }
+
+  .book-call-btn {
+    margin-bottom: 1.5rem;
+  }
+
+  .booking-testimonial {
+    padding: 1.5rem 1rem 0 1rem;
+    margin: 0 auto;
+  }
+
+  .testimonial-avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .testimonial-quote {
+    font-size: 1.1rem;
+  }
+
+  .testimonial-author {
+    font-size: 0.95rem;
+    text-align: center !important;
+    width: 100%;
+  }
+
+  .testimonial-title {
+    font-size: 0.85rem;
+    text-align: center !important;
+    width: 100%;
+    margin-bottom: 0.75rem;
+  }
+
+  .more-testimonials-link {
+    font-size: 0.85rem;
+  }
+
+  .cta-book-call {
+    padding: 15px 32px;
+    font-size: 1.1rem;
+  }
+
+  .booking-calendar-section {
+    min-height: auto;
+  }
+
+  .calendar-container h2 {
+    font-size: 1.75rem;
+  }
+
+  .calendar-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .calendly-inline-widget {
+    height: 700px !important;
+  }
 }
 

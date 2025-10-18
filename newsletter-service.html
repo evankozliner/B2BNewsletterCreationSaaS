@@ -52,6 +52,14 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
   // Retrieve stored fbclid
   var storedFbclid = sessionStorage.getItem('_fbclid');
 
+  // Helper function to get cookie value
+  function getCookie(name) {
+    var value = '; ' + document.cookie;
+    var parts = value.split('; ' + name + '=');
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+  }
+
   // Build advanced matching object
   var advancedMatching = {};
 
@@ -64,10 +72,31 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
   fbq('init', '1619668331969779', advancedMatching);
 })();
 
-// Track PageView with client user agent
-fbq('track', 'PageView', {}, {
-  client_user_agent: navigator.userAgent
-});
+// Track PageView with client user agent and fbp
+(function() {
+  // Helper function to get cookie value
+  function getCookie(name) {
+    var value = '; ' + document.cookie;
+    var parts = value.split('; ' + name + '=');
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+  }
+
+  var eventData = {};
+  var fbp = getCookie('_fbp');
+  var fbc = getCookie('_fbc');
+
+  if (fbp) {
+    eventData.fbp = fbp;
+  }
+  if (fbc) {
+    eventData.fbc = fbc;
+  }
+
+  fbq('track', 'PageView', eventData, {
+    client_user_agent: navigator.userAgent
+  });
+})();
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1619668331969779&ev=PageView&noscript=1"
@@ -113,11 +142,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
         <ul class="nav-links">
             
-            <li><a href="/#testimonial" class="hover-underline">Testimonials</a></li>
+            
+            <li><a href="#testimonial" class="hover-underline">Testimonials</a></li>
             <li><a href="samples.html" class="hover-underline">Samples</a></li>
 <!--            <li><a href="blog/" class="hover-underline">Blog</a></li>-->
-            <li><a href="/#faq" class="hover-underline">FAQ</a></li>
-            <li><a href="/#pricing" class="hover-underline">Pricing</a></li>
+            <li><a href="#faq" class="hover-underline">FAQ</a></li>
+            <li><a href="#pricing" class="hover-underline">Pricing</a></li>
             
             <li><a href="https://billing.stripe.com/p/login/5kA7tpbg6cSJ8gwbII" class="hover-underline">Manage Subscription</a></li>
         </ul>

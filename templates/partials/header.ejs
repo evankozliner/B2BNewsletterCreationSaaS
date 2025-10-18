@@ -6,18 +6,24 @@
             </a>
         </div>
         <ul class="nav-links">
+            <%
+            // navTargetPage determines where nav hash links point to:
+            // '' (empty) = relative links like #faq (marketing pages)
+            // '/' = absolute links like /#faq (normal pages like blog)
+            const navBase = navTargetPage || '';
+            %>
             <% if (showBlogLink) { %>
-            <li><a href="<%= baseUrl === '' ? '/' : baseUrl %>#testimonial" class="hover-underline">Testimonials</a></li>
+            <li><a href="<%= navBase %>#testimonial" class="hover-underline">Testimonials</a></li>
             <li><a href="<%= baseUrl %>samples.html" class="hover-underline">Samples</a></li>
             <li><a href="<%= baseUrl %>blog/" class="hover-underline">Blog</a></li>
-            <li><a href="<%= baseUrl === '' ? '/' : baseUrl %>#faq" class="hover-underline">FAQ</a></li>
-            <li><a href="<%= baseUrl === '' ? '/' : baseUrl %>#pricing" class="hover-underline">Pricing</a></li>
+            <li><a href="<%= navBase %>#faq" class="hover-underline">FAQ</a></li>
+            <li><a href="<%= navBase %>#pricing" class="hover-underline">Pricing</a></li>
             <% } else { %>
-            <li><a href="<%= baseUrl === '' ? '/' : baseUrl %>#testimonial" class="hover-underline">Testimonials</a></li>
+            <li><a href="<%= navBase %>#testimonial" class="hover-underline">Testimonials</a></li>
             <li><a href="<%= baseUrl %>samples.html" class="hover-underline">Samples</a></li>
 <!--            <li><a href="<%= baseUrl %>blog/" class="hover-underline">Blog</a></li>-->
-            <li><a href="<%= baseUrl === '' ? '/' : baseUrl %>#faq" class="hover-underline">FAQ</a></li>
-            <li><a href="<%= baseUrl === '' ? '/' : baseUrl %>#pricing" class="hover-underline">Pricing</a></li>
+            <li><a href="<%= navBase %>#faq" class="hover-underline">FAQ</a></li>
+            <li><a href="<%= navBase %>#pricing" class="hover-underline">Pricing</a></li>
             <% } %>
             <li><a href="https://billing.stripe.com/p/login/5kA7tpbg6cSJ8gwbII" class="hover-underline">Manage Subscription</a></li>
         </ul>

@@ -24,7 +24,8 @@ const pages = [
             showBlogLink: false,
             tracking: true,
             scripts: ['faq.js', 'hamburger.js', 'https://embed.typeform.com/next/embed.js'],
-            canonicalUrl: 'https://withpotions.com/'
+            canonicalUrl: 'https://withpotions.com/',
+            navTargetPage: '' // Marketing page: nav stays within this page
         }
     },
     {
@@ -42,7 +43,8 @@ const pages = [
             showBlogLink: false,
             tracking: true,
             scripts: ['hamburger.js'],
-            canonicalUrl: 'https://withpotions.com/samples.html'
+            canonicalUrl: 'https://withpotions.com/samples.html',
+            navTargetPage: '/' // Normal page: nav points to homepage
         }
     },
     {
@@ -60,7 +62,8 @@ const pages = [
             showBlogLink: false,
             tracking: true,
             scripts: ['hamburger.js'],
-            canonicalUrl: 'https://withpotions.com/blog/'
+            canonicalUrl: 'https://withpotions.com/blog/',
+            navTargetPage: '/' // Normal page: nav points to homepage
         }
     },
     {
@@ -78,7 +81,8 @@ const pages = [
             showBlogLink: false,
             tracking: true,
             scripts: ['faq.js', 'hamburger.js', 'https://embed.typeform.com/next/embed.js'],
-            canonicalUrl: 'https://withpotions.com/newsletter-service.html'
+            canonicalUrl: 'https://withpotions.com/newsletter-service.html',
+            navTargetPage: '' // Marketing page: nav stays within this page
         }
     },
     {
@@ -96,7 +100,8 @@ const pages = [
             showBlogLink: false,
             tracking: true,
             scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js'],
-            canonicalUrl: 'https://withpotions.com/newsletter-platform.html'
+            canonicalUrl: 'https://withpotions.com/newsletter-platform.html',
+            navTargetPage: '' // Marketing page: nav stays within this page
         }
     },
     {
@@ -114,7 +119,8 @@ const pages = [
             showBlogLink: false,
             tracking: true,
             scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js'],
-            canonicalUrl: 'https://withpotions.com/newsletter-writing-service.html'
+            canonicalUrl: 'https://withpotions.com/newsletter-writing-service.html',
+            navTargetPage: '' // Marketing page: nav stays within this page
         }
     },
     {
@@ -132,7 +138,8 @@ const pages = [
             showBlogLink: false,
             tracking: true,
             scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js'],
-            canonicalUrl: 'https://withpotions.com/newsletter-service-for-agencies.html'
+            canonicalUrl: 'https://withpotions.com/newsletter-service-for-agencies.html',
+            navTargetPage: '' // Marketing page: nav stays within this page
         }
     },
     {
@@ -150,7 +157,8 @@ const pages = [
             showBlogLink: false,
             tracking: true,
             scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js'],
-            canonicalUrl: 'https://withpotions.com/newsletter-service-for-consultants.html'
+            canonicalUrl: 'https://withpotions.com/newsletter-service-for-consultants.html',
+            navTargetPage: '' // Marketing page: nav stays within this page
         }
     },
     {
@@ -168,7 +176,8 @@ const pages = [
             showBlogLink: false,
             tracking: true,
             scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js'],
-            canonicalUrl: 'https://withpotions.com/newsletter-service-for-b2b-saas.html'
+            canonicalUrl: 'https://withpotions.com/newsletter-service-for-b2b-saas.html',
+            navTargetPage: '' // Marketing page: nav stays within this page
         }
     },
     {
@@ -186,7 +195,8 @@ const pages = [
             showBlogLink: false,
             tracking: true,
             scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js'],
-            canonicalUrl: 'https://withpotions.com/newsletter-service-for-small-business.html'
+            canonicalUrl: 'https://withpotions.com/newsletter-service-for-small-business.html',
+            navTargetPage: '' // Marketing page: nav stays within this page
         }
     },
     {
@@ -204,7 +214,8 @@ const pages = [
             showBlogLink: false,
             tracking: true,
             scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js'],
-            canonicalUrl: 'https://withpotions.com/newsletter-service-for-lawyers.html'
+            canonicalUrl: 'https://withpotions.com/newsletter-service-for-lawyers.html',
+            navTargetPage: '' // Marketing page: nav stays within this page
         }
     },
     {
@@ -222,7 +233,27 @@ const pages = [
             showBlogLink: false,
             tracking: true,
             scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js'],
-            canonicalUrl: 'https://withpotions.com/b2b-newsletter-service.html'
+            canonicalUrl: 'https://withpotions.com/b2b-newsletter-service.html',
+            navTargetPage: '' // Marketing page: nav stays within this page
+        }
+    },
+    {
+        name: 'book',
+        template: 'pages/book.ejs',
+        output: 'book.html',
+        data: {
+            title: 'Book a Call with Potions',
+            description: 'Schedule your onboarding call with Potions to get started with your newsletter.',
+            keywords: 'Book Call, Schedule, Onboarding, Newsletter Consultation',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: true,
+            scripts: ['hamburger.js'],
+            canonicalUrl: 'https://withpotions.com/book.html',
+            navTargetPage: '' // Marketing page: nav stays within this page
         }
     }
 ];
