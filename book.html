@@ -184,11 +184,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </a>
 
               <div class="booking-testimonial">
-                  <img src="jacob.webp" alt="Jacob Statler" class="testimonial-avatar">
-                  <p class="testimonial-quote">"Best investment I made all year 📈"</p>
-                  <p class="testimonial-author">Jacob Statler</p>
-                  <p class="testimonial-title">CEO, Stat Digital</p>
-                  <a href="/book.html#testimonial" class="more-testimonials-link">See more testimonials →</a>
+                  <img src="jacob.webp" alt="Jacob Statler" class="testimonial-avatar" id="testimonial-avatar">
+                  <p class="testimonial-quote" id="testimonial-quote">"Best investment I made all year 📈"</p>
+                  <p class="testimonial-author" id="testimonial-author">Jacob Statler</p>
+                  <p class="testimonial-title" id="testimonial-title">CEO, Stat Digital Marketing</p>
               </div>
           </div>
       </section>
@@ -1029,6 +1028,58 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
+
+  // Testimonial rotation
+  const testimonials = [
+    {
+      image: 'jacob.webp',
+      alt: 'Jacob Statler',
+      quote: '"Best investment I made all year 📈"',
+      author: 'Jacob Statler',
+      title: 'CEO, Stat Digital Marketing'
+    },
+    {
+      image: 'tyler.webp',
+      alt: 'Tyler Dupont',
+      quote: '"Clicks are up 200% - my audience loves it too."',
+      author: 'Tyler Dupont',
+      title: 'Influencer, Augury Invest'
+    },
+    {
+      image: 'josh.webp',
+      alt: 'Josh Cons',
+      quote: '"Fastest response times I have ever seen"',
+      author: 'Josh Cons',
+      title: 'Founder, Notice (Me)dia Marketing'
+    },
+    {
+      image: 'nick.webp',
+      alt: 'Nick Novarro',
+      quote: '"CEO and I easily getting back 2 days per month"',
+      author: 'Nick Novarro',
+      title: 'Growth, Rings AI'
+    }
+  ];
+
+  let currentIndex = 0;
+  const avatar = document.getElementById('testimonial-avatar');
+  const quote = document.getElementById('testimonial-quote');
+  const author = document.getElementById('testimonial-author');
+  const title = document.getElementById('testimonial-title');
+
+  function rotateTestimonial() {
+    currentIndex = (currentIndex + 1) % testimonials.length;
+    const testimonial = testimonials[currentIndex];
+
+    avatar.src = testimonial.image;
+    avatar.alt = testimonial.alt;
+    quote.textContent = testimonial.quote;
+    author.textContent = testimonial.author;
+    title.textContent = testimonial.title;
+  }
+
+  // Rotate every 5 seconds
+  setInterval(rotateTestimonial, 5000);
 });
 </script>
 
