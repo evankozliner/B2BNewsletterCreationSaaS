@@ -44,7 +44,30 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1619668331969779');
+
+// Capture and store fbclid for conversion tracking
+(function() {
+  var urlParams = new URLSearchParams(window.location.search);
+  var fbclid = urlParams.get('fbclid');
+
+  if (fbclid) {
+    // Store fbclid in sessionStorage for tracking across pages
+    sessionStorage.setItem('_fbclid', fbclid);
+  }
+
+  // Retrieve stored fbclid
+  var storedFbclid = sessionStorage.getItem('_fbclid');
+
+  // Initialize pixel with fbclid if available
+  if (storedFbclid) {
+    fbq('init', '1619668331969779', {
+      external_id: storedFbclid
+    });
+  } else {
+    fbq('init', '1619668331969779');
+  }
+})();
+
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
