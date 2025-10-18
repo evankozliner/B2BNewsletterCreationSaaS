@@ -52,17 +52,22 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
   // Retrieve stored fbclid
   var storedFbclid = sessionStorage.getItem('_fbclid');
 
-  // Initialize pixel with fbclid if available
+  // Build advanced matching object
+  var advancedMatching = {};
+
+  // Add external_id (fbclid) if available
   if (storedFbclid) {
-    fbq('init', '1619668331969779', {
-      external_id: storedFbclid
-    });
-  } else {
-    fbq('init', '1619668331969779');
+    advancedMatching.external_id = storedFbclid;
   }
+
+  // Initialize pixel with advanced matching
+  fbq('init', '1619668331969779', advancedMatching);
 })();
 
-fbq('track', 'PageView');
+// Track PageView with client user agent
+fbq('track', 'PageView', {}, {
+  client_user_agent: navigator.userAgent
+});
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1619668331969779&ev=PageView&noscript=1"
