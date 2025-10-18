@@ -224,6 +224,24 @@ const pages = [
             scripts: ['faq.js', 'hamburger.js', 'billing.js', 'https://embed.typeform.com/next/embed.js'],
             canonicalUrl: 'https://withpotions.com/b2b-newsletter-service.html'
         }
+    },
+    {
+        name: 'book',
+        template: 'pages/book.ejs',
+        output: 'book.html',
+        data: {
+            title: 'Book a Call with Potions',
+            description: 'Schedule your onboarding call with Potions to get started with your newsletter.',
+            keywords: 'Book Call, Schedule, Onboarding, Newsletter Consultation',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: true,
+            scripts: [],
+            canonicalUrl: 'https://withpotions.com/book.html'
+        }
     }
 ];
 
