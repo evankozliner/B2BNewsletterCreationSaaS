@@ -1077,9 +1077,10 @@ footer {
 
 .offer-bullets {
   display: flex;
-  flex-direction: column;
+  /*flex-direction: column;*/
   gap: 1.25rem;
   margin-bottom: 2.5rem;
+    line-height: 1.5em;
   text-align: left;
   max-width: 500px;
   margin-left: auto;
@@ -1235,6 +1236,7 @@ footer {
   .offer-bullets {
     gap: 1rem;
     margin-bottom: 2rem;
+      flex-direction: column;
   }
 
   .offer-item {
