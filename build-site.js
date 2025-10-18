@@ -251,7 +251,7 @@ const pages = [
             additionalCSS: [],
             showBlogLink: false,
             tracking: true,
-            scripts: ['hamburger.js'],
+            scripts: ['faq.js', 'hamburger.js'],
             canonicalUrl: 'https://withpotions.com/book.html',
             navTargetPage: '' // Marketing page: nav stays within this page
         }

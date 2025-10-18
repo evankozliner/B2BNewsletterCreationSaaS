@@ -6,6 +6,14 @@ header {
     border-bottom: #333333;
     border-bottom: 5px solid black;
     background-color: #FFFFFF;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+}
+
+header.nav-hidden {
+    transform: translateY(-100%);
 }
 p {
     line-height: 1.5;
