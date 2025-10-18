@@ -1040,7 +1040,7 @@ footer {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 4rem 20px;
+  padding: 0 20px;
   background-image: url("landing-page-banner.svg");
 }
 
@@ -1051,7 +1051,7 @@ footer {
   background: white;
   border: 5px solid black;
   border-radius: 10px;
-  padding: 3rem 2.5rem;
+  padding: 3rem 2.5rem 3rem 2.5rem;
 }
 
 .booking-benefits-hero h1 {
@@ -1094,10 +1094,9 @@ footer {
 
 .booking-testimonial {
   text-align: center;
-  padding: 2rem 1.5rem;
-  margin: 0 auto 2rem auto;
+  padding: 2rem 1.5rem 0 1.5rem;
+  margin: 0 auto;
   border-top: 2px solid #f0f0f0;
-  border-bottom: 2px solid #f0f0f0;
   max-width: 500px;
 }
 
@@ -1139,6 +1138,8 @@ footer {
 
 .book-call-btn {
   text-decoration: none;
+  display: inline-block;
+  margin-bottom: 2rem;
 }
 
 .cta-book-call {
@@ -1195,7 +1196,7 @@ footer {
   }
 
   .booking-benefits-hero {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.5rem 2rem 1.5rem;
   }
 
   .booking-benefits-hero h1 {
@@ -1222,9 +1223,13 @@ footer {
     font-size: 1.25rem;
   }
 
-  .booking-testimonial {
-    padding: 1.5rem 1rem;
+  .book-call-btn {
     margin-bottom: 1.5rem;
+  }
+
+  .booking-testimonial {
+    padding: 1.5rem 1rem 0 1rem;
+    margin: 0 auto;
   }
 
   .testimonial-avatar {
