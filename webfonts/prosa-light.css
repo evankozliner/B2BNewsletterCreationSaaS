@@ -16,12 +16,9 @@ License: 	The WebFont(s) listed in this document must follow the YouWorkForThem
 
 @font-face {
 	font-family: 'Prosa-Light';
-	src: url('prosa-light.eot');
-	src: url('prosa-light.eot?#iefix') format('embedded-opentype'),
-             url('prosa-light.woff2') format('woff2'),
-	     url('prosa-light.woff') format('woff'),
-	     url('prosa-light.ttf') format('truetype'),
-	     url('prosa-light.svg#youworkforthem') format('svg');
+	src: url('prosa-light.woff2') format('woff2'),
+	     url('prosa-light.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }

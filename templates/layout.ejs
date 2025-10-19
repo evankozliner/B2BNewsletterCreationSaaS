@@ -17,6 +17,8 @@
     <!-- Preload critical CSS -->
     <link rel="preload" href="<%= baseUrl %><%= styleSheet %>" as="style" />
     <link rel="stylesheet" href="<%= baseUrl %><%= styleSheet %>" />
+    <!-- Preload critical font -->
+    <link rel="preload" href="<%= baseUrl %>webfonts/prosa-light.woff2" as="font" type="font/woff2" crossorigin />
     <!-- Preload hero background image -->
     <link rel="preload" href="<%= baseUrl %>landing-page-banner.svg" as="image" fetchpriority="high" />
     <% if (additionalCSS && additionalCSS.length > 0) { %>
@@ -24,9 +26,8 @@
     <link rel="stylesheet" href="<%= baseUrl %><%= css %>" />
         <% }) %>
     <% } %>
-    <!-- Defer non-critical font CSS -->
-    <link rel="preload" href="<%= baseUrl %>webfonts/prosa-light.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="<%= baseUrl %>webfonts/prosa-light.css"></noscript>
+    <!-- Load font CSS -->
+    <link rel="stylesheet" href="<%= baseUrl %>webfonts/prosa-light.css" />
     <link rel="icon" href="<%= baseUrl %>airplane.svg" />
     <link rel="canonical" href="<%= canonicalUrl || 'https://withpotions.com/' %>" />
 

@@ -17,12 +17,13 @@
     <!-- Preload critical CSS -->
     <link rel="preload" href="style.css" as="style" />
     <link rel="stylesheet" href="style.css" />
+    <!-- Preload critical font -->
+    <link rel="preload" href="webfonts/prosa-light.woff2" as="font" type="font/woff2" crossorigin />
     <!-- Preload hero background image -->
     <link rel="preload" href="landing-page-banner.svg" as="image" fetchpriority="high" />
     
-    <!-- Defer non-critical font CSS -->
-    <link rel="preload" href="webfonts/prosa-light.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="webfonts/prosa-light.css"></noscript>
+    <!-- Load font CSS -->
+    <link rel="stylesheet" href="webfonts/prosa-light.css" />
     <link rel="icon" href="airplane.svg" />
     <link rel="canonical" href="https://withpotions.com/" />
 
