@@ -20,14 +20,12 @@
     <!-- Preload critical font -->
     <link rel="preload" href="<%= baseUrl %>webfonts/prosa-light.woff2" as="font" type="font/woff2" crossorigin />
     <!-- Preload hero background image -->
-    <link rel="preload" href="<%= baseUrl %>landing-page-banner.webp" as="image" fetchpriority="high" />
+    <!-- <link rel="preload" href="<%= baseUrl %>landing-page-banner.webp" as="image" fetchpriority="high" /> -->
     <% if (additionalCSS && additionalCSS.length > 0) { %>
         <% additionalCSS.forEach(css => { %>
     <link rel="stylesheet" href="<%= baseUrl %><%= css %>" />
         <% }) %>
     <% } %>
-    <!-- Load font CSS -->
-    <link rel="stylesheet" href="<%= baseUrl %>webfonts/prosa-light.css" />
     <link rel="icon" href="<%= baseUrl %>airplane.svg" />
     <link rel="canonical" href="<%= canonicalUrl || 'https://withpotions.com/' %>" />
 

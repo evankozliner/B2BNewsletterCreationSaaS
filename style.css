@@ -1,3 +1,13 @@
+/* Font definition - inlined to avoid render-blocking request */
+@font-face {
+	font-family: 'Prosa-Light';
+	src: url('webfonts/prosa-light.woff2') format('woff2'),
+	     url('webfonts/prosa-light.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
@@ -193,12 +203,19 @@ body {
     padding-top: 8rem;
     padding-bottom: 8rem;
     /*background-color: #F8F4ED;*/
-        position: relative; /* Ensures that the Lottie container is positioned relative to this section */
+    position: relative; /* Ensures that the Lottie container is positioned relative to this section */
     overflow: hidden;
-    background-image: url("landing-page-banner.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
 }
 
 .hero-text-group {
@@ -1052,7 +1069,8 @@ footer {
   display: flex;
   align-items: center;
   padding: 0 20px;
-  background-image: url("landing-page-banner.webp");
+  position: relative;
+  overflow: hidden;
 }
 
 .booking-benefits-hero {
