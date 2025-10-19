@@ -17,6 +17,8 @@
     <!-- Preload critical CSS -->
     <link rel="preload" href="<%= baseUrl %><%= styleSheet %>" as="style" />
     <link rel="stylesheet" href="<%= baseUrl %><%= styleSheet %>" />
+    <!-- Preload hero background image -->
+    <link rel="preload" href="<%= baseUrl %>landing-page-banner.svg" as="image" fetchpriority="high" />
     <% if (additionalCSS && additionalCSS.length > 0) { %>
         <% additionalCSS.forEach(css => { %>
     <link rel="stylesheet" href="<%= baseUrl %><%= css %>" />
@@ -32,9 +34,7 @@
       <%= title %>
     </title>
 
-    <% if (tracking) { %>
-    <script src="<%= baseUrl %>lottie.min.js"></script>
-    <% } %>
+    <script src="<%= baseUrl %>lottie.min.js" defer></script>
 
   </head>
   <body>
