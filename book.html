@@ -108,7 +108,6 @@
 
               <!-- Calendly inline widget begin -->
               <div class="calendly-inline-widget" data-url="https://calendly.com/d/cs2v-38g-5dp/potions-onboarding-call?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=5D5DED" style="min-width:320px;height:750px;"></div>
-              <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
               <!-- Calendly inline widget end -->
           </div>
       </section>
@@ -820,6 +819,7 @@
     </main>
 
 <script>
+document.addEventListener('DOMContentLoaded', function() {
   const urlParams = new URLSearchParams(window.location.search);
 
   // List of UTM and other tracking parameters to preserve
@@ -843,6 +843,7 @@
       link.href = originalUrl.toString();
     });
   }
+});
 </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -864,64 +865,66 @@
         });
 </script>
   <script>
-const yearlyBtn = document.getElementById('yearlyBtn');
-const monthlyBtn = document.getElementById('monthlyBtn');
-const subscriberCount = document.getElementById('subscriber-count');
-const growthPrice = document.getElementById('growth-price');
-const starterPrice = document.getElementById('starter-price');
+document.addEventListener('DOMContentLoaded', function() {
+  const yearlyBtn = document.getElementById('yearlyBtn');
+  const monthlyBtn = document.getElementById('monthlyBtn');
+  const subscriberCount = document.getElementById('subscriber-count');
+  const growthPrice = document.getElementById('growth-price');
+  const starterPrice = document.getElementById('starter-price');
 
-// Define pricing map
-const pricingMap = {
-  monthly: {
-    149: 299,
-    190: 349,
-    330: 400,
-    1000: 545
-  },
-  annual: {
-    149: 249,
-    190: 299,
-    330: 350,
-    1000: 495
+  // Define pricing map
+  const pricingMap = {
+    monthly: {
+      149: 299,
+      190: 349,
+      330: 400,
+      1000: 545
+    },
+    annual: {
+      149: 249,
+      190: 299,
+      330: 350,
+      1000: 495
+    }
+  };
+
+  const starterPricing = {
+    monthly: 199,
+    annual: 120
+  };
+
+  let billingType = 'annual'; // default
+
+  function updatePrices() {
+    const subValue = subscriberCount.value;
+    const gPrice = pricingMap[billingType][subValue];
+    const sPrice = starterPricing[billingType];
+
+    growthPrice.textContent = `$${gPrice}/mo` + (billingType === 'annual' ? '' : '');
+    starterPrice.textContent = `$${sPrice}/mo` + (billingType === 'annual' ? '' : '');
   }
-};
 
-const starterPricing = {
-  monthly: 199,
-  annual: 120
-};
+  // Toggle logic
+  yearlyBtn.addEventListener('click', () => {
+    billingType = 'annual';
+    yearlyBtn.classList.add('active');
+    monthlyBtn.classList.remove('active');
+    updatePrices();
+  });
 
-let billingType = 'annual'; // default
+  monthlyBtn.addEventListener('click', () => {
+    billingType = 'monthly';
+    monthlyBtn.classList.add('active');
+    yearlyBtn.classList.remove('active');
+    updatePrices();
+  });
 
-function updatePrices() {
-  const subValue = subscriberCount.value;
-  const gPrice = pricingMap[billingType][subValue];
-  const sPrice = starterPricing[billingType];
+  // Subscriber selector change
+  subscriberCount.addEventListener('change', updatePrices);
 
-  growthPrice.textContent = `$${gPrice}/mo` + (billingType === 'annual' ? '' : '');
-  starterPrice.textContent = `$${sPrice}/mo` + (billingType === 'annual' ? '' : '');
-}
-
-// Toggle logic
-yearlyBtn.addEventListener('click', () => {
-  billingType = 'annual';
-  yearlyBtn.classList.add('active');
-  monthlyBtn.classList.remove('active');
+  // Initial load
   updatePrices();
 });
-
-monthlyBtn.addEventListener('click', () => {
-  billingType = 'monthly';
-  monthlyBtn.classList.add('active');
-  yearlyBtn.classList.remove('active');
-  updatePrices();
-});
-
-// Subscriber selector change
-subscriberCount.addEventListener('change', updatePrices);
-
-// Initial load
-updatePrices();
 </script>
 
 <script>
@@ -1021,6 +1024,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+
+<!-- Load Calendly widget script at end to avoid blocking render -->
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
     <footer class="footer">
         <div class="footer-content">
