@@ -51,7 +51,7 @@
 
     <% if (scripts && scripts.length > 0) { %>
         <% scripts.forEach(script => { %>
-    <script src="<%= baseUrl %><%= script %>"></script>
+    <script src="<%= baseUrl %><%= script %>" defer></script>
         <% }) %>
     <% } %>
 
