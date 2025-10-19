@@ -27,83 +27,6 @@
     <title>
       Potions | We make building newsletters easy
     </title>
-    
-    
-      <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-
-// Capture and store fbclid for conversion tracking
-(function() {
-  var urlParams = new URLSearchParams(window.location.search);
-  var fbclid = urlParams.get('fbclid');
-
-  if (fbclid) {
-    // Store fbclid in sessionStorage for tracking across pages
-    sessionStorage.setItem('_fbclid', fbclid);
-  }
-
-  // Retrieve stored fbclid
-  var storedFbclid = sessionStorage.getItem('_fbclid');
-
-  // Helper function to get cookie value
-  function getCookie(name) {
-    var value = '; ' + document.cookie;
-    var parts = value.split('; ' + name + '=');
-    if (parts.length === 2) return parts.pop().split(';').shift();
-    return null;
-  }
-
-  // Build advanced matching object
-  var advancedMatching = {};
-
-  // Add external_id (fbclid) if available
-  if (storedFbclid) {
-    advancedMatching.external_id = storedFbclid;
-  }
-
-  // Initialize pixel with advanced matching
-  fbq('init', '1619668331969779', advancedMatching);
-})();
-
-// Track PageView with client user agent and fbp
-(function() {
-  // Helper function to get cookie value
-  function getCookie(name) {
-    var value = '; ' + document.cookie;
-    var parts = value.split('; ' + name + '=');
-    if (parts.length === 2) return parts.pop().split(';').shift();
-    return null;
-  }
-
-  var eventData = {};
-  var fbp = getCookie('_fbp');
-  var fbc = getCookie('_fbc');
-
-  if (fbp) {
-    eventData.fbp = fbp;
-  }
-  if (fbc) {
-    eventData.fbc = fbc;
-  }
-
-  fbq('track', 'PageView', eventData, {
-    client_user_agent: navigator.userAgent
-  });
-})();
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1619668331969779&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-    
 
   </head>
   <!-- Google Tag Manager -->
@@ -1068,6 +991,83 @@ updatePrices();
         
     <script src="https://embed.typeform.com/next/embed.js"></script>
         
+    
+
+    
+      <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+// Capture and store fbclid for conversion tracking
+(function() {
+  var urlParams = new URLSearchParams(window.location.search);
+  var fbclid = urlParams.get('fbclid');
+
+  if (fbclid) {
+    // Store fbclid in sessionStorage for tracking across pages
+    sessionStorage.setItem('_fbclid', fbclid);
+  }
+
+  // Retrieve stored fbclid
+  var storedFbclid = sessionStorage.getItem('_fbclid');
+
+  // Helper function to get cookie value
+  function getCookie(name) {
+    var value = '; ' + document.cookie;
+    var parts = value.split('; ' + name + '=');
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+  }
+
+  // Build advanced matching object
+  var advancedMatching = {};
+
+  // Add external_id (fbclid) if available
+  if (storedFbclid) {
+    advancedMatching.external_id = storedFbclid;
+  }
+
+  // Initialize pixel with advanced matching
+  fbq('init', '1619668331969779', advancedMatching);
+})();
+
+// Track PageView with client user agent and fbp
+(function() {
+  // Helper function to get cookie value
+  function getCookie(name) {
+    var value = '; ' + document.cookie;
+    var parts = value.split('; ' + name + '=');
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+  }
+
+  var eventData = {};
+  var fbp = getCookie('_fbp');
+  var fbc = getCookie('_fbc');
+
+  if (fbp) {
+    eventData.fbp = fbp;
+  }
+  if (fbc) {
+    eventData.fbc = fbc;
+  }
+
+  fbq('track', 'PageView', eventData, {
+    client_user_agent: navigator.userAgent
+  });
+})();
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1619668331969779&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
     
 </body>
 </html>
