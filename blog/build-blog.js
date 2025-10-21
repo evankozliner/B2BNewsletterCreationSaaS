@@ -126,6 +126,7 @@ async function buildPost(markdownFile) {
                 <article class="blog-post-full">
                     <div class="post-header">
                         <h1>${frontmatter.title}</h1>
+                        ${frontmatter.subheader ? `<p class="post-subheader">${frontmatter.subheader}</p>` : ''}
                         <div class="post-meta">
                             <span>${frontmatter.date}</span>
                             <div class="post-tags">
@@ -180,42 +181,52 @@ async function buildPost(markdownFile) {
     </main>
 
     <script>
-        // Handle share button
-        document.getElementById('share-btn').addEventListener('click', async () => {
-            if (navigator.share) {
-                try {
-                    await navigator.share({
-                        title: '${frontmatter.title}',
-                        text: '${frontmatter.excerpt}',
-                        url: window.location.href
-                    });
-                } catch (err) {
-                    copyToClipboard();
-                }
-            } else {
-                copyToClipboard();
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle share button
+            const shareBtn = document.getElementById('share-btn');
+            if (shareBtn) {
+                shareBtn.addEventListener('click', async () => {
+                    if (navigator.share) {
+                        try {
+                            await navigator.share({
+                                title: '${frontmatter.title}',
+                                text: '${frontmatter.excerpt}',
+                                url: window.location.href
+                            });
+                        } catch (err) {
+                            if (err.name !== 'AbortError') {
+                                copyToClipboard();
+                            }
+                        }
+                    } else {
+                        copyToClipboard();
+                    }
+                });
             }
-        });
 
-        function copyToClipboard() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                const shareBtn = document.getElementById('share-btn');
-                const originalHTML = shareBtn.innerHTML;
-                shareBtn.innerHTML = '✓';
-                setTimeout(() => {
-                    shareBtn.innerHTML = originalHTML;
-                }, 2000);
+            function copyToClipboard() {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    const shareBtn = document.getElementById('share-btn');
+                    const originalHTML = shareBtn.innerHTML;
+                    shareBtn.innerHTML = '✓ Copied!';
+                    setTimeout(() => {
+                        shareBtn.innerHTML = originalHTML;
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy:', err);
+                    alert('Link copied to clipboard!');
+                });
+            }
+
+            // Handle tag clicks
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('post-tag')) {
+                    const tag = e.target.dataset.tag;
+                    if (tag) {
+                        window.location.href = \`index.html?tag=\${encodeURIComponent(tag)}\`;
+                    }
+                }
             });
-        }
-
-        // Handle tag clicks
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('post-tag')) {
-                const tag = e.target.dataset.tag;
-                if (tag) {
-                    window.location.href = \`index.html?tag=\${encodeURIComponent(tag)}\`;
-                }
-            }
         });
     </script>`
     };

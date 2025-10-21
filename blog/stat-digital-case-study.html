@@ -32,7 +32,7 @@
     <link rel="canonical" href="https://withpotions.com/blog/stat-digital-case-study.html" />
 
     <title>
-      How Stat Digital&#39;s Newsletter Turned Overlooked Opportunities Into Revenue | Potions
+      How Stat Digital&#39;s Newsletter Cashed In on Neglected Leads | Potions
     </title>
 
     <script src="../lottie.min.js" defer></script>
@@ -84,7 +84,8 @@
             <div class="post-content">
                 <article class="blog-post-full">
                     <div class="post-header">
-                        <h1>How Stat Digital's Newsletter Turned Overlooked Opportunities Into Revenue</h1>
+                        <h1>How Stat Digital's Newsletter Cashed In on Neglected Leads</h1>
+                        <p class="post-subheader">Without Spending 8 Hours Per Week on Content</p>
                         <div class="post-meta">
                             <span>January '25</span>
                             <div class="post-tags">
@@ -97,7 +98,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="post-image"><img src="https://withpotions.com/blog/assets/statler_img.png" alt="How Stat Digital's Newsletter Turned Overlooked Opportunities Into Revenue" /></div>
+                    <div class="post-image"><img src="https://withpotions.com/blog/assets/statler_img.png" alt="How Stat Digital's Newsletter Cashed In on Neglected Leads" /></div>
                     <div class="post-body">
                         <p>When Jacob Statler, founder of <a href="https://statdigital.io/">Stat Digital</a>, found us, he had a challenge many marketing agency owners can relate to:</p>
 <p>Jacob crushed marketing for clients but couldn&#39;t find time to market his own agency. He was WELL aware of the irony.</p>
@@ -321,42 +322,52 @@
     </main>
 
     <script>
-        // Handle share button
-        document.getElementById('share-btn').addEventListener('click', async () => {
-            if (navigator.share) {
-                try {
-                    await navigator.share({
-                        title: 'How Stat Digital's Newsletter Turned Overlooked Opportunities Into Revenue',
-                        text: 'How Potions helped Stat Digital turn inconsistent marketing into a lead-generating weekly newsletter that brings in new business.',
-                        url: window.location.href
-                    });
-                } catch (err) {
-                    copyToClipboard();
-                }
-            } else {
-                copyToClipboard();
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle share button
+            const shareBtn = document.getElementById('share-btn');
+            if (shareBtn) {
+                shareBtn.addEventListener('click', async () => {
+                    if (navigator.share) {
+                        try {
+                            await navigator.share({
+                                title: 'How Stat Digital's Newsletter Cashed In on Neglected Leads',
+                                text: 'How Potions helped Stat Digital turn inconsistent marketing into a lead-generating weekly newsletter that brings in new business.',
+                                url: window.location.href
+                            });
+                        } catch (err) {
+                            if (err.name !== 'AbortError') {
+                                copyToClipboard();
+                            }
+                        }
+                    } else {
+                        copyToClipboard();
+                    }
+                });
             }
-        });
 
-        function copyToClipboard() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                const shareBtn = document.getElementById('share-btn');
-                const originalHTML = shareBtn.innerHTML;
-                shareBtn.innerHTML = '✓';
-                setTimeout(() => {
-                    shareBtn.innerHTML = originalHTML;
-                }, 2000);
+            function copyToClipboard() {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    const shareBtn = document.getElementById('share-btn');
+                    const originalHTML = shareBtn.innerHTML;
+                    shareBtn.innerHTML = '✓ Copied!';
+                    setTimeout(() => {
+                        shareBtn.innerHTML = originalHTML;
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy:', err);
+                    alert('Link copied to clipboard!');
+                });
+            }
+
+            // Handle tag clicks
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('post-tag')) {
+                    const tag = e.target.dataset.tag;
+                    if (tag) {
+                        window.location.href = `index.html?tag=${encodeURIComponent(tag)}`;
+                    }
+                }
             });
-        }
-
-        // Handle tag clicks
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('post-tag')) {
-                const tag = e.target.dataset.tag;
-                if (tag) {
-                    window.location.href = `index.html?tag=${encodeURIComponent(tag)}`;
-                }
-            }
         });
     </script>
     <footer class="footer">

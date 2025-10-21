@@ -1,5 +1,6 @@
 ---
-title: "How Stat Digital's Newsletter Turned Overlooked Opportunities Into Revenue"
+title: "How Stat Digital's Newsletter Cashed In on Neglected Leads"
+subheader: "Without Spending 8 Hours Per Week on Content"
 slug: "stat-digital-case-study"
 excerpt: "How Potions helped Stat Digital turn inconsistent marketing into a lead-generating weekly newsletter that brings in new business."
 date: "January '25"
