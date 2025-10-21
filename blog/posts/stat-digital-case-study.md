@@ -12,7 +12,7 @@ author:
   social: "https://linkedin.com/in/evan-kozliner"
 ---
 
-When Jacob Statler, founder of [Stat Digital](https://statdigital.co), found us, he had a challenge many marketing agency owners can relate to:
+When Jacob Statler, founder of [Stat Digital](https://statdigital.io/), found us, he had a challenge many marketing agency owners can relate to:
 
 Jacob crushed marketing for clients but couldn't find time to market his own agency. He was WELL aware of the irony.
 

@@ -188,6 +188,15 @@
     margin-bottom: 8px;
 }
 
+.post-body a {
+    color: #7367f0;
+    text-decoration: underline;
+}
+
+.post-body a:hover {
+    color: #5a4fd1;
+}
+
 .post-body blockquote {
     border-left: 4px solid #333;
     padding-left: 20px;
