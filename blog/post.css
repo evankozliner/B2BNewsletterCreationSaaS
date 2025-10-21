@@ -353,14 +353,19 @@
     }
 }
 
-/* Table Styles - Clean minimal design */
+/* Table Styles - Elevated card look */
 .post-body table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     margin: 2rem 0;
     background-color: white;
     border: none;
     font-size: 0.95rem;
+    color: #333;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .post-body table thead {
@@ -371,7 +376,7 @@
 .post-body table td {
     padding: 16px 20px;
     border: none;
-    border-bottom: 3px solid #333; /* Only thick bottom border */
+    border-bottom: 3px solid #e0e0e0;
 }
 
 /* Remove bottom border from last row */
@@ -379,25 +384,27 @@
     border-bottom: none;
 }
 
-/* First column (labels) - bold and left-aligned */
+/* First column (labels) - purple background */
 .post-body table td:first-child {
     text-align: left;
     font-weight: 600;
     width: 25%;
+    background-color: #5D5DED;
+    color: white;
 }
 
 /* Second column - left-aligned */
 .post-body table td:not(:first-child) {
     text-align: left;
-}
-
-/* Remove alternating row colors */
-.post-body table tr:nth-child(even) {
     background-color: white;
 }
 
-/* Remove hover effect */
-.post-body table tr:hover {
+/* No special row styling */
+.post-body table tr:nth-child(even) td:not(:first-child) {
+    background-color: white;
+}
+
+.post-body table tr:hover td:not(:first-child) {
     background-color: white;
 }
 
