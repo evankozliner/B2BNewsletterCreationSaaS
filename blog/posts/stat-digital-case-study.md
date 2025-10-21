@@ -7,7 +7,7 @@ tags: ["Case Studies", "Benchmarks"]
 image: "https://withpotions.com/blog/assets/statler_img.png"
 author:
   name: "Evan Kozliner"
-  bio: "Evan is the founder of Potions, helping B2B companies build newsletters that drive revenue."
+  bio: "Evan is the founder of Potions, helping companies build newsletters that drive revenue."
   avatar: "../evan-li.webp"
   social: "https://linkedin.com/in/evan-kozliner"
 ---
