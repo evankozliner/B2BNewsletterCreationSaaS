@@ -369,10 +369,19 @@
 }
 
 .post-body table thead {
-    display: none; /* Hide header row for clean design */
+    background-color: #5D5DED;
 }
 
-.post-body table th,
+.post-body table th {
+    padding: 16px 20px;
+    border: none;
+    border-bottom: 3px solid #4848c7;
+    color: white;
+    font-weight: 600;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
 .post-body table td {
     padding: 16px 20px;
     border: none;
@@ -384,7 +393,7 @@
     border-bottom: none;
 }
 
-/* First column (labels) - purple background */
+/* First column (labels) - purple background for data tables without headers */
 .post-body table td:first-child {
     text-align: left;
     font-weight: 600;
