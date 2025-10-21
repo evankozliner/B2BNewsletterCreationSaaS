@@ -9,7 +9,7 @@ author:
   name: "Evan Kozliner"
   bio: "Evan is the founder of Potions, helping B2B companies build newsletters that drive revenue."
   avatar: "../evan.jpeg"
-  social: "https://linkedin.com/in/evankozliner"
+  social: "https://linkedin.com/in/evan-kozliner"
 ---
 
 When Jacob Statler, founder of [Stat Digital](https://statdigital.co), found us, he had a challenge many marketing agency owners can relate to:
