@@ -369,17 +369,22 @@
 }
 
 .post-body table thead {
-    background-color: #5D5DED;
+    background-color: white;
 }
 
 .post-body table th {
     padding: 16px 20px;
     border: none;
-    border-bottom: 3px solid #4848c7;
-    color: white;
-    font-weight: 600;
+    border-bottom: 3px solid #e0e0e0;
+    color: #000;
+    font-weight: 700;
     text-align: left;
     font-size: 0.9rem;
+}
+
+/* Hide empty headers (when header cells are empty) */
+.post-body table thead:has(th:empty) {
+    display: none;
 }
 
 .post-body table td {

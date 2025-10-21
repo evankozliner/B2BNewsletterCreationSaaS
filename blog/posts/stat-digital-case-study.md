@@ -4,7 +4,7 @@ slug: "stat-digital-case-study"
 excerpt: "How Potions helped Stat Digital turn inconsistent marketing into a lead-generating weekly newsletter that brings in new business."
 date: "January '25"
 tags: ["Case Studies", "Benchmarks"]
-image: "https://withpotions.com/hat2.png"
+image: "https://withpotions.com/blog/assets/statler_img.png"
 author:
   name: "Evan Kozliner"
   bio: "Evan is the founder of Potions, helping B2B companies build newsletters that drive revenue."
@@ -42,6 +42,8 @@ The best part? Stat Digital is now nurturing every lead that's ever been in the 
 | Average open rate | 40.9% |
 
 ## The Story of an Agency Marketer Who Struggled with Consistency for His Own Marketing
+
+![Statler Website](https://withpotions.com/blog/assets/stat_digital_site.png)
 
 Stat Digital helps early-stage B2B SaaS companies build predictable growth through exceptional content and SEO. But like so many service-based founders, Jacob's own marketing always fell to the bottom of the list.
 
@@ -82,6 +84,8 @@ That distinction was key. Our done-for-you model meant he could hand over setup,
 
 > "It was a total no-brainer. Potions eliminated everything I didn't want to deal with — setup, deliverability, content creation, all of it."
 
+![Statler Website](https://withpotions.com/blog/assets/statler_content_sample.png)
+
 2 weeks later, **Content Detox** was live.
 
 ## The Always-On Newsletter That Effortlessly Saves 30+ Hours Every Month
@@ -116,6 +120,8 @@ Leads and clients now mention the newsletter on calls. Old leads re-engage on th
 | Hours saved monthly | 30+ |
 | Revenue impact | Expanded client contracts |
 
+![8 Month Results](https://withpotions.com/blog/assets/8_months.png)
+
 ### Content Repurposing Flywheel
 
 Each edition fuels Jacob's broader content flywheel. He repurposes sections of Content Detox into LinkedIn posts, in about 10 minutes, keeping his feed active and relevant without adding more to his schedule.
@@ -123,6 +129,8 @@ Each edition fuels Jacob's broader content flywheel. He repurposes sections of C
 > "It's nice that I can reuse parts of it. It helps me show up more often without feeling like I have to constantly come up with something new."
 
 Jacob also leverages Content Detox as a content-based networking play, where he interviews industry experts and features their insights as the main story.
+
+![8 Month Results](https://withpotions.com/blog/assets/statler_content_sample.png)
 
 This has become a way to 1) grow subscribers and 2) build connections that could turn into referral sources or future clients.
 
