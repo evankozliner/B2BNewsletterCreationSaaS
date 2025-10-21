@@ -33,13 +33,13 @@ The best part? Stat Digital is now nurturing every lead that's ever been in the 
 
 ### Key Results
 
-| Metric | Result |
-|--------|--------|
-| Subscribers | 650+ |
-| Weekly LinkedIn readers | 140+ |
-| Hours saved per month | 30+ |
-| Client contract expansions | ✓ |
-| Average open rate | 40.9% |
+| Metric | Result            |
+|--------|-------------------|
+| Subscribers | 650+              |
+| Weekly LinkedIn readers | 140+              |
+| Hours saved per month | 30+               |
+| Client contract expansions | ✓ (5-figure ARRs) |
+| Average open rate | 40.9%             |
 
 ## The Story of an Agency Marketer Who Struggled with Consistency for His Own Marketing
 
@@ -112,13 +112,13 @@ Leads and clients now mention the newsletter on calls. Old leads re-engage on th
 
 ### 8 Months After Launching Content Detox:
 
-| Metric | Result |
-|--------|--------|
-| Average open rate | 40.9% |
-| Subscribers | 650+ and growing |
-| Weekly LinkedIn readers | 140+ |
-| Hours saved monthly | 30+ |
-| Revenue impact | Expanded client contracts |
+| Metric | Result                                 |
+|--------|----------------------------------------|
+| Average open rate | 40.9%                                  |
+| Subscribers | 650+ and growing                       |
+| Weekly LinkedIn readers | 140+                                   |
+| Hours saved monthly | 30+                                    |
+| Revenue impact | Expanded 5-figure ARR client contracts |
 
 ![8 Month Results](https://withpotions.com/blog/assets/8_months.png)
 
