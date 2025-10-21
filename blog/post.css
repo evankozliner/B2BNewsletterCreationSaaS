@@ -352,3 +352,67 @@
         padding: 16px;
     }
 }
+
+/* Table Styles - Clean minimal design */
+.post-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background-color: white;
+    border: none;
+    font-size: 0.95rem;
+}
+
+.post-body table thead {
+    display: none; /* Hide header row for clean design */
+}
+
+.post-body table th,
+.post-body table td {
+    padding: 16px 20px;
+    border: none;
+    border-bottom: 3px solid #333; /* Only thick bottom border */
+}
+
+/* Remove bottom border from last row */
+.post-body table tr:last-child td {
+    border-bottom: none;
+}
+
+/* First column (labels) - bold and left-aligned */
+.post-body table td:first-child {
+    text-align: left;
+    font-weight: 600;
+    width: 25%;
+}
+
+/* Second column - left-aligned */
+.post-body table td:not(:first-child) {
+    text-align: left;
+}
+
+/* Remove alternating row colors */
+.post-body table tr:nth-child(even) {
+    background-color: white;
+}
+
+/* Remove hover effect */
+.post-body table tr:hover {
+    background-color: white;
+}
+
+/* Mobile table styles */
+@media (max-width: 768px) {
+    .post-body table {
+        font-size: 0.85rem;
+    }
+
+    .post-body table th,
+    .post-body table td {
+        padding: 12px 16px;
+    }
+
+    .post-body table td:first-child {
+        width: 35%;
+    }
+}
