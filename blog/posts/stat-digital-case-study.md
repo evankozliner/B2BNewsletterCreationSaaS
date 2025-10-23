@@ -44,8 +44,6 @@ The best part? Stat Digital is now nurturing every lead that's ever been in the 
 
 ## The Story of an Agency Marketer Who Struggled with Consistency for His Own Marketing
 
-![Statler Website](https://withpotions.com/blog/assets/stat-digital-case-study/stat_digital_site.png)
-
 Stat Digital helps early-stage B2B SaaS companies build predictable growth through exceptional content and SEO. But like so many service-based founders, Jacob's own marketing always fell to the bottom of the list.
 
 He mainly relied on posting 3 to 5 times a week on LinkedIn, a strategy that built visibility but consumed 8+ hours every week and was subject to the whims of the algorithm gods.
@@ -73,6 +71,12 @@ And even then, he'd have to edit everything to really make it his own.
 
 > "Even though ChatGPT would save me time writing, I was still left to stitch together the entire newsletter process by myself. Every. Single. Week."
 
+This means thing like:
+* Segmenting his list (and sunsetting old subscribers)
+* Building re-engagement campaigns, welcome emails, and launch campaigns
+* Testing the design across email clients
+* Researching the news sources he actually trusts (and not just whatever garbage sources ChatGPT would cite)
+
 Jacob needed a newsletter system that kept his tone and strategy intact, without draining his time and energy.
 
 ## Why a Marketing Agency Made a No-Brainer Decision to Choose Potions
@@ -85,9 +89,9 @@ That distinction was key. Our done-for-you model meant he could hand over setup,
 
 > "It was a total no-brainer. Potions eliminated everything I didn't want to deal with — setup, deliverability, content creation, all of it."
 
-![Statler Website](https://withpotions.com/blog/assets/statler_content_sample.png)
+![Statler Website](https://withpotions.com/blog/assets/stat-digital-case-study/Content%20Detox%20Content%20Based%20Networking%20examples.png)
 
-2 weeks later, **Content Detox** was live.
+2 weeks later, **Content Detox** was live (see a sample of it on our [samples page](https://withpotions.com/samples.html)).
 
 ## The Always-On Newsletter That Effortlessly Saves 30+ Hours Every Month
 
