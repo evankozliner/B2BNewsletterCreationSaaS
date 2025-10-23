@@ -7,7 +7,19 @@
       name="description"
       content="<%= description %>"
     />
+    <% if (typeof frontmatter !== 'undefined' && frontmatter && frontmatter.seo && frontmatter.seo.ogImage) { %>
+    <meta property="og:image" content="<%= frontmatter.seo.ogImage %>" />
+    <meta property="og:title" content="<%= title %>" />
+    <meta property="og:description" content="<%= description %>" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="<%= canonicalUrl %>" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="<%= frontmatter.seo.twitterImage || frontmatter.seo.ogImage %>" />
+    <meta name="twitter:title" content="<%= title %>" />
+    <meta name="twitter:description" content="<%= description %>" />
+    <% } else { %>
     <meta property="og:image" content="https://withpotions.com/PotionsPreview.png" />
+    <% } %>
     <meta
       name="keywords"
       content="<%= keywords %>"
@@ -35,6 +47,102 @@
 
     <script src="<%= baseUrl %>lottie.min.js" defer></script>
 
+    <% if (typeof isBlogPost !== 'undefined' && isBlogPost && typeof frontmatter !== 'undefined' && frontmatter) { %>
+    <!-- Structured Data: Article Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "<%= frontmatter.title %>",
+      <% if (frontmatter.subheader) { %>
+      "alternativeHeadline": "<%= frontmatter.subheader %>",
+      <% } %>
+      <% if (frontmatter.image) { %>
+      "image": "<%= frontmatter.image %>",
+      <% } %>
+      "author": {
+        "@type": "Person",
+        "name": "<%= frontmatter.author.name %>",
+        <% if (frontmatter.author.social) { %>
+        "url": "<%= frontmatter.author.social %>",
+        <% } %>
+        <% if (frontmatter.author.jobTitle) { %>
+        "jobTitle": "<%= frontmatter.author.jobTitle %>"
+        <% } %>
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Potions",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://withpotions.com/potions-logo.svg"
+        }
+      },
+      <% if (frontmatter.datePublished) { %>
+      "datePublished": "<%= frontmatter.datePublished %>",
+      "dateModified": "<%= frontmatter.datePublished %>",
+      <% } %>
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "<%= canonicalUrl %>"
+      },
+      <% if (frontmatter.seo && frontmatter.seo.articleSection) { %>
+      "articleSection": "<%= frontmatter.seo.articleSection %>",
+      <% } %>
+      <% if (frontmatter.keywords) { %>
+      "keywords": "<%= frontmatter.keywords %>",
+      <% } %>
+      "description": "<%= frontmatter.excerpt %>",
+      "about": {
+        "@type": "Thing",
+        "name": "Newsletter Marketing Service"
+      }
+    }
+    </script>
+
+    <% if (frontmatter.seo && frontmatter.seo.faq && frontmatter.seo.faq.length > 0) { %>
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        <% frontmatter.seo.faq.forEach((faq, index) => { %>
+        {
+          "@type": "Question",
+          "name": "<%= faq.question %>",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<%= faq.answer %>"
+          }
+        }<%= index < frontmatter.seo.faq.length - 1 ? ',' : '' %>
+        <% }); %>
+      ]
+    }
+    </script>
+    <% } %>
+
+    <% if (frontmatter.seo && frontmatter.seo.breadcrumbs && frontmatter.seo.breadcrumbs.length > 0) { %>
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        <% frontmatter.seo.breadcrumbs.forEach((crumb, index) => { %>
+        {
+          "@type": "ListItem",
+          "position": <%= index + 1 %>,
+          "name": "<%= crumb.name %>",
+          "item": "<%= crumb.url %>"
+        }<%= index < frontmatter.seo.breadcrumbs.length - 1 ? ',' : '' %>
+        <% }); %>
+      ]
+    }
+    </script>
+    <% } %>
+    <% } %>
+
   </head>
   <body>
   <% if (tracking) { %>
@@ -44,6 +152,19 @@
 <!-- End Google Tag Manager (noscript) -->
 <% } %>
 <%- include('partials/header', { baseUrl, showBlogLink }) %>
+    <% if (typeof isBlogPost !== 'undefined' && isBlogPost && typeof frontmatter !== 'undefined' && frontmatter && frontmatter.seo && frontmatter.seo.breadcrumbs) { %>
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="Breadcrumb" style="padding: 1rem 2rem; font-size: 0.9rem;">
+        <% frontmatter.seo.breadcrumbs.forEach((crumb, index) => { %>
+            <% if (index < frontmatter.seo.breadcrumbs.length - 1) { %>
+                <a href="<%= crumb.url.replace('https://withpotions.com', '') %>" style="color: #666; text-decoration: none;"><%= crumb.name %></a>
+                <span style="margin: 0 0.5rem; color: #999;">/</span>
+            <% } else { %>
+                <span style="color: #333;"><%= crumb.name %></span>
+            <% } %>
+        <% }); %>
+    </nav>
+    <% } %>
     <%- body %>
 <%- include('partials/footer', { baseUrl }) %>
 

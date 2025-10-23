@@ -4,13 +4,36 @@ subheader: "Without Spending 8 Hours Per Week on Content"
 slug: "stat-digital-case-study"
 excerpt: "How Potions helped Stat Digital turn inconsistent marketing into a lead-generating weekly newsletter that brings in new business."
 date: "January '25"
+datePublished: "2025-01-01"
 tags: ["Case Studies", "Benchmarks"]
 image: "https://withpotions.com/blog/assets/stat-digital-case-study/statler_img.png"
+keywords: "newsletter service case study, B2B newsletter results, marketing agency newsletter, stat digital, content detox newsletter, newsletter ROI, email marketing case study, done-for-you newsletter, newsletter benchmarks, newsletter open rates"
 author:
   name: "Evan Kozliner"
   bio: "Evan is the founder of Potions, helping companies build newsletters that drive revenue."
   avatar: "../evan-li.webp"
   social: "https://linkedin.com/in/evan-kozliner"
+  jobTitle: "Founder of Potions"
+seo:
+  ogImage: "https://withpotions.com/blog/assets/stat-digital-case-study/statler_img.png"
+  twitterImage: "https://withpotions.com/blog/assets/stat-digital-case-study/statler_img.png"
+  articleSection: "Case Studies"
+  breadcrumbs:
+    - name: "Home"
+      url: "https://withpotions.com/"
+    - name: "Blog"
+      url: "https://withpotions.com/blog/"
+    - name: "Stat Digital Case Study"
+      url: "https://withpotions.com/blog/stat-digital-case-study.html"
+  faq:
+    - question: "How much time does Potions save marketing agencies?"
+      answer: "Stat Digital saves 26-35 hours every month using Potions, almost a full workweek. Jacob spends just 30 minutes adding insights and 45 minutes fine-tuning each newsletter, compared to the 6-8 hours it would take on his own."
+    - question: "What are typical newsletter open rates for B2B marketing agencies?"
+      answer: "Content Detox, Stat Digital's newsletter powered by Potions, achieves a 40.9% average open rate with 650+ subscribers and 140+ weekly LinkedIn readers."
+    - question: "How much does a done-for-you newsletter service cost compared to DIY?"
+      answer: "Before Potions, Jacob was considering spending roughly $1,000 a month on a freelance writer ($869), beehiiv ($49), and Zapier ($29.99), and would still have to edit everything himself. Potions provides a complete done-for-you solution at a fraction of that cost."
+    - question: "How long does it take to launch a newsletter with Potions?"
+      answer: "Stat Digital's Content Detox newsletter was live just 2 weeks after starting with Potions, including setup, deliverability, and the first issue."
 ---
 
 When Jacob Statler, founder of [Stat Digital](https://statdigital.io/), found us, he had a challenge many marketing agency owners can relate to:

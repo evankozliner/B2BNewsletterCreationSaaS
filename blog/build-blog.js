@@ -99,9 +99,9 @@ async function buildPost(markdownFile) {
     
     // Prepare template data
     const templateData = {
-        title: `${frontmatter.title} | Potions`,
+        title: `${frontmatter.title}${frontmatter.date ? ` (${frontmatter.date} Case Study)` : ''} | Potions`,
         description: frontmatter.excerpt,
-        keywords: 'Newsletter, Email Marketing, Marketing, Blog',
+        keywords: frontmatter.keywords || 'Newsletter, Email Marketing, Marketing, Blog',
         author: 'Potions',
         baseUrl: '../',
         styleSheet: 'style.css',
@@ -111,6 +111,9 @@ async function buildPost(markdownFile) {
         scripts: ['hamburger.js'],
         canonicalUrl: `https://withpotions.com/blog/${frontmatter.slug}.html`,
         navTargetPage: '/', // Normal page: nav points to homepage
+        // SEO-specific data
+        frontmatter: frontmatter, // Pass the entire frontmatter for SEO usage
+        isBlogPost: true,
         body: `    <main class="post-main">
         <div class="post-container">
             <div class="post-sidebar">
