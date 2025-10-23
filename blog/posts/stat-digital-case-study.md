@@ -3,7 +3,7 @@ title: "How Stat Digital's Newsletter Cashed In on Neglected Leads"
 subheader: "Without Spending 8 Hours Per Week on Content"
 slug: "stat-digital-case-study"
 excerpt: "How Potions helped Stat Digital turn inconsistent marketing into a lead-generating weekly newsletter that brings in new business."
-date: "January '25"
+date: "October '25"
 datePublished: "2025-01-01"
 tags: ["Case Studies", "Benchmarks"]
 image: "https://withpotions.com/blog/assets/stat-digital-case-study/statler_img.png"
