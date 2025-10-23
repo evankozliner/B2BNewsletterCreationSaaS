@@ -322,6 +322,26 @@
     background: #5a54d6;
 }
 
+/* Breadcrumb styles */
+nav[aria-label="Breadcrumb"] {
+    padding: 1rem 2rem;
+    font-size: 0.9rem;
+}
+
+nav[aria-label="Breadcrumb"] a {
+    color: #666;
+    text-decoration: none;
+}
+
+nav[aria-label="Breadcrumb"] .breadcrumb-separator {
+    margin: 0 0.5rem;
+    color: #999;
+}
+
+nav[aria-label="Breadcrumb"] .breadcrumb-current {
+    color: #333;
+}
+
 /* Mobile styles */
 @media (max-width: 1024px) {
     .post-container {
@@ -353,21 +373,31 @@
     .post-main {
         padding: 20px 16px;
     }
-    
+
     .post-content {
         padding: 24px;
     }
-    
+
     .post-header h1 {
         font-size: 2rem;
     }
-    
+
     .post-right-sidebar {
         flex-direction: column;
     }
-    
+
     .table-of-contents {
         padding: 16px;
+    }
+
+    /* Reduce breadcrumb spacing on mobile */
+    nav[aria-label="Breadcrumb"] {
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    nav[aria-label="Breadcrumb"] .breadcrumb-separator {
+        margin: 0 0.25rem;
     }
 }
 
