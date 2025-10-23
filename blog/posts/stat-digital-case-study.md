@@ -5,7 +5,7 @@ slug: "stat-digital-case-study"
 excerpt: "How Potions helped Stat Digital turn inconsistent marketing into a lead-generating weekly newsletter that brings in new business."
 date: "January '25"
 tags: ["Case Studies", "Benchmarks"]
-image: "https://withpotions.com/blog/assets/statler_img.png"
+image: "https://withpotions.com/blog/assets/stat-digital-case-study/statler_img.png"
 author:
   name: "Evan Kozliner"
   bio: "Evan is the founder of Potions, helping companies build newsletters that drive revenue."
@@ -19,7 +19,7 @@ Jacob crushed marketing for clients but couldn't find time to market his own age
 
 > "I'd spend all week creating quality content for clients. Then Friday would come around, and I'd tell myself I'd start my own newsletter next week. That went on for a year."
 
-8 months later, that story looks completely different.
+8 months since starting with Potions, that story looks completely different.
 
 With Potions, Jacob launched **Content Detox**, a weekly newsletter that now reaches 650+ subscribers, saves him 30+ hours a month, and consistently fuels new client conversations and project expansions.
 
@@ -44,7 +44,7 @@ The best part? Stat Digital is now nurturing every lead that's ever been in the 
 
 ## The Story of an Agency Marketer Who Struggled with Consistency for His Own Marketing
 
-![Statler Website](https://withpotions.com/blog/assets/stat_digital_site.png)
+![Statler Website](https://withpotions.com/blog/assets/stat-digital-case-study/stat_digital_site.png)
 
 Stat Digital helps early-stage B2B SaaS companies build predictable growth through exceptional content and SEO. But like so many service-based founders, Jacob's own marketing always fell to the bottom of the list.
 
@@ -121,7 +121,7 @@ Leads and clients now mention the newsletter on calls. Old leads re-engage on th
 | Hours saved monthly | 30+                                    |
 | Revenue impact | Expanded 5-figure ARR client contracts |
 
-![8 Month Results](https://withpotions.com/blog/assets/8_months.png)
+![8 Month Results](https://withpotions.com/blog/assets/stat-digital-case-study/8_month_results.png)
 
 ### Content Repurposing Flywheel
 
@@ -131,9 +131,12 @@ Each edition fuels Jacob's broader content flywheel. He repurposes sections of C
 
 Jacob also leverages Content Detox as a content-based networking play, where he interviews industry experts and features their insights as the main story.
 
-![8 Month Results](https://withpotions.com/blog/assets/statler_content_sample.png)
+![Content Detox Sample.png](https://withpotions.com/blog/assets/stat-digital-case-study/Content%20Detox%20Sample.png)
 
-This has become a way to 1) grow subscribers and 2) build connections that could turn into referral sources or future clients.
+This has become a way to 
+
+1) Grow subscribers.
+2) Build connections that could turn into referral sources or future clients.
 
 ## The Unexpected Impact: From Stress to Strategy
 
@@ -160,6 +163,8 @@ Traditional newsletter platforms still leave you managing content, design, and d
 With Potions, most of the work is done for you. Even if you're like Jacob, who proudly admits he's extra picky about content quality, he only spends less than an hour fine-tuning each issue.
 
 It's a cost-effective, hassle-free way to launch a professional newsletter without adding to your workload.
+
+![Content Detox Sample.png](https://withpotions.com/blog/assets/stat-digital-case-study/bot.png)
 
 ## Ready To Finally Launch Your Newsletter?
 
