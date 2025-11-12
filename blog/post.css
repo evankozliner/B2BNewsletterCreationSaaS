@@ -470,6 +470,67 @@ nav[aria-label="Breadcrumb"] .breadcrumb-current {
     background-color: white;
 }
 
+/* Table with narrow left column - apply purple to left */
+.post-body table.table-left-narrow td:first-child {
+    background-color: #5D5DED;
+    color: white;
+    font-weight: 600;
+    width: 30%;
+}
+
+.post-body table.table-left-narrow td:not(:first-child) {
+    background-color: white;
+    width: 70%;
+}
+
+.post-body table.table-left-narrow th:first-child {
+    width: 30%;
+}
+
+.post-body table.table-left-narrow th:not(:first-child) {
+    width: 70%;
+}
+
+/* Table with narrow right column - apply purple to right */
+.post-body table.table-right-narrow td:first-child {
+    background-color: white;
+    color: #333;
+    font-weight: 600;
+    width: 70%;
+}
+
+.post-body table.table-right-narrow td:last-child {
+    background-color: #5D5DED;
+    color: white;
+    font-weight: 600;
+    width: 30%;
+}
+
+.post-body table.table-right-narrow th:first-child {
+    width: 70%;
+}
+
+.post-body table.table-right-narrow th:last-child {
+    width: 30%;
+}
+
+/* Equal width tables - no purple background, 50-50 split, no bold */
+.post-body table:not(.table-left-narrow):not(.table-right-narrow) td:first-child {
+    background-color: white;
+    color: #333;
+    font-weight: normal;
+    width: 50%;
+}
+
+.post-body table:not(.table-left-narrow):not(.table-right-narrow) td:not(:first-child) {
+    width: 50%;
+}
+
+.post-body table:not(.table-left-narrow):not(.table-right-narrow) th {
+    width: 50%;
+    font-weight: 700;
+}
+
 /* Mobile table styles */
 @media (max-width: 768px) {
     .post-body table {

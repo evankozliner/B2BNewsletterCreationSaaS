@@ -6,7 +6,7 @@ excerpt: "Discover the best newsletter services for 2025 that help swamped busin
 date: "November '25"
 datePublished: "2025-11-11"
 tags: ["Tools", "Newsletter Platforms"]
-image: "https://withpotions.com/blog/assets/best-newsletter-services/hero.png"
+image: "https://withpotions.com/blog/assets/best-newsletter-services/Best Newsletter Services cover.png"
 keywords: "newsletter services, best newsletter platforms, newsletter tools, email marketing platforms, done-for-you newsletter, newsletter agencies, beehiiv, substack, mailchimp, potions"
 tocTitles:
   - "Top Newsletter Platforms"
@@ -58,8 +58,6 @@ Between Potions and my personal projects, I've managed roughly 100 newsletters, 
 
 Along the way, I've tested many platforms out there and worked directly with many of the tools on this list. Below, I share my take on the services I've personally used or managed, to help you decide which best fits your needs.
 
-![Newsletter Services Comparison](https://withpotions.com/blog/assets/best-newsletter-services/comparison.png)
-
 For clarification, I'm including newsletter platforms AND services (AKA agencies):
 
 Newsletter platforms like Substack or beehiiv give you the tools to create and send your own newsletter. They're usually affordable, flexible, and great if you want full creative control, but you're still on the hook for writing, design, and making sure your newsletters land in the primary inbox.
@@ -95,6 +93,8 @@ You can use Potions as your newsletter platform or Potions will run your newslet
 
 With Potions, you can choose which newsletter platform you want to use. Or we can help guide you to the right platform for your business.
 
+![approve_potions.gif](https://withpotions.com/blog/assets/best-newsletter-services/approve_potions.gif)
+
 With most newsletter tools, you're stuck at one of two extremes: either you're creating all the content yourself and juggling technicals, or you're shelling out thousands each month for a done-for-you agency team.
 
 Potions bridges that gap. It gives you the simplicity of an automated platform and the polish of a professional writing and design team, at one-tenth the price of a traditional agency.
@@ -102,6 +102,8 @@ Potions bridges that gap. It gives you the simplicity of an automated platform a
 The results speak for themselves: Potions-powered newsletters achieve an average 42% + open rate and 5% click-through rate, far outperforming typical industry benchmarks.
 
 You'll start with a strategy session and brand setup, where Potions builds a newsletter template tailored to your voice, design preferences, and goals. From there, the process runs itself. Potions drafts, designs, and sends your newsletter each week, you just review and approve. Most clients spend about 15 minutes a week keeping their newsletters running consistently.
+
+![Potions Slack Update.png](https://withpotions.com/blog/assets/best-newsletter-services/Potions%20Slack%20Update.png)
 
 Potions also handles all the technical details behind the scenes to make sure every email follows best practices. This includes everything from sender setup, list cleaning, throttling, removing spam words, adding alt text, and more, so your emails land in the main inbox every send.
 
@@ -136,11 +138,28 @@ This hybrid of automation and human craftsmanship means you get high-quality new
 
 ### Pricing
 
+![Potions pricing.PNG](https://withpotions.com/blog/assets/best-newsletter-services/Potions%20pricing.PNG)
+
 Potions offers flexible, affordable plans for weekly newsletters that scale with your audience.
 
 The Starter plan starts at $129/month (paid annually) and offers custom banner and newsletter design. Higher tiers add features like lead enrichment, strategy calls, and managed list growth. Plans increase in price and features based on subscriber volume and growth needs.
 
 Try out Potions with a [free sample newsletter](https://dzlivd9t4eb.typeform.com/to/kMeO3tlp). Annual plans discounts are available.
+
+### 💬 In their own words
+
+> "I've always wanted to add a daily send option to my newsletter but every time I attempted to push these out on my own I realized I was making my work week twice as long.  
+> 
+> Since getting started with Potions I'm now **sending 100% more mail (generating 200% more clicks)**, and **my list loves the new daily content.**"
+
+![dupont.png](https://withpotions.com/blog/assets/best-newsletter-services/dupont.png)
+
+>"I was spending 4-5+ hours weekly just to get one or two pieces of content out to reach my ICP.
+> Potions changed that.
+> They've empowered me to find my voice, and now I'm creating all my email and LinkedIn content in about 15 minutes a week! "
+
+![donnie.png](https://withpotions.com/blog/assets/best-newsletter-services/donnie.png)
+
 
 ## 2. beehiiv: Best for Media Companies
 

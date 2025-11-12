@@ -19,6 +19,80 @@ const postsDir = path.join(__dirname, 'posts');
 const outputDir = __dirname;
 const templatesDir = path.join(__dirname, '../templates');
 
+// Custom renderer for tables to detect column width from markdown separator
+const renderer = new marked.Renderer();
+const originalTableRenderer = renderer.table.bind(renderer);
+
+renderer.table = function(header, body) {
+    // We need to detect the column widths from the original markdown
+    // This will be passed through the token system
+    return `<table>${header}${body}</table>`;
+};
+
+// Override the actual parsing to capture separator info
+marked.use({
+    extensions: [{
+        name: 'table',
+        level: 'block',
+        start(src) {
+            return src.match(/^\s*\|/)?.index;
+        },
+        tokenizer(src) {
+            // Let marked handle the tokenization, we'll just add metadata
+            return false; // Let default tokenizer handle it
+        },
+        renderer(token) {
+            // Analyze the separator line to determine column widths
+            const rows = token.raw.split('\n');
+            let separatorLine = '';
+
+            // Find the separator line (contains dashes)
+            for (let row of rows) {
+                if (row.includes('-') && row.includes('|')) {
+                    separatorLine = row;
+                    break;
+                }
+            }
+
+            if (separatorLine) {
+                // Extract dash counts from each column
+                const columns = separatorLine.split('|').filter(col => col.trim());
+                const dashCounts = columns.map(col => (col.match(/-/g) || []).length);
+
+                let tableClass = '';
+                if (dashCounts.length === 2) {
+                    const [left, right] = dashCounts;
+                    if (left < right) {
+                        tableClass = ' class="table-left-narrow"';
+                    } else if (right < left) {
+                        tableClass = ' class="table-right-narrow"';
+                    }
+                }
+
+                // Generate table HTML
+                let html = `<table${tableClass}>`;
+                html += '<thead>' + token.header.map(cell =>
+                    `<th>${this.parser.parseInline(cell.tokens)}</th>`
+                ).join('') + '</thead>';
+
+                html += '<tbody>';
+                token.rows.forEach(row => {
+                    html += '<tr>';
+                    row.forEach(cell => {
+                        html += `<td>${this.parser.parseInline(cell.tokens)}</td>`;
+                    });
+                    html += '</tr>';
+                });
+                html += '</tbody></table>';
+
+                return html;
+            }
+
+            return false; // Fall back to default
+        }
+    }]
+});
+
 // Function to parse markdown file with frontmatter
 function parseMarkdownFile(filePath) {
     const fileContent = fs.readFileSync(filePath, 'utf-8');
