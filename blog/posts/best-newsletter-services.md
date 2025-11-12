@@ -35,8 +35,8 @@ author:
   social: "https://linkedin.com/in/evan-kozliner"
   jobTitle: "Founder of Potions"
 seo:
-  ogImage: "https://withpotions.com/blog/assets/best-newsletter-services/hero.png"
-  twitterImage: "https://withpotions.com/blog/assets/best-newsletter-services/hero.png"
+  ogImage: "https://withpotions.com/blog/assets/best-newsletter-services/Best Newsletter Services cover.png"
+  twitterImage: "https://withpotions.com/blog/assets/best-newsletter-services/Best Newsletter Services cover.png"
   articleSection: "Tools"
   breadcrumbs:
     - name: "Home"
