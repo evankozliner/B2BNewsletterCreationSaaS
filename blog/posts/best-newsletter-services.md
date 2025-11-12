@@ -169,6 +169,8 @@ beehiiv is most known for its growth tools and built-in monetization features li
 
 The platform's deliverability is strong, and its analytics make it easy to understand which content performs best. However, beehiiv's fast growth has also led to growing pains, particularly around support and stability for users with smaller lists.
 
+![beehiiv UI.png](https://withpotions.com/blog/assets/best-newsletter-services/beehiiv%20UI.png)
+
 I've had success running multiple customers' newsletters on beehiiv, but it's not without its caveats. I know a ton of people who've been kicked off the platform because beehiiv flagged their lists as "cold." Although it's not malicious (beehiiv has to protect its domain reputation for its customer base), getting reinstated is extremely difficult, and the path to do it is pretty unclear.
 
 To date, their AI writing assistant hasn't been helpful for us, and while they're rolling out API and integration features, those tools are still in the early stages, and HTML imports don't really work yet.
@@ -198,36 +200,47 @@ Overall, beehiiv works well for established newsletters that already have tracti
 
 ### Pricing
 
+![beehiiv pricing.png](https://withpotions.com/blog/assets/best-newsletter-services/beehiiv%20pricing.png)
+
 beehiiv offers flexible plans, starting with the free plan (up to 2,500 subscribers), which allows unlimited sends, perfect if you're testing your first newsletter and want to write it all yourself. Paid plans start at $49/month, adding advanced automation, analytics, and monetization tools.
 
 For large or media-focused newsletters, custom enterprise plans include dedicated support and full API access.
 
 They offer a demo, 30-day free trial, and annual discounts.
 
+### In their own words
+
+![beehiiv review.png](https://withpotions.com/blog/assets/best-newsletter-services/beehiiv%20review.png)
+
 ## 3. Substack: Best Free Newsletter Platform for Cultural Writing
 
 [Substack](https://substack.com) built its reputation as the home for independent writers, especially those publishing long-form essays, commentary, and cultural writing. Its minimalist interface makes it easy to write and publish newsletters or podcasts without worrying about the technical side of running a newsletter.
+
+![Substack.png](https://withpotions.com/blog/assets/best-newsletter-services/Substack.png)
 
 Writers can earn by charging subscribers for access to premium newsletters or podcasts, and Substack takes a 10% cut of that revenue. It's the platform that popularized the now-famous "1,000 true fans" model — if 1,000 readers pay $10 a month, you can make a living as an independent writer.
 
 I live in New York, and I actually have a few friends that make a living on Substack through their "1,000 true fans". It sounds crazy, but it really does work (if you're a popular journalist or author).
 
-Recently, Substack raised a major funding round and began positioning itself as a competitor to platforms like YouTube, expanding into video and social features. Their focus is less on email now, so it's unsurprising we're seeing poor performance from prospects and clients who use Substack.
+Recently, [Substack raised a 100M funding round](https://techcrunch.com/2025/07/17/substack-raises-100m-from-chernin-group-andreessen-horowitz-skims-ceo-and-more/) and began positioning itself as a competitor to platforms like YouTube, expanding into video and social features. Their focus is less on email now, so it's unsurprising we're seeing poor performance from prospects and clients who use Substack.
 
 Substack's original identity was "ad-free forever," but that's changing, too. The company has announced plans to introduce ads, a shift that marks a new era for the platform and could alter its long-held "cultural writer" vibe.
 
-I used to run my own Substack, and we still manage a few for Potions customers. It's a great space for cultural writers who care about creating long-form cultural content, not sales funnels.
+I used to run my own Substack in the early days, and we still manage a few for Potions customers. It's a great space for cultural writers who care about creating long-form cultural content, not sales funnels.
 
 Compared to beehiiv's marketing-forward energy, Substack has a more editorial feel. It's more ideal for writers who really want to express their ideas on a platform with a social network element.
 
 That said, it's not ideal for businesses running a newsletter for marketing purposes. Its analytics and customization are limited, and as Substack evolves toward social and video, it's becoming more of a media platform than a traditional newsletter tool.
 
-| Pros | Cons |
+> TLDR; If you want to produce *original research* or thought piece content as an independent publisher, Substack is an excellent option. I probably wouldn't use it as a sales funnel though.
+
+| Pros | Cons                                                                                                                             |
 |------|------|
-| Built-in discovery through recommendations and cross-promotion | Substack takes a 10% cut of paid subscription revenue (plus Stripe fees) |
-| Simple, intuitive editor that feels like writing in a doc | Basic analytics compared to full-service marketing platforms |
+| Built-in discovery through recommendations and cross-promotion | Substack takes a 10% cut of paid subscription revenue (plus Stripe fees)                                                         |
+| Simple, intuitive editor that feels like writing in a doc | Basic analytics compared to full-service marketing platforms                                                                     |
 | Free to use with unlimited subscribers | No automation tools to maintain deliverability or handle engagement sequences, which makes it not great for running a newsletter |
-| Integrated podcast and video hosting | Cleaning your list is difficult, which can hurt your deliverability over time |
+| Integrated podcast and video hosting | Cleaning your list is difficult, which can hurt your deliverability over time                                                    |
+|| No custom design features, making it challenging to differentiate your brand.                                                    |
 
 ### Key Features
 
@@ -241,6 +254,10 @@ That said, it's not ideal for businesses running a newsletter for marketing purp
 ### Pricing
 
 Substack is free to start and has no subscriber limits. You only pay once you enable paid subscriptions, where Substack takes a 10% platform fee, plus Stripe's standard processing fee (2.9% + $0.30 per transaction).
+
+### In their own words
+
+![Substack Review.png](https://withpotions.com/blog/assets/best-newsletter-services/Substack%20Review.png)
 
 ## 4. Medium: Best for Reader Experience (But on the Decline)
 
@@ -265,11 +282,20 @@ As for revenue, I earn about $40 a month from the paid ad network with 400 subsc
 
 It's free to publish. To earn, you must join the Partner Program as a paid member ($5/month). The Friend of Medium tier ($15/month) directs more financial support to your favorite writers and the Medium platform.
 
+![Medium member pricing.PNG](https://withpotions.com/blog/assets/best-newsletter-services/Medium%20member%20pricing.PNG)
+
+
+### In their own words
+
+![Medium review.PNG](https://withpotions.com/blog/assets/best-newsletter-services/Medium%20review.PNG)
+
 ## 5. Kit: Dependable Option for Digital Sellers
 
 [Kit](https://kit.com) is a reliable, creator-focused email platform known for its simplicity and stability. It's especially popular among online educators, coaches, and creators who sell digital products, courses, or memberships. Kit offers high-level automation and tagging tools that help you deliver targeted messages based on subscriber behavior.
 
 While it's not as flashy as newer platforms, Kit has a long track record and remains one of the most dependable options for creators who need automations that just work.
+
+![Kit_UI.png](https://withpotions.com/blog/assets/best-newsletter-services/Kit_UI.png)
 
 I've used Kit for multiple clients, and it's one of the more stable, affordable platforms out there. It's bootstrapped, not VC-funded, which means it's focused on sustainable growth. Kit integrates easily with Potions because their HTML importer works really well.
 
@@ -295,9 +321,15 @@ That said, we've fought with the tagging and segmentation system, as well as jus
 
 ### Pricing
 
+![Kit Pricing.png](https://withpotions.com/blog/assets/best-newsletter-services/Kit%20Pricing.png)
+
 Kit offers a free plan for up to 10,000 subscribers, an unusually generous starting point. Paid plans start at $39/month and include advanced automations and sales features. The Creator Pro plan starts at $79/month and includes deeper insights, A/B testing, and premium support.
 
 All plans include a 14-day free trial, annual discounts, and a 30-day money-back guarantee.
+
+### In their own words
+
+![Kit_review.png](https://withpotions.com/blog/assets/best-newsletter-services/Kit_review.png)
 
 ## 6. MailerLite: Best for Affordability
 
@@ -306,6 +338,8 @@ All plans include a 14-day free trial, annual discounts, and a 30-day money-back
 While it's not as feature-rich as more advanced tools, MailerLite performs reliably for businesses that prefer to manage everything themselves. It's a good fit if you're hands-on with your marketing and just need a simple way to create, send, and track emails without overpaying for complexity.
 
 I've seen MailerLite work well for smaller teams or customers who want to do everything manually. It's simple, affordable, and gets the job done, but it's severely limited in terms of customization, analytics, and automation depth. You won't get the sophistication of a platform like Kit or the growth tools of beehiiv, but for a lean budget or early-stage business, it's a great starting point.
+
+![MailerLite_UI.png](https://withpotions.com/blog/assets/best-newsletter-services/MailerLite_UI.png)
 
 It's a solid contender for small businesses and solo marketers who need a reliable, budget-friendly email platform that still looks polished and performs well. You can personalize campaigns, run A/B tests, and sell digital products directly without touching code.
 
@@ -333,6 +367,12 @@ Paid plans start at $10/month for up to 500 subscribers and unlimited emails. An
 
 All plans include a 14-day free trial and annual discounts.
 
+![Mailerlite_pricing.png](https://withpotions.com/blog/assets/best-newsletter-services/Mailerlite_pricing.png)
+
+### In their own words
+
+![Mailerlite_Review.png](https://withpotions.com/blog/assets/best-newsletter-services/Mailerlite_Review.png)
+
 ## 7. Constant Contact: Best for Non-Profits & Ticket Sellers
 
 [Constant Contact](https://www.constantcontact.com) is one of the oldest email marketing platforms around. It's built for niche markets like ticket sellers and nonprofits that need an all-in-one tool to manage newsletters, announcements, and campaigns.
@@ -340,6 +380,8 @@ All plans include a 14-day free trial and annual discounts.
 The platform combines email and SMS marketing, and social media posting tools under one roof. Its prebuilt templates, drag-and-drop editor, and automation options make it easy to send polished campaigns on a regular schedule.
 
 For nonprofits, Constant Contact offers a 30% annual discount and specialized templates for donation drives, volunteer recruitment, and community events.
+
+![Constant_Contact_UI.png](https://withpotions.com/blog/assets/best-newsletter-services/Constant_Contact_UI.png)
 
 Constant Contact also offers unique features that cater to event-based businesses, such as the ability to create, promote, and manage tickets.
 
@@ -383,6 +425,12 @@ Done-for-you services that Constant Contact offers includes:
 * A marketing manager who runs strategy, content, and reporting for $535/month
 * Custom email design
 
+![Constant_Contact_Pricing.png](https://withpotions.com/blog/assets/best-newsletter-services/Constant_Contact_Pricing.png)
+
+### In their own words
+
+![Constant_Contact_review.png](https://withpotions.com/blog/assets/best-newsletter-services/Constant_Contact_review.png)
+
 ## 8. HubSpot: Best for All-In-One CRM & Marketing Automation
 
 [HubSpot's Marketing Hub](https://www.hubspot.com/products/marketing) is a premium, enterprise-level all-in-one marketing platform designed for teams that need to connect every email, campaign, and customer touchpoint in one place. It's powerful but pricey, better suited to established businesses with complex workflows than to smaller teams sending newsletters.
@@ -390,6 +438,8 @@ Done-for-you services that Constant Contact offers includes:
 The real advantage of HubSpot is its integration capabilities. Every email is connected to its built-in CRM, so you can see precisely how each newsletter contributes to leads, sales, and customer engagement.
 
 Its automation tools, segmentation, and behavioral tracking are among the most advanced available. However, all that sophistication comes with a learning curve and significantly higher costs than most other newsletter platforms or services.
+
+![Hubspot_UI.png](https://withpotions.com/blog/assets/best-newsletter-services/Hubspot_UI.png)
 
 If you're willing to become so good at HubSpot that you can get a full-time job as someone who sets up and manages HubSpot for larger companies, then HubSpot can be great. But not so much, if you're looking for an intuitive tool that gives you the features you need without having to talk to sales and jump through hoops.
 
@@ -422,17 +472,31 @@ HubSpot's Marketing Hub includes a massive suite of marketing, sales, and automa
 
 HubSpot offers a free plan that includes its basic newsletter builder, CRM, and limited automation tools. However, most advanced features, like robust automation workflows, detailed analytics, and higher contact limits, require a significant upgrade.
 
-Paid plans start at $15/month/seat, but as you can see, the next tier quickly jumps into the hundreds per month to unlock advanced capabilities.
+Paid plans start at $15/month/seat, but as you can see, the next tier quickly jumps into the high hundreds per month to unlock advanced capabilities.
 
 Check out HubSpot's pricing page for full plan details. A free demo and annual discounts are also available.
+
+![Hubspot_Pricing.png](https://withpotions.com/blog/assets/best-newsletter-services/Hubspot_Pricing.png)
+
+### In their own words
+
+![Hubspot_Review.png](https://withpotions.com/blog/assets/best-newsletter-services/Hubspot_Review.png)
 
 ## 9. Mailchimp: Most Recognizable
 
 [Mailchimp](https://mailchimp.com) is one of the most recognized names in email marketing, initially known for its ease of use, robust automation, and broad feature set. It's often the first platform many businesses try. Mailchimp offers hundreds of templates, audience management tools, and built-in analytics.
 
+[Mailchimp_UI.webp](https://withpotions.com/blog/assets/best-newsletter-services/Mailchimp_UI.webp)
+
 That said, the platform has evolved over the years. Once known for its accessible pricing and [small-business focus](https://www.theverge.com/2024/2/21/24078896/mailchimp-subscription-price-increase-intuit), Mailchimp is now positioning itself upmarket with more enterprise features and higher costs to match.
 
-I've worked with several customers who started on Mailchimp, and it's still fine for small teams who want something recognizable and relatively easy to use. But Mailchimp isn't as beginner-friendly as it used to be. The interface has become cluttered, and [67% of users rate its customer support 1 star](https://www.trustpilot.com/review/mailchimp.com). Plus, its pricing is increasingly difficult to justify for smaller senders.
+I've worked with several customers who started on Mailchimp, and it's still fine for small teams who want something recognizable and relatively easy to use. 
+
+But Mailchimp isn't as beginner-friendly as it used to be. 
+
+Critically, [67% of users rate its customer support 1 star](https://www.trustpilot.com/review/mailchimp.com). Plus, its pricing is increasingly difficult to justify for smaller senders.
+
+![Mailchimp customer support.PNG](https://withpotions.com/blog/assets/best-newsletter-services/Mailchimp%20customer%20support.PNG)
 
 For simple campaigns, it works. But if you want consistent deliverability and real help, there are better options now.
 
@@ -461,11 +525,19 @@ Paid plans start at $13/month for 500 subscribers, adding advanced segmentation,
 
 All plans include a 14-day free trial and 15% savings on annual plans.
 
+![Mailchimp_pricing.png](https://withpotions.com/blog/assets/best-newsletter-services/Mailchimp_pricing.png)
+
+### In their own words
+
+![Mailchimp_review.png](https://withpotions.com/blog/assets/best-newsletter-services/Mailchimp_review.png)
+
 ## 10. Moosend: Best for Affordable Marketing Automation
 
 [Moosend](https://moosend.com) is a budget-friendly email platform that delivers a good amount of functionality for its price. It's designed for small businesses that want a straightforward way to create newsletters, manage contacts, and automate email workflows without committing to an expensive platform.
 
 The interface is clean, and the drag-and-drop editor makes it easy to create professional campaigns quickly.
+
+![Moosend UI.png](https://withpotions.com/blog/assets/best-newsletter-services/Moosend%20UI.png)
 
 You get unlimited email sends on every plan, advanced automations even at entry-level pricing, and solid deliverability for the cost. While it lacks the polish and integrations of more premium tools, it's a reliable, low-cost option for teams who want to get started fast and don't need heavy analytics or deep CRM capabilities.
 
@@ -493,11 +565,19 @@ Moosend offers flexible pricing starting at $9/month for up to 500 subscribers, 
 
 A 30-day free trial is available, and pay-as-you-go bundles are offered for occasional senders, along with annual plan discounts.
 
+![Moosend pricing.png](https://withpotions.com/blog/assets/best-newsletter-services/Moosend%20pricing.png)
+
+### In their own words
+
+![Moosend review.png](https://withpotions.com/blog/assets/best-newsletter-services/Moosend%20review.png)
+
 ## 11. Brevo: Best for Multichannel Marketing
 
 [Brevo](https://www.brevo.com) is built for businesses that want to manage email, SMS, WhatsApp, and push notifications from one place. Known for its flexibility and affordability, Brevo combines a beginner-friendly newsletter editor with advanced automation, AI tools, and CRM integration to help you grow and engage your audience.
 
 Brevo lets you combine email marketing with SMS, chat, and contact management in a single dashboard.
+
+![Brevo UI.png](https://withpotions.com/blog/assets/best-newsletter-services/Brevo%20UI.png)
 
 | Pros | Cons |
 |------|------|
@@ -525,6 +605,12 @@ Paid plans start at $9/month for 5,000 emails and scale with sending volume. Hig
 
 Annual plan discounts are available.
 
+![Brevo pricing.png](https://withpotions.com/blog/assets/best-newsletter-services/Brevo%20pricing.png)
+
+### In their own words
+
+![Brevo Review.png](https://withpotions.com/blog/assets/best-newsletter-services/Brevo%20Review.png)
+
 ## Agencies for Growing and Running Your Newsletter
 
 Now, maybe you don't want another tool. You'd rather have a team, and you've got the budget to hire one.
@@ -545,6 +631,10 @@ They focus on growth and don't write or design newsletters. The Feed is a good f
 
 Working with The Feed Media is by application only. Projects are limited, and pricing is discussed after approval to ensure a strong fit and measurable ROI.
 
+### In their own words
+
+![The Feed review.png](https://withpotions.com/blog/assets/best-newsletter-services/The%20Feed%20review.png)
+
 ## 13. Thrive Letter: Best for Businesses That Want Both Growth & Newsletter Creation
 
 [Thrive Letter](https://thriveletter.com) is a done-for-you premium newsletter agency and official beehiiv Partner that builds, designs, and manages profitable newsletters from end to end. They handle everything, from strategy and setup to writing, design, and reporting, so clients only spend about 30 minutes a week reviewing drafts.
@@ -554,6 +644,10 @@ The agency focuses on results-driven newsletters and is a good fit for beehiiv u
 ### Pricing
 
 They've got 2 pricing plans: the Dedicated Done-For-You plan starts at $1,800 per month, while the Grow + Monetize customized plan adds sponsorships, SparkLoop integration, and lead magnet creation.
+
+### In their own words
+
+![Thrive Letter Review.png](https://withpotions.com/blog/assets/best-newsletter-services/Thrive%20Letter%20Review.png)
 
 ## What to Consider in a Newsletter Service
 
@@ -583,9 +677,20 @@ Don't forget to ask if they make it easy to clean your email list to remove inac
 
 ### 3. Design flexibility & customization
 
+People get a lot of emails. 
+
+While only ~9% of consumers *say* design has an impact on their trust with a brand, the reality is that design plays a make or break role in your email's performance. 
+
+Some quick, critical stats from [Nonprofit Tech](https://www.nptechforgood.com/101-best-practices/email-marketing-statistics-for-nonprofits/#:~:text=53%25%20of%20email%20is%20opened,Nonprofit%20Communications%20Trends%20Report%5D): 
+
+- **53% of email is opened on mobile**—and emails not optimized for mobile get deleted in **under 3 seconds**, with **15% of users unsubscribing**.
+- Emails with **graphics** see a **1.12% higher CTR**, and adding **video** can boost clicks by **65%**. This is signficant,as CTR is typically around 2% - 2.9%.
+
 Your newsletter should reflect your brand, not look like a cookie-cutter template. Make sure the platform lets you customize layouts, colors, fonts, and sections without needing to code. Advanced tools often include drag-and-drop editors, reusable content blocks, and mobile previews so your design looks great on any device.
 
 If design isn't your strength, consider a provider that includes professional design support or prebuilt branded templates.
+
+Finally, remember to test your email design for accessibility guidelines using a tool like [Litmus](https://litmus.com/) (or just let Potions do it for you). If you don't, your deliverability will take a hit.
 
 ### 4. Scalability & pricing
 
@@ -597,9 +702,15 @@ If you're outsourcing your newsletter entirely, make sure the pricing aligns wit
 
 ### 5. Support & subscriber growth tools
 
+A lot of email platforms are simply too cheap to have human support. 
+
 Good customer support can save hours of frustration, especially when you're managing deliverability or automation. So look for platforms that provide live chat or dedicated account management rather than just an automated help center.
 
-Also consider whether the service helps you grow your audience. Features like signup forms, lead magnets, referral programs, and integrations with CRMs or social platforms can make list building much easier and faster.
+**Newsletters are almost never "organically viral"**. Only [0.5% - 2%](https://agencyanalytics.com/kpi-definitions/email-forward-rate) of people will forward any of your emails*. 
+
+So, consider whether the service helps you grow your email list through your "top of funnel" channels. Features like signup forms, lead magnets, referral programs, and integrations with CRMs or social platforms can make list building much easier and faster.
+
+*This doesn't mean email isn't great for growth; it's just not a "top of funnel" action, like ads.
 
 ## Frequently Asked Questions
 
@@ -611,6 +722,8 @@ If you're just getting started, some of the best free newsletter services includ
 
 The cost of running a newsletter depends on how hands-on you want to be. Most DIY newsletter platforms range from $10 to $200 per month, depending on your subscriber count and feature needs. Or a done-for-you service usually costs more ($1800+). A hybrid solution, like Potions, blends automation with human expertise for a much lower monthly cost.
 
+> Most DIY newsletter platforms range from $10 to $200 per month... Potions, blends automation with human expertise starting at $199/mo.
+
 ### How Much Time Does it Take to Run a Newsletter?
 
 If you're writing and designing it yourself, plan for 3-7 hours per week to brainstorm topics, create content, design, test, and send. That doesn't include tracking performance or making improvements.
@@ -618,6 +731,8 @@ If you're writing and designing it yourself, plan for 3-7 hours per week to brai
 Done-for-you newsletter services cut that time down to about 15-90 minutes a week, since you only need to review and approve content. But even with a DFY service, no one can read your mind, so expect to spend at least 15 minutes per week.
 
 The more soul you put in, the better the results, but just some — even if it's not the greatest — is better than nothing.
+
+> Plan for 3-7 hours per week to brainstorm topics, create content, design, test, and send.
 
 ## No More Excuses: Pick a Tool — Start Your Newsletter
 

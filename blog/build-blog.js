@@ -144,9 +144,10 @@ function generateTableOfContents(markdownContent, tocTitles = []) {
 // Function to add IDs to headers in HTML content
 function addHeaderIds(htmlContent) {
     let headerIndex = 0;
-    return htmlContent.replace(/<h([23])([^>]*)>(.*?)<\/h[23]>/g, (match, level, attrs, text) => {
+    // Only add IDs to H2 headers to match the TOC generation
+    return htmlContent.replace(/<h2([^>]*)>(.*?)<\/h2>/g, (match, attrs, text) => {
         const id = `section-${headerIndex++}`;
-        return `<h${level}${attrs} id="${id}">${text}</h${level}>`;
+        return `<h2${attrs} id="${id}">${text}</h2>`;
     });
 }
 
