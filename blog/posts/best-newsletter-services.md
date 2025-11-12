@@ -263,6 +263,8 @@ Substack is free to start and has no subscriber limits. You only pay once you en
 
 [Medium](https://medium.com) is a clean, ad-free platform where you can publish essays, commentary, or thought pieces and reach a built-in audience of over 100 million readers. It's good for testing ideas, sharing expertise, and building visibility without managing an email list or website. Writers can join the Partner Program to earn modest revenue based on member reading time and engagement.
 
+![medium.png](https://withpotions.com/blog/assets/best-newsletter-services/medium.png)
+
 I personally use Medium and even joined the Partner Program, where I used to make a few hundred dollars per month from traffic, but those days are long gone. Which is why Medium has also been on the decline. High-quality writers used to flock to the platform for its earning potential, but now writers can [only make a small fraction](https://medium.com/@CassieKozyrkov/the-easy-path-in-social-media-is-promoting-the-worst-content-the-cheapest-tackiest-lowest-effort-stuff-be5cbf5c7a0d) of what they used to, while the platform is flooded with low-quality, spammy content.
 
 I found it helpful for experimenting with ideas. It's a great space to refine your writing or publish early thoughts before you have an established audience. But it's not where you build a business.
