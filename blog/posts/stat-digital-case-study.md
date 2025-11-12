@@ -8,6 +8,15 @@ datePublished: "2025-01-01"
 tags: ["Case Studies", "Benchmarks"]
 image: "https://withpotions.com/blog/assets/stat-digital-case-study/statler_img.png"
 keywords: "newsletter service case study, B2B newsletter results, marketing agency newsletter, stat digital, content detox newsletter, newsletter ROI, email marketing case study, done-for-you newsletter, newsletter benchmarks, newsletter open rates"
+tocTitles:
+  - "Client Snapshot"
+  - "The Struggle with Consistency"
+  - "Why Choose Potions"
+  - "Saving 30+ Hours Every Month"
+  - "A Scalable Content Engine"
+  - "From Stress to Strategy"
+  - "Jacob's Advice"
+  - "Launch Your Newsletter"
 author:
   name: "Evan Kozliner"
   bio: "Evan is the founder of Potions, helping companies build newsletters that drive revenue."

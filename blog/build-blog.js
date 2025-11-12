@@ -38,29 +38,32 @@ function parseMarkdownFile(filePath) {
 }
 
 // Function to generate table of contents from markdown
-function generateTableOfContents(markdownContent) {
+function generateTableOfContents(markdownContent, tocTitles = []) {
     const htmlContent = marked.parse(markdownContent);
-    
-    // Simple regex to extract headers
-    const headerRegex = /<h([23]).*?>(.*?)<\/h[23]>/g;
+
+    // Simple regex to extract only H2 headers
+    const headerRegex = /<h2.*?>(.*?)<\/h2>/g;
     const headers = [];
     let match;
-    
+
     while ((match = headerRegex.exec(htmlContent)) !== null) {
+        const index = headers.length;
+        const defaultText = match[1].replace(/<[^>]*>/g, ''); // Strip HTML tags
+        const displayText = tocTitles[index] || defaultText; // Use custom title if provided
+
         headers.push({
-            level: parseInt(match[1]),
-            text: match[2].replace(/<[^>]*>/g, ''), // Strip HTML tags
-            id: `section-${headers.length}`
+            level: 2,
+            text: displayText,
+            id: `section-${index}`
         });
     }
-    
+
     if (headers.length === 0) {
         return '<p style="color: #666; font-style: italic;">No sections found</p>';
     }
-    
+
     return headers.map(header => {
-        const indent = header.level === 3 ? 'padding-left: 16px;' : '';
-        return `<a href="#${header.id}" style="${indent}">${header.text}</a>`;
+        return `<a href="#${header.id}">${header.text}</a>`;
     }).join('');
 }
 
@@ -83,9 +86,9 @@ async function buildPost(markdownFile) {
     // Generate HTML content from markdown
     let htmlContent = marked.parse(content);
     htmlContent = addHeaderIds(htmlContent);
-    
+
     // Generate table of contents
-    const tableOfContents = generateTableOfContents(content);
+    const tableOfContents = generateTableOfContents(content, frontmatter.tocTitles || []);
     
     // Generate tags HTML
     const tagsHtml = frontmatter.tags.map(tag => 
