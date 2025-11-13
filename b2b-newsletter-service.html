@@ -76,6 +76,7 @@
     
         <main>
       <section class="hero" id="hero">
+          <img src="landing-page-banner.svg" alt="" class="hero-background" fetchpriority="high">
           <div class="hero-text-group">
               <div id="lottie-container"></div>
               <h1>The B2B Newsletter Service That Nurtures Your Leads into <span class="highlight">Customers</span>.</h1>
@@ -817,28 +818,30 @@
   }
 </script>
     <script>
-        lottie.loadAnimation({
-            container: document.getElementById('lottie-container'), // the dom element that will contain the animation
-            renderer: 'svg', // the type of rendering (svg/canvas/html)
-            loop: true, // whether to loop the animation
-            autoplay: true, // whether to start the animation automatically
-            path: 'animation.json' // the path to your Lottie JSON file
-        });
+        document.addEventListener('DOMContentLoaded', function() {
+            lottie.loadAnimation({
+                container: document.getElementById('lottie-container'), // the dom element that will contain the animation
+                renderer: 'svg', // the type of rendering (svg/canvas/html)
+                loop: true, // whether to loop the animation
+                autoplay: true, // whether to start the animation automatically
+                path: 'animation.json' // the path to your Lottie JSON file
+            });
 
-        lottie.loadAnimation({
-            container: document.getElementById('lottie-container-cauldron'), // the dom element that will contain the animation
-            renderer: 'svg', // the type of rendering (svg/canvas/html)
-            loop: true, // whether to loop the animation
-            autoplay: true, // whether to start the animation automatically
-            path: 'cauldron.json' // the path to your Lottie JSON file
-        });
+            lottie.loadAnimation({
+                container: document.getElementById('lottie-container-cauldron'), // the dom element that will contain the animation
+                renderer: 'svg', // the type of rendering (svg/canvas/html)
+                loop: true, // whether to loop the animation
+                autoplay: true, // whether to start the animation automatically
+                path: 'cauldron.json' // the path to your Lottie JSON file
+            });
 
-        lottie.loadAnimation({
-            container: document.getElementById('lottie-container-wizard'), // the dom element that will contain the animation
-            renderer: 'svg', // the type of rendering (svg/canvas/html)
-            loop: true, // whether to loop the animation
-            autoplay: true, // whether to start the animation automatically
-            path: 'wizard.json' // the path to your Lottie JSON file
+            lottie.loadAnimation({
+                container: document.getElementById('lottie-container-wizard'), // the dom element that will contain the animation
+                renderer: 'svg', // the type of rendering (svg/canvas/html)
+                loop: true, // whether to loop the animation
+                autoplay: true, // whether to start the animation automatically
+                path: 'wizard.json' // the path to your Lottie JSON file
+            });
         });
 </script>
   <script>
