@@ -1,5 +1,5 @@
 ---
-title: "How Consultants Can Launch a Newsletter to Get Clients: 10 Steps"
+title: "How Consultants Can Get Clients with Newsletters: 10 Steps"
 subheader: "My personal lessons on how to use a consulting newsletter to build trust, stay top of mind, and turn leads into a steady flow of paying clients."
 slug: "how-consultants-can-get-clients-with-newsletters"
 excerpt: "Learn the complete 10-step system for launching a consulting newsletter that converts leads into paying clients. From planning to platform selection to content strategy."
