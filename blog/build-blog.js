@@ -60,6 +60,8 @@ marked.use({
                 const dashCounts = columns.map(col => (col.match(/-/g) || []).length);
 
                 let tableClass = '';
+                let columnWidths = [];
+
                 if (dashCounts.length === 2) {
                     const [left, right] = dashCounts;
                     if (left < right) {
@@ -67,19 +69,39 @@ marked.use({
                     } else if (right < left) {
                         tableClass = ' class="table-right-narrow"';
                     }
+                } else if (dashCounts.length >= 3) {
+                    // Calculate proportional widths based on dash counts
+                    const totalDashes = dashCounts.reduce((sum, count) => sum + count, 0);
+                    columnWidths = dashCounts.map(count => {
+                        const percentage = Math.round((count / totalDashes) * 100);
+                        return `${percentage}%`;
+                    });
+                    tableClass = ' class="table-multi-column"';
                 }
 
                 // Generate table HTML
                 let html = `<table${tableClass}>`;
-                html += '<thead>' + token.header.map(cell =>
-                    `<th>${this.parser.parseInline(cell.tokens)}</th>`
-                ).join('') + '</thead>';
+
+                // Generate thead with width styles if we have column widths
+                if (columnWidths.length > 0) {
+                    html += '<thead>' + token.header.map((cell, index) =>
+                        `<th style="width: ${columnWidths[index]}">${this.parser.parseInline(cell.tokens)}</th>`
+                    ).join('') + '</thead>';
+                } else {
+                    html += '<thead>' + token.header.map(cell =>
+                        `<th>${this.parser.parseInline(cell.tokens)}</th>`
+                    ).join('') + '</thead>';
+                }
 
                 html += '<tbody>';
                 token.rows.forEach(row => {
                     html += '<tr>';
-                    row.forEach(cell => {
-                        html += `<td>${this.parser.parseInline(cell.tokens)}</td>`;
+                    row.forEach((cell, index) => {
+                        if (columnWidths.length > 0) {
+                            html += `<td style="width: ${columnWidths[index]}">${this.parser.parseInline(cell.tokens)}</td>`;
+                        } else {
+                            html += `<td>${this.parser.parseInline(cell.tokens)}</td>`;
+                        }
                     });
                     html += '</tr>';
                 });

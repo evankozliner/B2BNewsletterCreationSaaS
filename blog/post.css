@@ -515,20 +515,31 @@ nav[aria-label="Breadcrumb"] .breadcrumb-current {
 }
 
 /* Equal width tables - no purple background, 50-50 split, no bold */
-.post-body table:not(.table-left-narrow):not(.table-right-narrow) td:first-child {
+.post-body table:not(.table-left-narrow):not(.table-right-narrow):not(.table-multi-column) td:first-child {
     background-color: white;
     color: #333;
     font-weight: normal;
     width: 50%;
 }
 
-.post-body table:not(.table-left-narrow):not(.table-right-narrow) td:not(:first-child) {
+.post-body table:not(.table-left-narrow):not(.table-right-narrow):not(.table-multi-column) td:not(:first-child) {
     width: 50%;
 }
 
-.post-body table:not(.table-left-narrow):not(.table-right-narrow) th {
+.post-body table:not(.table-left-narrow):not(.table-right-narrow):not(.table-multi-column) th {
     width: 50%;
     font-weight: 700;
+}
+
+/* Multi-column tables (3+ columns) - proportional widths based on dash counts */
+.post-body table.table-multi-column td:first-child {
+    background-color: white;
+    color: #333;
+    font-weight: normal;
+}
+
+.post-body table.table-multi-column td {
+    background-color: white;
 }
 
 /* Mobile table styles */
