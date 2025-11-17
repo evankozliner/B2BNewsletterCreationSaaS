@@ -163,7 +163,7 @@ Try out Potions with a [free sample newsletter](https://dzlivd9t4eb.typeform.com
 
 ## 2. beehiiv: Best for Media Companies
 
-[beehiiv](https://www.beehiiv.com/), founded by early Morning Brew employees, is built for creators and media brands that want to launch, grow, and monetize their newsletters under one roof.
+[beehiiv](https://www.beehiiv.com/), founded by early Morning Brew employees, it was built for creators and media brands that want to launch, grow, and monetize their newsletters under one roof.
 
 beehiiv is most known for its growth tools and built-in monetization features like paid subscriptions, an ad network, and referral programs. But with most newsletters I've seen with email lists large enough to use the ad network, the revenue generated is usually just enough to cover your subscription costs.
 
@@ -176,6 +176,8 @@ I've had success running multiple customers' newsletters on beehiiv, but it's no
 To date, their AI writing assistant hasn't been helpful for us, and while they're rolling out API and integration features, those tools are still in the early stages, and HTML imports don't really work yet.
 
 Overall, beehiiv works well for established newsletters that already have traction, but is less forgiving for new or smaller senders with existing lists.
+
+**Update:** Beehiiv has grown *a lot* since its early conception. As of their Winter '25 release, they're focusing less on being just a newsletter platform, and more on being an all-in-one content creator platform (including features like a Lovable-style website builder and link in bio). 
 
 ### Key Features
 
