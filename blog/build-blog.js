@@ -232,6 +232,7 @@ async function buildPost(markdownFile) {
                         ${frontmatter.subheader ? `<p class="post-subheader">${frontmatter.subheader}</p>` : ''}
                         <div class="post-meta">
                             <span>${frontmatter.date}</span>
+                            ${frontmatter.dateModified ? `<span class="date-modified">Last updated: ${frontmatter.dateModified}</span>` : ''}
                             <div class="post-tags">
                                 ${tagsHtml}
                             </div>

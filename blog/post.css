@@ -94,6 +94,12 @@
     font-size: 0.9rem;
 }
 
+.post-meta .date-modified {
+    color: #999;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
 .post-meta #post-tags {
     display: flex;
     gap: 8px;
