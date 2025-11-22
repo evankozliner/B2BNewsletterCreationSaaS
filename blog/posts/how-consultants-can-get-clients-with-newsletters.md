@@ -27,8 +27,8 @@ author:
   social: "https://linkedin.com/in/evan-kozliner"
   jobTitle: "Founder of Potions"
 seo:
-  ogImage: "https://withpotions.com/blog/assets/consultants-newsletter-guide/hero.png"
-  twitterImage: "https://withpotions.com/blog/assets/consultants-newsletter-guide/hero.png"
+  ogImage: "https://withpotions.com/blog/assets/how-consultants-can-get-clients-with-newsletters/How%20Consultants%20Can%20Get%20Clients%20with%20Newsletters%20Cover.png"
+  twitterImage: "https://withpotions.com/blog/assets/how-consultants-can-get-clients-with-newsletters/How%20Consultants%20Can%20Get%20Clients%20with%20Newsletters%20Cover.png"
   articleSection: "Newsletter Strategy"
   breadcrumbs:
     - name: "Home"
