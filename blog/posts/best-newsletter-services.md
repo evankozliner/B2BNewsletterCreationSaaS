@@ -7,7 +7,7 @@ date: "November '25"
 datePublished: "2025-11-11"
 dateModified: "November 17, 2025"
 tags: ["Tools", "Newsletter Platforms"]
-image: "https://withpotions.com/blog/assets/best-newsletter-services/Best Newsletter Services cover.png"
+image: "https://withpotions.com/blog/assets/best-newsletter-services/Best%20Newsletter%20Services%20cover.png"
 keywords: "newsletter services, best newsletter platforms, newsletter tools, email marketing platforms, done-for-you newsletter, newsletter agencies, beehiiv, substack, mailchimp, potions"
 tocTitles:
   - "Top Newsletter Platforms"
@@ -36,8 +36,8 @@ author:
   social: "https://linkedin.com/in/evan-kozliner"
   jobTitle: "Founder of Potions"
 seo:
-  ogImage: "https://withpotions.com/blog/assets/best-newsletter-services/Best Newsletter Services cover.png"
-  twitterImage: "https://withpotions.com/blog/assets/best-newsletter-services/Best Newsletter Services cover.png"
+  ogImage: "https://withpotions.com/blog/assets/best-newsletter-services/Best%20Newsletter%20Services%20cover.png"
+  twitterImage: "https://withpotions.com/blog/assets/best-newsletter-services/Best%20Newsletter%20Services%20cover.png"
   articleSection: "Tools"
   breadcrumbs:
     - name: "Home"
