@@ -155,7 +155,9 @@ seo:
 2. Add images to `blog/assets/{slug}/`
 3. Run `npm run build-blog`
 4. **Add entry to `sitemap.xml`** (REQUIRED)
-5. Verify output in `blog/{slug}.html`
+   - Regular posts: `https://withpotions.com/blog/{slug}.html`
+   - Dark posts (with `dark: true` in frontmatter): `https://withpotions.com/blog/articles/{slug}.html`
+5. Verify output in `blog/{slug}.html` (or `blog/articles/{slug}.html` for dark posts)
 
 ### Updating existing content:
 1. Edit the source (EJS or Markdown)

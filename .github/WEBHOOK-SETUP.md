@@ -16,7 +16,16 @@ When Zapier sends a webhook with article data, it triggers a GitHub Action that:
 
 The GitHub Action is already configured in `.github/workflows/create-blog-post.yml`.
 
-**No additional setup needed** - the workflow uses `GITHUB_TOKEN` which is automatically provided by GitHub Actions.
+**⚠️ IMPORTANT:** You must enable workflow permissions first!
+
+**See [PERMISSIONS-SETUP.md](./PERMISSIONS-SETUP.md)** for detailed instructions.
+
+**Quick setup:**
+1. Go to: `Settings` → `Actions` → `General`
+2. Scroll to "Workflow permissions"
+3. Select: **"Read and write permissions"**
+4. Check: ✅ "Allow GitHub Actions to create and approve pull requests"
+5. Click "Save"
 
 ### 2. Zapier Configuration
 
