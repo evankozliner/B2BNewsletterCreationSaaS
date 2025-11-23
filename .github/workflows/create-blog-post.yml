@@ -1,0 +1,56 @@
+name: Create Blog Post from Webhook
+
+on:
+  repository_dispatch:
+    types: [create-blog-post]
+
+jobs:
+  create-post:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Create blog post from webhook data
+        id: create-post
+        env:
+          WEBHOOK_PAYLOAD: ${{ toJson(github.event.client_payload) }}
+        run: |
+          chmod +x .github/scripts/create-blog-post.js
+          node .github/scripts/create-blog-post.js
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Add blog post: ${{ steps.create-post.outputs.title }}"
+          branch: blog-post/${{ steps.create-post.outputs.slug }}
+          delete-branch: true
+          title: "New Blog Post: ${{ steps.create-post.outputs.title }}"
+          body: |
+            ## New Blog Post Created
+
+            **Title:** ${{ steps.create-post.outputs.title }}
+            **Slug:** ${{ steps.create-post.outputs.slug }}
+            **File:** `blog/posts/${{ steps.create-post.outputs.filename }}`
+
+            This is a dark blog post (not visible in main blog listing).
+
+            ### Next Steps
+            1. Review the content
+            2. Run `npm run build-blog` to build the HTML
+            3. Post will be accessible at: `/blog/articles/${{ steps.create-post.outputs.slug }}.html`
+
+            ---
+            🤖 Auto-generated from webhook
+          labels: |
+            blog-post
+            automated
