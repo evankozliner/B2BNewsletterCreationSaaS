@@ -3,6 +3,12 @@ name: Create Blog Post from Webhook
 on:
   repository_dispatch:
     types: [create-blog-post]
+  workflow_dispatch:
+    inputs:
+      webhook_json:
+        description: 'Webhook JSON payload (paste the entire webhook request)'
+        required: true
+        type: string
 
 jobs:
   create-post:
@@ -22,7 +28,7 @@ jobs:
       - name: Create blog post from webhook data
         id: create-post
         env:
-          WEBHOOK_PAYLOAD: ${{ toJson(github.event.client_payload) }}
+          WEBHOOK_PAYLOAD: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.webhook_json || toJson(github.event.client_payload) }}
         run: |
           chmod +x .github/scripts/create-blog-post.js
           node .github/scripts/create-blog-post.js
