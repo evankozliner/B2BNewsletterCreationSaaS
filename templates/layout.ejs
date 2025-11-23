@@ -129,7 +129,7 @@
     </script>
     <% } %>
 
-    <% if (frontmatter.seo && frontmatter.seo.breadcrumbs && frontmatter.seo.breadcrumbs.length > 0) { %>
+    <% if (frontmatter.seo && frontmatter.seo.breadcrumbs && frontmatter.seo.breadcrumbs.length > 0 && !(typeof isDarkPost !== 'undefined' && isDarkPost)) { %>
     <!-- Breadcrumb Schema -->
     <script type="application/ld+json">
     {
@@ -159,7 +159,7 @@
 <!-- End Google Tag Manager (noscript) -->
 <% } %>
 <%- include('partials/header', { baseUrl, showBlogLink }) %>
-    <% if (typeof isBlogPost !== 'undefined' && isBlogPost && typeof frontmatter !== 'undefined' && frontmatter && frontmatter.seo && frontmatter.seo.breadcrumbs) { %>
+    <% if (typeof isBlogPost !== 'undefined' && isBlogPost && typeof frontmatter !== 'undefined' && frontmatter && frontmatter.seo && frontmatter.seo.breadcrumbs && !(typeof isDarkPost !== 'undefined' && isDarkPost)) { %>
     <!-- Breadcrumb Navigation -->
     <nav aria-label="Breadcrumb">
         <% frontmatter.seo.breadcrumbs.forEach((crumb, index) => { %>

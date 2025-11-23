@@ -173,16 +173,31 @@ function addHeaderIds(htmlContent) {
     });
 }
 
+// Function to convert relative on-website paths to absolute paths
+function convertRelativeToAbsolutePaths(htmlContent) {
+    // Convert relative image paths (src="../something.svg" or src="../path/to/file.ext")
+    htmlContent = htmlContent.replace(/(<img[^>]+src=["'])\.\.\/([^"']+)(["'])/g, '$1/$2$3');
+
+    // Convert relative anchor paths (href="../something")
+    htmlContent = htmlContent.replace(/(<a[^>]+href=["'])\.\.\/([^"']+)(["'])/g, '$1/$2$3');
+
+    return htmlContent;
+}
+
 // Function to build a single post using EJS
 async function buildPost(markdownFile) {
     console.log(`Building ${markdownFile}...`);
-    
+
     const filePath = path.join(postsDir, markdownFile);
     const { frontmatter, content } = parseMarkdownFile(filePath);
-    
+
+    // Determine if this is a dark post
+    const isDarkPost = frontmatter.dark === true;
+
     // Generate HTML content from markdown
     let htmlContent = marked.parse(content);
     htmlContent = addHeaderIds(htmlContent);
+    htmlContent = convertRelativeToAbsolutePaths(htmlContent);
 
     // Generate table of contents
     const tableOfContents = generateTableOfContents(content, frontmatter.tocTitles || []);
@@ -193,27 +208,36 @@ async function buildPost(markdownFile) {
     ).join('');
     
     // Generate image HTML if exists
-    const imageHtml = frontmatter.image && frontmatter.image !== 'placeholder' 
+    const imageHtml = frontmatter.image && frontmatter.image !== 'placeholder'
         ? `<div class="post-image"><img src="${frontmatter.image}" alt="${frontmatter.title}" /></div>`
         : '';
-    
+
+    // Convert author avatar relative path to absolute
+    if (frontmatter.author && frontmatter.author.avatar && frontmatter.author.avatar.startsWith('../')) {
+        frontmatter.author.avatar = frontmatter.author.avatar.replace(/^\.\.\//, '/');
+    }
+
     // Prepare template data
+    // For dark posts, we need to adjust paths since they're in a subdirectory
+    const baseUrl = isDarkPost ? '../../' : '../';
+
     const templateData = {
         title: `${frontmatter.title}${frontmatter.date ? ` (${frontmatter.date} Case Study)` : ''} | Potions`,
         description: frontmatter.excerpt,
         keywords: frontmatter.keywords || 'Newsletter, Email Marketing, Marketing, Blog',
         author: 'Potions',
-        baseUrl: '../',
+        baseUrl: baseUrl,
         styleSheet: 'style.css',
         additionalCSS: ['blog/blog.css', 'blog/post.css'],
         showBlogLink: true,
         tracking: true,
         scripts: ['hamburger.js'],
-        canonicalUrl: `https://withpotions.com/blog/${frontmatter.slug}.html`,
+        canonicalUrl: `https://withpotions.com/blog/${isDarkPost ? 'articles/' : ''}${frontmatter.slug}.html`,
         navTargetPage: '/', // Normal page: nav points to homepage
         // SEO-specific data
         frontmatter: frontmatter, // Pass the entire frontmatter for SEO usage
         isBlogPost: true,
+        isDarkPost: isDarkPost, // Flag for dark posts
         body: `    <main class="post-main">
         <div class="post-container">
             <div class="post-sidebar">
@@ -239,7 +263,7 @@ async function buildPost(markdownFile) {
                         </div>
                         <div class="share-button">
                             <button id="share-btn">
-                                <img src="../share.svg" alt="Share" width="20" height="20">
+                                <img src="/share.svg" alt="Share" width="20" height="20">
                             </button>
                         </div>
                     </div>
@@ -271,7 +295,7 @@ async function buildPost(markdownFile) {
                     <div class="cta-card">
                         <div class="cta-content">
                             <div class="cta-logo">
-                                <img src="../potions-logo.svg" alt="Potions Logo">
+                                <img src="/potions-logo.svg" alt="Potions Logo">
                             </div>
                             <p>Confused about where to start? We can help. Get your first newsletter designed for you for free.</p>
                             <a href="https://dzlivd9t4eb.typeform.com/to/kMeO3tlp" class="cta-button">
@@ -338,9 +362,18 @@ async function buildPost(markdownFile) {
     // Render template
     const templatePath = path.join(templatesDir, 'layout.ejs');
     const html = await ejs.renderFile(templatePath, templateData);
-    
-    // Write HTML file
-    const outputPath = path.join(outputDir, `${frontmatter.slug}.html`);
+
+    // Write HTML file - dark posts go in articles/ subdirectory
+    let outputPath;
+    if (isDarkPost) {
+        const articlesDir = path.join(outputDir, 'articles');
+        if (!fs.existsSync(articlesDir)) {
+            fs.mkdirSync(articlesDir, { recursive: true });
+        }
+        outputPath = path.join(articlesDir, `${frontmatter.slug}.html`);
+    } else {
+        outputPath = path.join(outputDir, `${frontmatter.slug}.html`);
+    }
     fs.writeFileSync(outputPath, html);
     
     // Return frontmatter plus the raw markdown content for search
@@ -349,7 +382,10 @@ async function buildPost(markdownFile) {
 
 // Function to generate blog-data.js with post data only
 function generateBlogData(posts) {
-    const blogData = posts.map((post, index) => ({
+    // Filter out dark posts from the public blog listing
+    const publicPosts = posts.filter(post => !post.dark);
+
+    const blogData = publicPosts.map((post, index) => ({
         id: index + 1,
         title: post.title,
         slug: post.slug,
@@ -393,7 +429,8 @@ async function buildBlog() {
         try {
             const postData = await buildPost(file);
             posts.push(postData);
-            console.log(`✓ Built ${postData.slug}.html`);
+            const location = postData.dark ? 'articles/' : '';
+            console.log(`✓ Built ${location}${postData.slug}.html`);
         } catch (error) {
             console.error(`✗ Error building ${file}:`, error.message);
         }
