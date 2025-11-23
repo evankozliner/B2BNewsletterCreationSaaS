@@ -38,6 +38,8 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "Add blog post: ${{ steps.create-post.outputs.title }}"
+          committer: GitHub Actions <actions@github.com>
+          author: GitHub Actions <actions@github.com>
           branch: blog-post/${{ steps.create-post.outputs.slug }}
           delete-branch: true
           title: "New Blog Post: ${{ steps.create-post.outputs.title }}"
