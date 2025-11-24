@@ -25,7 +25,8 @@ The project has two main build scripts:
    - Uses `blog/build-blog.js` to generate blog posts
    - Converts Markdown files from `blog/posts/*.md` to HTML
    - Parses YAML frontmatter for metadata
-   - Generates `blog/{slug}.html` files
+   - Generates `blog/{slug}.html` files (or `blog/articles/{slug}.html` for dark posts)
+   - Dark posts (with `dark: true` in frontmatter) are built to `/blog/articles/` and excluded from blog listing
    - Also generates `blog/blog-data.js` for the blog index page
    - Uses the same `templates/layout.ejs` base layout
 
