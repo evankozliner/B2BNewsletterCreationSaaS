@@ -1,0 +1,281 @@
+import type { Metadata } from "next"
+import Link from "next/link"
+import { ArrowLeft } from "lucide-react"
+export const metadata: Metadata = {
+title: "Brand Kit | Starter Stack AI"
+,
+description: "Design system and brand guidelines for Starter Stack AI.
+"
+,
+}
+export default function BrandKitPage() {
+return (
+<div className="min-h-screen bg-white p-6 md:p-12 font-sans">
+<div className="max-w-6xl mx-auto">
+<div className="mb-12">
+<Link
+href="/"
+className="inline-flex items-center text-sm text-gray-500 hover:text-black mb-6 transition-colors"
+>
+<ArrowLeft className="w-4 h-4 mr-2" />
+Back to Home
+</Link>
+<h1 className="text-4xl md:text-5xl font-black font-figtree tracking-tight mb-4">Brand Kit</h1>
+<p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
+The visual language of <span className="font-bold text-black">Starter Stack AI</span>
+. Bold,
+technical, and
+direct. Designed to communicate speed and reliability.
+</p>
+</div>
+<div className="grid grid-cols-1 gap-16">
+{/* ========== COLOR PALETTE ========== */}
+<section id="colors">
+<div className="flex items-baseline justify-between border-b border-gray-200 pb-4 mb-8">
+<h2 className="text-2xl font-bold font-figtree">Color Palette</h2>
+<span className="text-sm font-mono text-gray-500">01</span>
+</div>
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+{/* Primary Color */}
+<div className="space-y-3">
+<div className="h-32 rounded-xl bg-[#c5e600] shadow-sm border border-gray-100 flex
+items-center justify-center">
+<span className="font-bold text-black/80">Primary Lime</span>
+</div>
+<div className="flex justify-between items-center">
+<span className="font-medium">Neon Lime</span>
+<code className="text-xs bg-gray-100 px-2 py-1 rounded">#c5e600</code>
+</div>
+<p className="text-sm text-gray-500">
+Used for primary actions, highlights, and borders to denote energy and speed.
+</p>
+</div>
+{/* Secondary/Black */}
+<div className="space-y-3">
+<div className="h-32 rounded-xl bg-black shadow-sm flex items-center justify-center">
+<span className="font-bold text-white">Black</span>
+</div>
+<div className="flex justify-between items-center">
+<span className="font-medium">Pure Black</span>
+<code className="text-xs bg-gray-100 px-2 py-1 rounded">#000000</code>
+</div>
+<p className="text-sm text-gray-500">Used for strong contrast, backgrounds, and primary
+text.
+</p>
+</div>
+{/* Surface/Gray */}
+<div className="space-y-3">
+<div className="h-32 rounded-xl bg-[#F5F5F5] shadow-sm flex items-center justify-center">
+<span className="font-bold text-gray-500">Surface Gray</span>
+</div>
+<div className="flex justify-between items-center">
+<span className="font-medium">Light Gray</span>
+<code className="text-xs bg-gray-100 px-2 py-1 rounded">#F5F5F5</code>
+</div>
+<p className="text-sm text-gray-500">
+Used for card backgrounds, secondary sections, and subtle separation.
+</p>
+</div>
+{/* Alert/Red */}
+<div className="space-y-3">
+<div className="h-32 rounded-xl bg-red-50 border border-red-100 flex items-center
+justify-center">
+<span className="font-bold text-red-800">Warning Red</span>
+</div>
+<div className="flex justify-between items-center">
+<span className="font-medium">Soft Red</span>
+<code className="text-xs bg-gray-100 px-2 py-1 rounded">bg-red-50</code>
+</div>
+<p className="text-sm text-gray-500">Used for the "Doing Nothing" column and warning
+states.
+</p>
+</div>
+</div>
+</section>
+{/* ========== TYPOGRAPHY ========== */}
+<section id="typography">
+<div className="flex items-baseline justify-between border-b border-gray-200 pb-4 mb-8">
+<h2 className="text-2xl font-bold font-figtree">Typography</h2>
+<span className="text-sm font-mono text-gray-500">02</span>
+</div>
+<div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+{/* Headings */}
+<div className="space-y-4">
+<div className="border-b border-gray-100 pb-2">
+<span className="text-xs font-mono text-gray-400 uppercase
+tracking-wider">Headings</span>
+</div>
+<div>
+<h3 className="text-4xl font-black font-figtree mb-2">Figtree</h3>
+<p className="text-gray-500 text-sm">
+A clean, geometric sans-serif used for headings to convey modern reliability.
+</p>
+</div>
+<div className="space-y-4">
+<div>
+<p className="text-sm text-gray-400 mb-1">H1 / Black</p>
+<p className="text-4xl font-black font-figtree">Speed Without Chaos.
+</p>
+</div>
+<div>
+<p className="text-sm text-gray-400 mb-1">H2 / Bold</p>
+<p className="text-2xl font-bold font-figtree">You Probably Tried One.
+</p>
+</div>
+</div>
+</div>
+{/* Body */}
+<div className="space-y-4">
+<div className="border-b border-gray-100 pb-2">
+<span className="text-xs font-mono text-gray-400 uppercase tracking-wider">Body
+Copy</span>
+</div>
+<div>
+<h3 className="text-4xl font-normal font-sans mb-2">Inter</h3>
+<p className="text-gray-500 text-sm">
+The standard for readability on screens. Neutral and versatile.
+</p>
+</div>
+<div className="space-y-4">
+<div>
+<p className="text-sm text-gray-400 mb-1">Body / Regular</p>
+<p className="text-base text-gray-600 font-sans leading-relaxed">
+Automation built for how you actually operate. Not SaaS that forces you to change. Not
+consulting
+that costs $200K.
+</p>
+</div>
+<div>
+<p className="text-sm text-gray-400 mb-1">Small / Medium</p>
+<p className="text-sm font-medium text-gray-500 font-sans">See the process in action</p>
+</div>
+</div>
+</div>
+{/* Monospace */}
+<div className="space-y-4">
+<div className="border-b border-gray-100 pb-2">
+<span className="text-xs font-mono text-gray-400 uppercase tracking-wider">Technical /
+Data</span>
+</div>
+<div>
+<h3 className="text-4xl font-normal font-mono mb-2">JetBrains Mono</h3>
+<p className="text-gray-500 text-sm">Used for code blocks, data points, and technical
+accents.
+</p>
+</div>
+<div className="space-y-4">
+<div className="bg-gray-50 p-3 rounded-md border border-gray-100">
+<p className="font-mono text-sm text-gray-800">npm install starter-stack-ai</p>
+</div>
+<div>
+<p className="font-mono text-xs text-gray-500">v1.0.4 • Latest Build</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+{/* ========== UI COMPONENTS ========== */}
+<section id="components">
+<div className="flex items-baseline justify-between border-b border-gray-200 pb-4 mb-8">
+<h2 className="text-2xl font-bold font-figtree">UI Components</h2>
+<span className="text-sm font-mono text-gray-500">03</span>
+</div>
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+{/* Buttons */}
+<div className="space-y-6">
+<h3 className="text-lg font-bold font-figtree">Buttons</h3>
+<div className="flex flex-wrap gap-4 items-center p-8 bg-gray-50 rounded-xl border
+border-gray-100">
+<button className="inline-flex items-center justify-center gap-2 whitespace-nowrap
+rounded-md h-10 px-6 font-medium bg-[#c5e600] text-black hover:opacity-90 transition-opacity">
+<span className="font-figtree">Primary Action</span>
+</button>
+<button className="inline-flex items-center justify-center gap-2 whitespace-nowrap
+rounded-md border border-gray-200 shadow-sm h-10 px-6 font-medium bg-white text-black
+hover:bg-gray-50 transition-colors">
+<span className="font-figtree">Secondary Action</span>
+</button>
+<button className="text-sm font-medium underline underline-offset-4 hover:text-[#c5e600]
+transition-colors">
+Text Link
+</button>
+</div>
+</div>
+{/* Cards & Borders */}
+<div className="space-y-6">
+<h3 className="text-lg font-bold font-figtree">Structure & Borders</h3>
+<div className="p-6 border border-dashed border-gray-300 rounded-lg relative">
+<div className="absolute top-0 -left-1 w-2 border-t border-gray-300"></div>
+<div className="absolute top-0 -right-1 w-2 border-t border-gray-300"></div>
+<div className="absolute bottom-0 -left-1 w-2 border-b border-gray-300"></div>
+<div className="absolute bottom-0 -right-1 w-2 border-b border-gray-300"></div>
+<h4 className="font-bold font-mono text-sm mb-2">Dashed Container</h4>
+<p className="text-sm text-gray-600 mb-4">
+Used for comparison tables and technical groupings. Represents modularity.
+</p>
+<div className="bg-[#c5e600]/10 border border-[#c5e600] p-4 rounded text-sm
+text-gray-800">
+<span className="font-bold block mb-1">Highlight Box</span>
+Used for emphasizing key features or active states.
+</div>
+</div>
+</div>
+</div>
+</section>
+{/* ========== VOICE & TONE ========== */}
+<section id="voice">
+<div className="flex items-baseline justify-between border-b border-gray-200 pb-4 mb-8">
+<h2 className="text-2xl font-bold font-figtree">Voice & Tone</h2>
+<span className="text-sm font-mono text-gray-500">04</span>
+</div>
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div className="p-6 bg-gray-50 rounded-xl">
+<div className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center
+mb-4 font-bold">
+1
+</div>
+<h3 className="font-bold mb-2">Direct & Honest</h3>
+<p className="text-sm text-gray-600">
+We don't use fluff. We state the problem and the solution clearly.
+</p>
+<div className="mt-4 text-xs bg-white p-3 rounded border border-gray-200">
+<span className="text-green-600 font-bold block mb-1">Do:</span>
+"You probably tried one. It didn't work.
+"
+</div>
+</div>
+<div className="p-6 bg-gray-50 rounded-xl">
+<div className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center
+mb-4 font-bold">
+2
+</div>
+<h3 className="font-bold mb-2">Technical but Accessible</h3>
+<p className="text-sm text-gray-600">We speak to operations leaders who understand their
+process.
+</p>
+<div className="mt-4 text-xs bg-white p-3 rounded border border-gray-200">
+<span className="text-green-600 font-bold block mb-1">Do:</span>
+"Manual underwriting, siloed teams, lost deals.
+"
+</div>
+</div>
+<div className="p-6 bg-gray-50 rounded-xl">
+<div className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center
+mb-4 font-bold">
+3
+</div>
+<h3 className="font-bold mb-2">Confident</h3>
+<p className="text-sm text-gray-600">We know our solution works and we back it with
+data.
+</p>
+<div className="mt-4 text-xs bg-white p-3 rounded border border-gray-200">
+<span className="text-green-600 font-bold block mb-1">Do:</span>
+"We deploy a working system. Real loans flow through it.
+"
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>

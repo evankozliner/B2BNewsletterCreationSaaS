@@ -158,7 +158,9 @@
 <!--height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>-->
 <!-- End Google Tag Manager (noscript) -->
 <% } %>
+<% if (typeof hideHeaderFooter === 'undefined' || !hideHeaderFooter) { %>
 <%- include('partials/header', { baseUrl, showBlogLink }) %>
+<% } %>
     <% if (typeof isBlogPost !== 'undefined' && isBlogPost && typeof frontmatter !== 'undefined' && frontmatter && frontmatter.seo && frontmatter.seo.breadcrumbs && !(typeof isDarkPost !== 'undefined' && isDarkPost)) { %>
     <!-- Breadcrumb Navigation -->
     <nav aria-label="Breadcrumb">
@@ -173,7 +175,9 @@
     </nav>
     <% } %>
     <%- body %>
+<% if (typeof hideHeaderFooter === 'undefined' || !hideHeaderFooter) { %>
 <%- include('partials/footer', { baseUrl }) %>
+<% } %>
 
     <% if (scripts && scripts.length > 0) { %>
         <% scripts.forEach(script => { %>

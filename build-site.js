@@ -253,7 +253,8 @@ const pages = [
             tracking: true,
             scripts: ['faq.js', 'hamburger.js'],
             canonicalUrl: 'https://withpotions.com/book.html',
-            navTargetPage: '' // Marketing page: nav stays within this page
+            navTargetPage: '', // Marketing page: nav stays within this page
+            hideHeaderFooter: true
         }
     }
 ];
