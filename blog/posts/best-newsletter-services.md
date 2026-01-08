@@ -112,15 +112,15 @@ You'll even get monthly reports showing your warmest leads so you know precisely
 
 This hybrid of automation and human craftsmanship means you get high-quality newsletters at software-level pricing without adding more work to your calendar.
 
-| Pros | Cons |
-|------|------|
-| Far cheaper than letting your business's lead list go cold and losing touch with them | Not for media companies that want to produce their own original content |
-| All-in-one solution: platform + writing + design + deliverability | Not a fit if your newsletter is your main business and primary revenue driver |
-| Consistent, high-quality newsletters written in your brand's voice | Not ideal for users seeking the cheapest or free newsletter option |
-| Saves 80–95% of the time you'd spend doing it yourself | |
-| Reports show your most engaged leads for easy sales follow-up | |
-| Highly affordable alternative to hiring an agency or a team of freelancers (only starts at $129/month paid annually) | |
-| Potions will help you choose and run the newsletter platform that fits your unique needs | |
+| Pros                                                                                                                 | Cons |
+|----------------------------------------------------------------------------------------------------------------------|------|
+| Far cheaper than letting your business's lead list go cold and losing touch with them                                | Not for media companies that want to produce their own original content |
+| All-in-one solution: platform + writing + design + deliverability                                                    | Not a fit if your newsletter is your main business and primary revenue driver |
+| Consistent, high-quality newsletters written in your brand's voice                                                   | Not ideal for users seeking the cheapest or free newsletter option |
+| Saves 80–95% of the time you'd spend doing it yourself                                                               | |
+| Reports show your most engaged leads for easy sales follow-up                                                        | |
+| Highly affordable alternative to hiring an agency or a team of freelancers (only starts at $149/month paid annually) | |
+| Potions will help you choose and run the newsletter platform that fits your unique needs                             | |
 
 ### Key Features
 
