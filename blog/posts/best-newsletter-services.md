@@ -143,7 +143,7 @@ This hybrid of automation and human craftsmanship means you get high-quality new
 
 Potions offers flexible, affordable plans for weekly newsletters that scale with your audience.
 
-The Starter plan starts at $129/month (paid annually) and offers custom banner and newsletter design. Higher tiers add features like lead enrichment, strategy calls, and managed list growth. Plans increase in price and features based on subscriber volume and growth needs.
+The Starter plan starts at $149/month (paid annually) and offers custom banner and newsletter design. Higher tiers add features like lead enrichment, strategy calls, and managed list growth. Plans increase in price and features based on subscriber volume and growth needs.
 
 Try out Potions with a [free sample newsletter](https://dzlivd9t4eb.typeform.com/to/kMeO3tlp). Annual plans discounts are available.
 
