@@ -3,9 +3,9 @@ title: "Sample Article Title for Testing"
 slug: "sample-article-title-for-testing"
 excerpt: "A sample article for testing webhook integration with Outrank"
 date: "November '25"
-datePublished: "2025-11-22"
-dateModified: "November 22, 2025"
-tags: ["test", "webhook", "integration", "outrank"]
+datePublished: "2025-11-23"
+dateModified: "November 23, 2025"
+tags: ["test","webhook","integration","outrank"]
 image: "https://via.placeholder.com/800x600/4F46E5/FFFFFF?text=Test+Article+Image"
 keywords: "test, webhook, integration, outrank"
 dark: true
@@ -18,7 +18,7 @@ author:
 seo:
   ogImage: "https://via.placeholder.com/800x600/4F46E5/FFFFFF?text=Test+Article+Image"
   twitterImage: "https://via.placeholder.com/800x600/4F46E5/FFFFFF?text=Test+Article+Image"
-  articleSection: "Test"
+  articleSection: "AI Generated"
 ---
 
 # Sample Article
