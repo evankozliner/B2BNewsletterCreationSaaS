@@ -555,10 +555,16 @@ document.addEventListener('DOMContentLoaded', function() {
           console.log('Meta Pixel Lead event fired');
         }
 
-        // Optional: Redirect to thank you page after a short delay
-        // setTimeout(function() {
-        //   window.location.href = '/thank-you.html';
-        // }, 1000);
+        // Redirect to almost-done page after a short delay
+        setTimeout(function() {
+          // Preserve UTM parameters in redirect
+          var currentParams = new URLSearchParams(window.location.search);
+          var redirectUrl = '/almost-done.html';
+          if (currentParams.toString()) {
+            redirectUrl += '?' + currentParams.toString();
+          }
+          window.location.href = redirectUrl;
+        }, 1000);
       }
     }
   });

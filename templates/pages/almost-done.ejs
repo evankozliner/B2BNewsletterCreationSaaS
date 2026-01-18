@@ -1,0 +1,493 @@
+<style>
+  /* Page-specific styles for almost-done page */
+  .almost-done-hero {
+    text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 1em;
+  }
+
+  .almost-done-hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 0.2em;
+    color: #333;
+    font-weight: 400;
+  }
+
+  .almost-done-hero h1 .highlight {
+    color: #5D5DED;
+    font-weight: 500;
+  }
+
+  .almost-done-hero .subheadline {
+    font-size: 1.8em;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 1.5em;
+    font-weight: 400;
+  }
+
+  .success-checkmark {
+    font-size: 4em;
+    color: #5D5DED;
+    margin-bottom: 0.2em;
+  }
+
+  /* Steps section */
+  .steps-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 40px;
+  }
+
+  .steps-intro {
+    text-align: center;
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 40px;
+  }
+
+  .step-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .step-number {
+    display: inline;
+    position: static;
+    background: none;
+    color: #4285F4;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    font-weight: 700;
+    font-size: 2em;
+    margin-right: 0.2em;
+  }
+
+  .step-content {
+    margin-top: 0;
+  }
+
+  .step-content h3 {
+    font-size: 2.2em;
+    margin-bottom: 1em;
+    color: #333;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+
+  .step-content h3 .step-number-inline {
+    color: #5D5DED;
+    font-weight: 700;
+  }
+
+  .step-content p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .step-image {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .step-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0;
+    box-shadow: none;
+    border: 1px solid #e0e0e0;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+  }
+
+  .faq-section h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    color: #333;
+  }
+
+  .faq-intro {
+    text-align: center;
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 40px;
+  }
+
+  .faq-item {
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .faq-question {
+    background: #f9f9f9;
+    padding: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.15em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .faq-question:hover {
+    background: #f0f0f0;
+  }
+
+  .faq-arrow {
+    transition: transform 0.3s ease;
+    font-size: 1.2em;
+    color: #5D5DED;
+  }
+
+  .faq-item.active .faq-arrow {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 20px;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 1000px;
+    padding: 20px;
+  }
+
+  .faq-answer p {
+    margin: 0 0 1em 0;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  .faq-answer p:last-child {
+    margin-bottom: 0;
+  }
+
+  .faq-answer ul {
+    margin: 0.5em 0;
+    padding-left: 20px;
+  }
+
+  .faq-answer li {
+    margin-bottom: 0.5em;
+    color: #555;
+  }
+
+  /* Footer CTA */
+  .footer-cta {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
+    margin-top: 60px;
+  }
+
+  .footer-cta h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 0.5em;
+  }
+
+  .footer-cta p {
+    font-size: 1.2em;
+    color: #666;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .almost-done-hero {
+      padding: 40px 20px 30px;
+    }
+
+    .almost-done-hero h1 {
+      font-size: 2em;
+    }
+
+    .steps-section {
+      padding: 0 20px;
+      margin: 40px auto;
+    }
+
+    .step-content h3 {
+      font-size: 1.5em;
+    }
+
+    .step-card {
+      padding: 25px 25px;
+      margin-bottom: 30px;
+    }
+
+    .faq-section h2 {
+      font-size: 2em;
+    }
+  }
+</style>
+
+<main>
+  <!-- Hero Section -->
+  <section class="almost-done-hero">
+    <h1><span class="highlight">Almost Done:</span> Follow The Steps Below to Confirm Your Call Event!</h1>
+  </section>
+
+  <!-- Steps Section -->
+  <section class="steps-section">
+    <!-- Step 1 -->
+    <div class="step-card">
+      <div class="step-content">
+        <h3><span class="step-number-inline">#1:</span> Press the "I Know Sender" button in your event email we just sent you!</h3>
+        <div class="step-image">
+          <img src="<%= baseUrl %>calendar-event-button-example.png" alt="Example of calendar email with 'I know the sender' button highlighted" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-card">
+      <div class="step-content">
+        <h3><span class="step-number-inline">#2:</span> Read these FAQs for answers to the most common questions:</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <h2>Got questions?</h2>
+    <p class="faq-intro">Here's everything you need to know before our call.</p>
+
+    <div class="faq-container">
+      <!-- FAQ 1 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What kind of results can I expect?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Most clients see 5+ warm leads per week from their newsletter within the first month. Open rates average 42%, click-through rates around 5%. If you're in a niche B2B space, expect fewer leads but <strong>much</strong> higher quality—think decision-makers who actually want to talk to you. Results depend on your list size, audience fit, and how we position your offer together.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How fast can we get onboarded?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>We can have your first newsletter drafted within 7 days of onboarding. Here's the typical timeline:</p>
+          <ul>
+            <li><strong>Day 1–3:</strong> Onboarding call, brand review, template design</li>
+            <li><strong>Day 4–6:</strong> First draft for your approval</li>
+            <li><strong>Day 7:</strong> Send (or schedule for your preferred cadence)</li>
+          </ul>
+          <p>If you're in a rush, we can compress this to 3–5 days.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I get started right away?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. Once you sign up, we'll schedule your onboarding call within 24–48 hours. If you already have a list and branding assets ready, we can start writing immediately after the call.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Is this worth the investment?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Let's do the math: If your average customer is worth $5,000 and you get just 2 new clients from your newsletter in the first 3 months, that's $10,000 in revenue for a $447–$1,485 investment (3 months of Starter). Most clients see ROI in the first 60 days. Plus, you're saving 10+ hours a month you'd otherwise spend writing and designing emails yourself.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How do you compare to your competitors?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Most agencies charge $2,000–$5,000/month for newsletter management. DIY tools like Beehiiv or ConvertKit require <em>you</em> to write, design, and strategize—that's 10–20 hours a month. Potions gives you agency-quality newsletters for 1/10th the price, and you only spend 15 minutes a week reviewing drafts. We're the only service that combines AI + human editors + deliverability management at this price point.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 6 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Will your emails actually reach the inbox?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. We handle:</p>
+          <ul>
+            <li><strong>Deliverability best practices</strong> (SPF, DKIM, DMARC setup)</li>
+            <li><strong>List hygiene</strong> (removing bounces, inactive subscribers)</li>
+            <li><strong>Content optimization</strong> (avoiding spam triggers)</li>
+          </ul>
+          <p>Our average inbox placement rate is 95%+. If you're currently landing in spam, we'll diagnose and fix it during onboarding.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 7 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What's the commitment?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Month-to-month. No long-term contracts. You can cancel anytime with 7 days' notice (so we don't start work on a newsletter you won't use). Most clients stay for 6+ months because the ROI is undeniable, but we don't lock you in.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 8 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I cancel?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Absolutely. Just give us 7 days' notice before your next billing cycle. No questions asked, no cancellation fees. We'll even export your list and templates so you can take everything with you.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 9 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What support do I get?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>All plans include:</p>
+          <ul>
+            <li><strong>Dedicated Slack channel</strong> with our team (response time: usually under 2 hours)</li>
+            <li><strong>24-hour support SLA</strong> for urgent issues</li>
+            <li><strong>Strategy calls</strong> (frequency depends on your plan)</li>
+          </ul>
+          <p>You're never talking to a chatbot or waiting 3 days for an email reply. We're in this with you.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 10 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Is this too technical for me?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Nope. We handle all the technical stuff—email platform setup, DNS records, integrations, design, coding, deliverability. All you do is:</p>
+          <ul>
+            <li>Give us access to your email platform (or we'll set one up for you)</li>
+            <li>Review drafts (15 min/week)</li>
+            <li>Approve or request edits</li>
+          </ul>
+          <p>If you can use Slack and click "approve," you're good.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 11 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What do I need to get started?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Just 3 things:</p>
+          <ul>
+            <li><strong>Your branding</strong> (logo, colors, any existing content)</li>
+            <li><strong>Your email list</strong> (even if it's just 50 people—we can help you grow)</li>
+            <li><strong>30 minutes</strong> for an onboarding call</li>
+          </ul>
+          <p>Don't have a list yet? We'll help you build one. Don't have branding assets? We'll create them. We make this stupid-easy.</p>
+        </div>
+      </div>
+
+      <!-- FAQ 12 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Who are we / Can you trust us?</span>
+          <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Potions sends 100,000+ newsletter emails every week for B2B SaaS companies, agencies, consultants, and small businesses. Our clients include CEOs at Notice (Me)dia, Stat Digital, and Roz (Compliance). We've helped clients generate 5-figure deals, 12% traffic lifts, and save 30+ hours a month. You'll talk to real humans (not outsourced VAs), and we're obsessive about quality. Check our testimonials or ask us for references on the call.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer CTA -->
+  <section class="footer-cta">
+    <h2>See you on the call!</h2>
+    <p>We're excited to help you scale with newsletters. Check your inbox for the calendar invite.</p>
+  </section>
+</main>
+
+<!-- FAQ Accordion Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+
+      question.addEventListener('click', function() {
+        // Close all other items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+          }
+        });
+
+        // Toggle current item
+        item.classList.toggle('active');
+      });
+    });
+  });
+</script>
+
+<!-- UTM Parameter Preservation -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const trackingParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid', 'ref'];
+
+    const filteredParams = new URLSearchParams();
+    trackingParams.forEach(param => {
+      if (urlParams.has(param)) {
+        filteredParams.set(param, urlParams.get(param));
+      }
+    });
+
+    if ([...filteredParams].length > 0) {
+      document.querySelectorAll('a[href*="typeform.com"]').forEach(link => {
+        const originalUrl = new URL(link.href);
+        filteredParams.forEach((value, key) => {
+          originalUrl.searchParams.set(key, value);
+        });
+        link.href = originalUrl.toString();
+      });
+    }
+  });
+</script>

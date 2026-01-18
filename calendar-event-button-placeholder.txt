@@ -1,0 +1,22 @@
+PLACEHOLDER IMAGE NEEDED:
+========================
+
+Filename: calendar-event-button-example.png
+
+What to create:
+- Screenshot of a calendar email invite (Gmail or Outlook)
+- Show the calendar event details
+- Highlight/circle/arrow pointing to the "Yes/I know the sender" button
+- Or show where users should click to confirm the event
+
+Recommended dimensions: 600-800px wide
+Format: PNG or JPG
+Location: Root directory of site (same folder as almost-done.html)
+
+For now, you can:
+1. Take a screenshot of a real calendar invite you send
+2. Add an arrow or circle highlighting the confirmation button
+3. Save as calendar-event-button-example.png
+4. Replace the current placeholder
+
+Until then, the image will show as broken on almost-done.html

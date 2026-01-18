@@ -256,6 +256,26 @@ const pages = [
             navTargetPage: '', // Marketing page: nav stays within this page
             hideHeaderFooter: true
         }
+    },
+    {
+        name: 'almost-done',
+        template: 'pages/almost-done.ejs',
+        output: 'almost-done.html',
+        data: {
+            title: 'Almost Done - Potions',
+            description: 'Your call is booked! Follow these steps to confirm your event.',
+            keywords: 'Potions, Newsletter, Confirmation, Almost Done',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: true,
+            scripts: [],
+            canonicalUrl: 'https://withpotions.com/almost-done.html',
+            navTargetPage: '/', // Normal page: nav points to homepage
+            hideHeaderFooter: true
+        }
     }
 ];
 
