@@ -1,0 +1,15 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="playfulGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B9D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FEC163;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#playfulGrad)"/>
+  <circle cx="80" cy="80" r="30" fill="#fff" opacity="0.8"/>
+  <circle cx="320" cy="100" r="40" fill="#fff" opacity="0.6"/>
+  <rect x="40" y="140" width="320" height="30" fill="#fff" rx="15" opacity="0.9"/>
+  <rect x="60" y="190" width="120" height="60" fill="#fff" rx="8" opacity="0.9"/>
+  <rect x="220" y="190" width="120" height="60" fill="#fff" rx="8" opacity="0.9"/>
+  <text x="200" y="280" font-family="Arial" font-size="14" fill="#fff" text-anchor="middle" font-weight="bold">Playful Design</text>
+</svg>
