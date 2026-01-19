@@ -8,6 +8,7 @@ class OnboardingApp {
     this.stateManager = new StateManager();
     this.voiceHandler = new VoiceInputHandler();
     this.topicChipsManager = null;
+    this.channelChipsManager = null;
     this.apiAdapter = new RecommendationsAdapter();
     this.zapierWebhookUrl = 'https://hooks.zapier.com/hooks/catch/23601498/uqofiji/';
 
@@ -59,6 +60,7 @@ class OnboardingApp {
     console.log('Initializing onboarding app...');
 
     // Initialize components
+    this.initializeCoverPage();
     this.initializeStep0();
     this.initializeVoiceInputs();
     this.initializeStep1();
@@ -67,6 +69,7 @@ class OnboardingApp {
     this.initializeStep4();
     this.initializeStep5();
     this.initializeStep6();
+    this.initializeThankYou();
 
     // Restore state from session
     this.stateManager.restoreInputs();
@@ -77,6 +80,32 @@ class OnboardingApp {
     });
 
     console.log('Onboarding app initialized');
+  }
+
+  /**
+   * Initialize Cover Page
+   */
+  initializeCoverPage() {
+    const startBtn = document.getElementById('btn-start');
+    const coverPage = document.getElementById('cover-page');
+    const progressBar = document.querySelector('.progress-bar-container');
+
+    if (startBtn) {
+      startBtn.addEventListener('click', () => {
+        // Hide cover page
+        if (coverPage) {
+          coverPage.style.display = 'none';
+        }
+
+        // Show progress bar
+        if (progressBar) {
+          progressBar.style.display = 'block';
+        }
+
+        // Go to step 0
+        this.stateManager.goToStep(0);
+      });
+    }
   }
 
   /**
@@ -96,7 +125,7 @@ class OnboardingApp {
     };
 
     emailInput.addEventListener('input', () => {
-      this.stateManager.updateField('email', emailInput.value);
+      this.stateManager.updateField('email', emailInput.value.trim());
       validateStep0();
     });
 
@@ -247,11 +276,14 @@ class OnboardingApp {
 
     // Listen for topic selection changes
     document.addEventListener('topicsChanged', (e) => {
-      const topics = e.detail.topics;
-      this.stateManager.updateField('topics', topics);
+      // Only handle if we're on Step 3
+      if (this.stateManager.currentStep === 3) {
+        const topics = e.detail.topics;
+        this.stateManager.updateField('topics', topics);
 
-      if (nextBtn) {
-        nextBtn.disabled = topics.length === 0;
+        if (nextBtn) {
+          nextBtn.disabled = topics.length === 0;
+        }
       }
     });
 
@@ -309,12 +341,41 @@ class OnboardingApp {
     const nextBtn = document.getElementById('step4-next');
     const checkboxes = document.querySelectorAll('input[name="content-source"]');
     const urlInputs = document.querySelectorAll('.source-url-input');
+    const noneCheckbox = document.querySelector('input[name="content-source"][value="none"]');
+
+    // Update button state based on selections
+    const updateButtonState = () => {
+      const hasSelection = Array.from(checkboxes).some(cb => cb.checked);
+      if (nextBtn) {
+        nextBtn.disabled = !hasSelection;
+      }
+    };
 
     // Handle checkbox changes - enable/disable URL input
     checkboxes.forEach(checkbox => {
       checkbox.addEventListener('change', () => {
         const source = checkbox.value;
         const urlInput = document.querySelector(`.source-url-input[data-source="${source}"]`);
+
+        // If "none" is selected, uncheck all others
+        if (source === 'none' && checkbox.checked) {
+          checkboxes.forEach(cb => {
+            if (cb.value !== 'none') {
+              cb.checked = false;
+              const otherUrlInput = document.querySelector(`.source-url-input[data-source="${cb.value}"]`);
+              if (otherUrlInput) {
+                otherUrlInput.disabled = true;
+                otherUrlInput.value = '';
+              }
+            }
+          });
+        }
+        // If any other checkbox is selected, uncheck "none"
+        else if (source !== 'none' && checkbox.checked) {
+          if (noneCheckbox) {
+            noneCheckbox.checked = false;
+          }
+        }
 
         if (urlInput) {
           urlInput.disabled = !checkbox.checked;
@@ -325,6 +386,7 @@ class OnboardingApp {
         }
 
         this.updateContentSources();
+        updateButtonState();
       });
     });
 
@@ -340,15 +402,25 @@ class OnboardingApp {
     if (savedSources && Object.keys(savedSources).length > 0) {
       Object.keys(savedSources).forEach(source => {
         const checkbox = document.querySelector(`input[name="content-source"][value="${source}"]`);
-        const urlInput = document.querySelector(`.source-url-input[data-source="${source}"]`);
 
-        if (checkbox && urlInput && savedSources[source]) {
-          checkbox.checked = true;
-          urlInput.disabled = false;
-          urlInput.value = savedSources[source];
+        if (source === 'none') {
+          // Special handling for "none" - just check it
+          if (checkbox) {
+            checkbox.checked = true;
+          }
+        } else {
+          const urlInput = document.querySelector(`.source-url-input[data-source="${source}"]`);
+          if (checkbox && urlInput && savedSources[source]) {
+            checkbox.checked = true;
+            urlInput.disabled = false;
+            urlInput.value = savedSources[source];
+          }
         }
       });
     }
+
+    // Initial button state
+    updateButtonState();
 
     // Navigation
     if (backBtn) {
@@ -374,10 +446,15 @@ class OnboardingApp {
 
     checkboxes.forEach(checkbox => {
       const source = checkbox.value;
-      const urlInput = document.querySelector(`.source-url-input[data-source="${source}"]`);
 
-      if (urlInput && urlInput.value.trim()) {
-        contentSources[source] = urlInput.value.trim();
+      // Handle "none" option specially - no URL needed
+      if (source === 'none') {
+        contentSources[source] = 'true';
+      } else {
+        const urlInput = document.querySelector(`.source-url-input[data-source="${source}"]`);
+        if (urlInput && urlInput.value.trim()) {
+          contentSources[source] = urlInput.value.trim();
+        }
       }
     });
 
@@ -430,26 +507,94 @@ class OnboardingApp {
   }
 
   /**
-   * Initialize Step 6: Revenue Strategy
+   * Initialize Step 6: Acquisition Channels
    */
   initializeStep6() {
     const backBtn = document.getElementById('step6-back');
     const submitBtn = document.getElementById('step6-submit');
-    const acquisitionCheckboxes = document.querySelectorAll('input[name="acquisition"]');
+    const addChannelBtn = document.getElementById('add-channel-btn');
+    const customChannelInput = document.getElementById('custom-channel-input');
     const notesTextarea = document.getElementById('acquisition-notes');
 
-    // Handle acquisition channel changes
-    const updateAcquisitionChannels = () => {
-      const selected = Array.from(acquisitionCheckboxes)
-        .filter(cb => cb.checked)
-        .map(cb => cb.value);
+    // Initialize channel chips manager (no max limit for channels)
+    this.channelChipsManager = new TopicChipsManager('#channel-cloud', 999, 'selected-channels-summary');
 
-      this.stateManager.updateField('acquisitionChannels', selected);
+    // Set common acquisition channels
+    const commonChannels = [
+      { id: 'meta-ads', label: 'Meta ads' },
+      { id: 'google-ads', label: 'Google ads' },
+      { id: 'cold-email', label: 'Cold email' },
+      { id: 'referrals', label: 'Referrals' },
+      { id: 'seo', label: 'SEO' },
+      { id: 'content-marketing', label: 'Content marketing' },
+      { id: 'linkedin-outreach', label: 'LinkedIn outreach' },
+      { id: 'events', label: 'Events' },
+      { id: 'partnerships', label: 'Partnerships' },
+      { id: 'webinars', label: 'Webinars' },
+      { id: 'cold-calling', label: 'Cold calling' },
+      { id: 'direct-mail', label: 'Direct mail' }
+    ];
+
+    this.channelChipsManager.setSuggestedTopics(commonChannels);
+
+    // Restore selected channels if any and set initial button state
+    const savedChannels = this.stateManager.getField('acquisitionChannels');
+    if (savedChannels && savedChannels.length > 0) {
+      this.channelChipsManager.setSelectedTopics(savedChannels);
+    }
+
+    // Initial validation - disable submit if no channels selected
+    if (submitBtn) {
+      submitBtn.disabled = !savedChannels || savedChannels.length === 0;
+    }
+
+    // Listen for channel selection changes
+    // Note: TopicChipsManager emits 'topicsChanged' event
+    // This will be called for both Step 3 (topics) and Step 6 (channels) changes
+    // We only update acquisitionChannels when on Step 6
+    const channelChangeHandler = (e) => {
+      // Only handle if we're on Step 6
+      if (this.stateManager.currentStep === 6) {
+        const channels = e.detail.topics;
+        this.stateManager.updateField('acquisitionChannels', channels);
+
+        // Enable/disable submit button based on selection
+        if (submitBtn) {
+          submitBtn.disabled = channels.length === 0;
+        }
+      }
     };
 
-    acquisitionCheckboxes.forEach(checkbox => {
-      checkbox.addEventListener('change', updateAcquisitionChannels);
-    });
+    document.addEventListener('topicsChanged', channelChangeHandler);
+
+    // Add custom channel
+    if (addChannelBtn && customChannelInput) {
+      const addCustomChannel = () => {
+        const value = customChannelInput.value.trim();
+        if (value) {
+          const result = this.channelChipsManager.addCustomTopic(value);
+          if (result.success) {
+            customChannelInput.value = '';
+          } else {
+            alert(result.error);
+          }
+        }
+      };
+
+      addChannelBtn.addEventListener('click', addCustomChannel);
+
+      customChannelInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          addCustomChannel();
+        }
+      });
+
+      // Enable/disable add button based on input
+      customChannelInput.addEventListener('input', () => {
+        addChannelBtn.disabled = customChannelInput.value.trim().length === 0;
+      });
+    }
 
     // Handle notes
     if (notesTextarea) {
@@ -655,6 +800,83 @@ class OnboardingApp {
     item.appendChild(list);
 
     container.appendChild(item);
+  }
+
+  /**
+   * Initialize Thank You page
+   */
+  initializeThankYou() {
+    const startOverBtn = document.getElementById('btn-start-over');
+
+    if (startOverBtn) {
+      startOverBtn.addEventListener('click', () => {
+        if (confirm('Are you sure you want to start over? This will clear all your responses.')) {
+          this.startOver();
+        }
+      });
+    }
+  }
+
+  /**
+   * Start over - clear state and go back to cover page
+   */
+  startOver() {
+    // Clear all state
+    this.stateManager.clearState();
+
+    // Reset managers
+    if (this.topicChipsManager) {
+      this.topicChipsManager.clearSelections();
+    }
+    if (this.channelChipsManager) {
+      this.channelChipsManager.clearSelections();
+    }
+
+    // Clear all form inputs
+    const emailInput = document.getElementById('email-input');
+    const icpInput = document.getElementById('icp-input');
+    const goalInput = document.getElementById('goal-input');
+    const notesInput = document.getElementById('acquisition-notes');
+
+    if (emailInput) emailInput.value = '';
+    if (icpInput) icpInput.value = '';
+    if (goalInput) goalInput.value = '';
+    if (notesInput) notesInput.value = '';
+
+    // Clear content sources
+    const sourceCheckboxes = document.querySelectorAll('input[name="content-source"]');
+    const sourceInputs = document.querySelectorAll('.source-url-input');
+
+    sourceCheckboxes.forEach(cb => cb.checked = false);
+    sourceInputs.forEach(input => {
+      input.value = '';
+      input.disabled = true;
+    });
+
+    // Clear design selection
+    const designRadios = document.querySelectorAll('input[name="design"]');
+    designRadios.forEach(radio => radio.checked = false);
+
+    // Hide all steps and thank you page
+    const allSteps = document.querySelectorAll('.onboarding-step');
+    allSteps.forEach(step => {
+      step.style.display = 'none';
+    });
+
+    // Show cover page
+    const coverPage = document.getElementById('cover-page');
+    if (coverPage) {
+      coverPage.style.display = 'block';
+    }
+
+    // Hide progress bar
+    const progressBarContainer = document.querySelector('.progress-bar-container');
+    if (progressBarContainer) {
+      progressBarContainer.style.display = 'none';
+    }
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   /**

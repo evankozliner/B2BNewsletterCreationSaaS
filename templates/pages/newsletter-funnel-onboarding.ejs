@@ -3,15 +3,46 @@
   <div class="onboarding-container">
 
     <!-- Progress Indicator -->
-    <div class="progress-bar-container">
+    <div class="progress-bar-container" style="display: none;">
       <div class="progress-bar">
         <div class="progress-fill" id="progressFill"></div>
       </div>
       <div class="progress-text" id="progressText">Step 1 of 7</div>
     </div>
 
+    <!-- Cover Page -->
+    <div class="onboarding-step cover-page" id="cover-page">
+      <div class="step-content">
+        <a href="https://withpotions.com" class="cover-logo-link" target="_blank" rel="noopener">
+          <img src="https://withpotions.com/potions-logo.svg" alt="Potions Logo" class="cover-logo" />
+        </a>
+
+        <h1 class="cover-title">Get Your Free Custom Newsletter Funnel</h1>
+
+        <p class="cover-subtitle">We've got some final questions to begin building your free newsletter funnel!</p>
+
+        <div class="cover-meta">
+          <span class="time-estimate">⏱️ Takes about 5 minutes</span>
+        </div>
+
+        <button class="btn-start" id="btn-start">Get Started</button>
+
+        <div class="cover-resources">
+          <p class="cover-resources-label">Want to see our work first?</p>
+          <div class="cover-resource-links">
+            <a href="https://withpotions.com/blog/stat-digital-case-study.html" target="_blank" rel="noopener" class="cover-resource-link">
+              📖 Read our case study
+            </a>
+            <a href="https://withpotions.com/samples.html" target="_blank" rel="noopener" class="cover-resource-link">
+              ✨ See sample newsletters
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Step 0: Email Capture -->
-    <div class="onboarding-step" id="step-0" data-step="0">
+    <div class="onboarding-step" id="step-0" data-step="0" style="display: none;">
       <div class="step-content">
         <h1>Get Your Free Newsletter Funnel + Plan</h1>
         <p class="step-helper">Enter your email and we'll send your custom newsletter strategy plan when it's ready</p>
@@ -143,7 +174,7 @@
     <div class="onboarding-step" id="step-4" data-step="4" style="display: none;">
       <div class="step-content">
         <h1>Where do you produce content today?</h1>
-        <p class="step-helper">Share links to your existing content so we can understand your voice and style</p>
+        <p class="step-helper">Select at least one option (or let us know if you don't produce content yet)</p>
 
         <div class="content-sources">
           <label class="content-source-option">
@@ -162,20 +193,6 @@
 
           <label class="content-source-option">
             <div class="source-header">
-              <input type="checkbox" name="content-source" value="twitter" />
-              <span class="source-name">Twitter / X</span>
-            </div>
-            <input
-              type="url"
-              class="source-url-input"
-              data-source="twitter"
-              placeholder="https://twitter.com/yourhandle"
-              disabled
-            />
-          </label>
-
-          <label class="content-source-option">
-            <div class="source-header">
               <input type="checkbox" name="content-source" value="blog" />
               <span class="source-name">Blog / Website</span>
             </div>
@@ -184,20 +201,6 @@
               class="source-url-input"
               data-source="blog"
               placeholder="https://yourblog.com"
-              disabled
-            />
-          </label>
-
-          <label class="content-source-option">
-            <div class="source-header">
-              <input type="checkbox" name="content-source" value="youtube" />
-              <span class="source-name">YouTube</span>
-            </div>
-            <input
-              type="url"
-              class="source-url-input"
-              data-source="youtube"
-              placeholder="https://youtube.com/@yourchannel"
               disabled
             />
           </label>
@@ -229,11 +232,18 @@
               disabled
             />
           </label>
+
+          <label class="content-source-option">
+            <div class="source-header">
+              <input type="checkbox" name="content-source" value="none" />
+              <span class="source-name">I don't produce content anywhere</span>
+            </div>
+          </label>
         </div>
 
         <div class="step-navigation">
           <button class="btn-back" id="step4-back">Back</button>
-          <button class="btn-next" id="step4-next">Next</button>
+          <button class="btn-next" id="step4-next" disabled>Next</button>
         </div>
       </div>
     </div>
@@ -253,7 +263,7 @@
               </div>
               <h3>Editorial</h3>
               <p class="design-description">Clean, professional, and content-focused</p>
-              <a href="#" class="sample-link" target="_blank" rel="noopener">View sample →</a>
+              <a href="/samples/external-samples/marketing_survival_guide.html" class="sample-link" target="_blank" rel="noopener">View sample →</a>
             </div>
           </label>
 
@@ -265,7 +275,7 @@
               </div>
               <h3>Playful</h3>
               <p class="design-description">Vibrant, engaging, and creative</p>
-              <a href="#" class="sample-link" target="_blank" rel="noopener">View sample →</a>
+              <a href="/samples/external-samples/million_dollar_mistake.html" class="sample-link" target="_blank" rel="noopener">View sample →</a>
             </div>
           </label>
 
@@ -277,7 +287,7 @@
               </div>
               <h3>Minimal</h3>
               <p class="design-description">Simple, elegant, and distraction-free</p>
-              <a href="#" class="sample-link" target="_blank" rel="noopener">View sample →</a>
+              <a href="/samples/external-samples/growth_hacks.html" class="sample-link" target="_blank" rel="noopener">View sample →</a>
             </div>
           </label>
         </div>
@@ -293,29 +303,32 @@
     <div class="onboarding-step" id="step-6" data-step="6" style="display: none;">
       <div class="step-content">
         <h1>How do you currently get leads at the top of your funnel?</h1>
-        <p class="step-helper">Select all that apply</p>
+        <p class="step-helper">Select at least one channel (or add your own)</p>
 
-        <div class="acquisition-channels">
-          <label class="channel-option">
-            <input type="checkbox" name="acquisition" value="meta-ads" />
-            <div class="channel-card">
-              <span class="channel-name">Meta ads</span>
+        <div class="acquisition-container">
+          <div class="custom-channel-section">
+            <p class="custom-channel-label">Add your own channel:</p>
+            <div class="custom-channel-input-group">
+              <input
+                type="text"
+                id="custom-channel-input"
+                placeholder="e.g., LinkedIn outreach, Events, Webinars..."
+                maxlength="50"
+              />
+              <button class="btn-add-channel" id="add-channel-btn">Add</button>
             </div>
-          </label>
+          </div>
 
-          <label class="channel-option">
-            <input type="checkbox" name="acquisition" value="cold-email" />
-            <div class="channel-card">
-              <span class="channel-name">Cold email</span>
+          <div class="common-channels-section">
+            <p class="common-channels-label">Or choose from common channels:</p>
+            <div class="channel-cloud" id="channel-cloud">
+              <!-- Channel chips will be inserted here -->
             </div>
-          </label>
+          </div>
 
-          <label class="channel-option">
-            <input type="checkbox" name="acquisition" value="referrals" />
-            <div class="channel-card">
-              <span class="channel-name">Referrals</span>
-            </div>
-          </label>
+          <div class="selected-channels-summary" id="selected-channels-summary">
+            <span class="channels-count">0 selected</span>
+          </div>
         </div>
 
         <div class="additional-notes">
@@ -366,11 +379,30 @@
           </a>
         </div>
 
+        <div class="resources-section">
+          <h2>Want to see what we can do?</h2>
+          <div class="resource-links">
+            <a href="https://withpotions.com/blog/stat-digital-case-study.html" target="_blank" rel="noopener" class="resource-link">
+              <span class="link-icon">📖</span>
+              <span class="link-text">Read our case study</span>
+            </a>
+            <a href="https://withpotions.com/samples.html" target="_blank" rel="noopener" class="resource-link">
+              <span class="link-icon">✨</span>
+              <span class="link-text">See sample newsletters</span>
+            </a>
+          </div>
+        </div>
+
+
         <div class="summary-section" id="summary-section">
           <h2>Your Selections</h2>
           <div class="summary-grid" id="summary-grid">
             <!-- Summary will be inserted here -->
           </div>
+        </div>
+
+        <div class="start-over-section">
+          <button class="btn-start-over" id="btn-start-over">Start Over</button>
         </div>
       </div>
     </div>

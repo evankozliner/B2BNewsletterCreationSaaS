@@ -35,14 +35,15 @@ class VoiceInputHandler {
     this.recognition.interimResults = true;
     this.recognition.lang = 'en-US';
 
-    let finalTranscript = '';
-    let interimTranscript = '';
+    let startPosition = textarea.selectionStart;
 
     // Handle results
     this.recognition.onresult = (event) => {
-      interimTranscript = '';
+      let interimTranscript = '';
+      let finalTranscript = '';
 
-      for (let i = event.resultIndex; i < event.results.length; i++) {
+      // Get all results from this session
+      for (let i = 0; i < event.results.length; i++) {
         const transcript = event.results[i][0].transcript;
 
         if (event.results[i].isFinal) {
@@ -52,12 +53,19 @@ class VoiceInputHandler {
         }
       }
 
-      // Update textarea with transcript
-      const cursorPosition = textarea.selectionStart;
-      const textBefore = textarea.value.substring(0, cursorPosition);
-      const textAfter = textarea.value.substring(cursorPosition);
+      // Update textarea with transcript (replace from start position)
+      const textBefore = textarea.value.substring(0, startPosition);
+      const textAfter = textarea.value.substring(startPosition);
 
-      textarea.value = textBefore + finalTranscript + interimTranscript + textAfter;
+      // Remove any old voice input from this session
+      const oldVoiceText = textAfter.split('\n')[0]; // Get first line after start
+      const remainingText = textAfter.substring(oldVoiceText.length);
+
+      textarea.value = textBefore + finalTranscript + interimTranscript + remainingText;
+
+      // Move cursor to end of voice input
+      const newPosition = textBefore.length + finalTranscript.length + interimTranscript.length;
+      textarea.setSelectionRange(newPosition, newPosition);
 
       // Show interim results in status
       if (interimTranscript) {
@@ -90,8 +98,7 @@ class VoiceInputHandler {
 
     // Handle start
     this.recognition.onstart = () => {
-      finalTranscript = '';
-      interimTranscript = '';
+      startPosition = textarea.selectionStart;
       this.updateStatus(statusElement, 'Listening... Speak now', 'listening');
     };
 

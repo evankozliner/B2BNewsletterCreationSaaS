@@ -4,8 +4,9 @@
  */
 
 class TopicChipsManager {
-  constructor(containerSelector, maxTopics = 3) {
+  constructor(containerSelector, maxTopics = 3, summarySelector = null) {
     this.container = document.querySelector(containerSelector);
+    this.summarySelector = summarySelector;
     this.maxTopics = maxTopics;
     this.selectedTopics = [];
     this.suggestedTopics = [];
@@ -218,12 +219,20 @@ class TopicChipsManager {
    * Update selection count display
    */
   updateSelectionCount() {
-    const summary = document.getElementById('selected-topics-summary');
+    // Use custom selector if provided, otherwise default to topics summary
+    const summaryId = this.summarySelector || 'selected-topics-summary';
+    const summary = document.getElementById(summaryId);
     if (!summary) return;
 
-    const countSpan = summary.querySelector('.topics-count');
+    // Look for both .topics-count and .channels-count
+    const countSpan = summary.querySelector('.topics-count, .channels-count');
     if (countSpan) {
-      countSpan.textContent = `${this.selectedTopics.length} of ${this.maxTopics} selected`;
+      // For channels, don't show "of X" since there's no limit
+      if (this.maxTopics >= 999) {
+        countSpan.textContent = `${this.selectedTopics.length} selected`;
+      } else {
+        countSpan.textContent = `${this.selectedTopics.length} of ${this.maxTopics} selected`;
+      }
     }
   }
 

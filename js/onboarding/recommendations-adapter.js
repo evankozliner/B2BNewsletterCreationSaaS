@@ -6,13 +6,13 @@
  */
 
 // ==================== CONFIG ====================
-const USE_MOCK_ADAPTER = true; // Set to false to use real API endpoints
+const USE_MOCK_ADAPTER = false; // Set to false to use real API endpoints
 
 // API Endpoints (configure these for production)
 const API_ENDPOINTS = {
   topics: '/api/recommendations/topics',
   sections: '/api/recommendations/sections',
-  submit: '/api/onboarding/submit'
+  submit: 'https://hooks.zapier.com/hooks/catch/23601498/uqbb5v6/'
 };
 
 // ==================== MOCK DATA ====================
@@ -238,15 +238,30 @@ class FetchAdapter {
   }
 
   /**
-   * Submit onboarding data
+   * Submit onboarding data to Zapier webhook
    */
   async submitOnboarding(payload) {
-    console.log('FetchAdapter: Submitting onboarding', payload);
+    console.log('FetchAdapter: Submitting onboarding to Zapier', payload);
 
-    return await this.makeRequest(API_ENDPOINTS.submit, {
-      method: 'POST',
-      body: JSON.stringify(payload)
-    });
+    try {
+      const response = await fetch(API_ENDPOINTS.submit, {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      });
+
+      // Zapier webhooks typically return status 200 on success
+      if (response.ok) {
+        return {
+          ok: true,
+          message: 'Onboarding submitted successfully'
+        };
+      } else {
+        throw new Error(`Zapier webhook error: ${response.status}`);
+      }
+    } catch (error) {
+      console.error('Failed to submit to Zapier:', error);
+      throw new Error('Network error. Please check your connection and try again.');
+    }
   }
 }
 

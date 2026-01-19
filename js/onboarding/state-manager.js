@@ -230,8 +230,19 @@ class StateManager {
       });
     }
 
-    // Navigate to saved step if not on step 0
+    // Navigate to saved step if user has started the form
     if (this.currentStep > 0) {
+      // Hide cover page and show progress bar
+      const coverPage = document.getElementById('cover-page');
+      const progressBar = document.querySelector('.progress-bar-container');
+
+      if (coverPage) {
+        coverPage.style.display = 'none';
+      }
+      if (progressBar) {
+        progressBar.style.display = 'block';
+      }
+
       this.goToStep(this.currentStep);
     } else {
       this.updateProgressBar();
@@ -253,13 +264,13 @@ class StateManager {
       case 3:
         return this.state.topics && this.state.topics.length >= 1 && this.state.topics.length <= 3;
       case 4:
-        // Content sources are optional - always valid
-        return true;
+        // Require at least one content source selection (including "none")
+        return this.state.contentSources && Object.keys(this.state.contentSources).length >= 1;
       case 5:
         return this.state.designDirection && this.state.designDirection.length > 0;
       case 6:
-        // Step 6 is optional, so always valid
-        return true;
+        // Require at least one acquisition channel
+        return this.state.acquisitionChannels && this.state.acquisitionChannels.length >= 1;
       default:
         return false;
     }
