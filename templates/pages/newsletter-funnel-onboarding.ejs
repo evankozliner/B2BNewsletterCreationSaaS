@@ -1,0 +1,387 @@
+<!-- Newsletter Funnel Onboarding Flow -->
+<div class="onboarding-wrapper">
+  <div class="onboarding-container">
+
+    <!-- Progress Indicator -->
+    <div class="progress-bar-container">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-text" id="progressText">Step 1 of 7</div>
+    </div>
+
+    <!-- Step 0: Email Capture -->
+    <div class="onboarding-step" id="step-0" data-step="0">
+      <div class="step-content">
+        <h1>Get Your Free Newsletter Funnel + Plan</h1>
+        <p class="step-helper">Enter your email and we'll send your custom newsletter strategy plan when it's ready</p>
+
+        <div class="email-section">
+          <label for="email-input" class="email-label">Work Email</label>
+          <input
+            type="email"
+            id="email-input"
+            class="email-input"
+            placeholder="you@company.com"
+            required
+          />
+          <p class="email-privacy">We respect your privacy. No spam, ever.</p>
+        </div>
+
+        <button class="btn-next" id="step0-next" disabled>Continue</button>
+      </div>
+    </div>
+
+    <!-- Step 1: ICP -->
+    <div class="onboarding-step" id="step-1" data-step="1" style="display: none;">
+      <div class="step-content">
+        <h1>Describe your ideal customer (ICP)</h1>
+        <p class="step-helper">Prefer to speak? Use the mic.</p>
+
+        <div class="textarea-container">
+          <textarea
+            id="icp-input"
+            class="voice-textarea"
+            placeholder="Example: Mid-market B2B SaaS companies with 50-200 employees looking to improve their content marketing..."
+            rows="6"
+          ></textarea>
+          <button class="mic-button" id="icp-mic" aria-label="Use voice input">
+            <svg class="mic-icon" viewBox="0 0 24 24" width="24" height="24">
+              <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+              <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+            </svg>
+            <span class="mic-text">Tap to speak</span>
+          </button>
+        </div>
+
+        <div class="voice-status" id="icp-status"></div>
+
+        <button class="btn-next" id="step1-next">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Newsletter Goal -->
+    <div class="onboarding-step" id="step-2" data-step="2" style="display: none;">
+      <div class="step-content">
+        <h1>What's the goal of your newsletter?</h1>
+        <p class="step-helper">Prefer to speak? Use the mic.</p>
+
+        <div class="textarea-container">
+          <textarea
+            id="goal-input"
+            class="voice-textarea"
+            placeholder="Example: Build trust with prospects and nurture them toward a sales conversation..."
+            rows="6"
+          ></textarea>
+          <button class="mic-button" id="goal-mic" aria-label="Use voice input">
+            <svg class="mic-icon" viewBox="0 0 24 24" width="24" height="24">
+              <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+              <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+            </svg>
+            <span class="mic-text">Tap to speak</span>
+          </button>
+        </div>
+
+        <div class="voice-status" id="goal-status"></div>
+
+        <div class="examples-section">
+          <p class="examples-label">Examples:</p>
+          <ul class="examples-list">
+            <li>Generate qualified leads for my sales team</li>
+            <li>Establish thought leadership in my industry</li>
+            <li>Keep existing customers engaged and reduce churn</li>
+          </ul>
+        </div>
+
+        <div class="step-navigation">
+          <button class="btn-back" id="step2-back">Back</button>
+          <button class="btn-next" id="step2-next">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: Topics -->
+    <div class="onboarding-step" id="step-3" data-step="3" style="display: none;">
+      <div class="step-content">
+        <h1>Select 1-3 topics</h1>
+        <p class="step-helper">Choose topics that align with your newsletter's focus. Our team may suggest additional topics when we build your custom plan.</p>
+
+        <div class="topics-container" id="topics-container">
+          <div class="custom-topic-section">
+            <p class="custom-topic-label">Add your own topic:</p>
+            <div class="custom-topic-input-group">
+              <input
+                type="text"
+                id="custom-topic-input"
+                placeholder="Enter a custom topic..."
+                maxlength="50"
+              />
+              <button class="btn-add-topic" id="add-topic-btn">Add</button>
+            </div>
+          </div>
+
+          <div class="common-topics-section">
+            <p class="common-topics-label">Or choose from common topics:</p>
+            <div class="topic-cloud" id="topic-cloud">
+              <!-- Topic chips will be inserted here -->
+            </div>
+          </div>
+
+          <div class="selected-topics-summary" id="selected-topics-summary">
+            <span class="topics-count">0 of 3 selected</span>
+          </div>
+        </div>
+
+        <div class="step-navigation" id="step3-nav">
+          <button class="btn-back" id="step3-back">Back</button>
+          <button class="btn-next" id="step3-next" disabled>Next</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Content Sources -->
+    <div class="onboarding-step" id="step-4" data-step="4" style="display: none;">
+      <div class="step-content">
+        <h1>Where do you produce content today?</h1>
+        <p class="step-helper">Share links to your existing content so we can understand your voice and style</p>
+
+        <div class="content-sources">
+          <label class="content-source-option">
+            <div class="source-header">
+              <input type="checkbox" name="content-source" value="linkedin" />
+              <span class="source-name">LinkedIn</span>
+            </div>
+            <input
+              type="url"
+              class="source-url-input"
+              data-source="linkedin"
+              placeholder="https://linkedin.com/in/yourprofile"
+              disabled
+            />
+          </label>
+
+          <label class="content-source-option">
+            <div class="source-header">
+              <input type="checkbox" name="content-source" value="twitter" />
+              <span class="source-name">Twitter / X</span>
+            </div>
+            <input
+              type="url"
+              class="source-url-input"
+              data-source="twitter"
+              placeholder="https://twitter.com/yourhandle"
+              disabled
+            />
+          </label>
+
+          <label class="content-source-option">
+            <div class="source-header">
+              <input type="checkbox" name="content-source" value="blog" />
+              <span class="source-name">Blog / Website</span>
+            </div>
+            <input
+              type="url"
+              class="source-url-input"
+              data-source="blog"
+              placeholder="https://yourblog.com"
+              disabled
+            />
+          </label>
+
+          <label class="content-source-option">
+            <div class="source-header">
+              <input type="checkbox" name="content-source" value="youtube" />
+              <span class="source-name">YouTube</span>
+            </div>
+            <input
+              type="url"
+              class="source-url-input"
+              data-source="youtube"
+              placeholder="https://youtube.com/@yourchannel"
+              disabled
+            />
+          </label>
+
+          <label class="content-source-option">
+            <div class="source-header">
+              <input type="checkbox" name="content-source" value="podcast" />
+              <span class="source-name">Podcast</span>
+            </div>
+            <input
+              type="url"
+              class="source-url-input"
+              data-source="podcast"
+              placeholder="https://yourpodcast.com or Spotify/Apple link"
+              disabled
+            />
+          </label>
+
+          <label class="content-source-option">
+            <div class="source-header">
+              <input type="checkbox" name="content-source" value="other" />
+              <span class="source-name">Other</span>
+            </div>
+            <input
+              type="url"
+              class="source-url-input"
+              data-source="other"
+              placeholder="Any other content source URL"
+              disabled
+            />
+          </label>
+        </div>
+
+        <div class="step-navigation">
+          <button class="btn-back" id="step4-back">Back</button>
+          <button class="btn-next" id="step4-next">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5: Design Direction -->
+    <div class="onboarding-step" id="step-5" data-step="5" style="display: none;">
+      <div class="step-content">
+        <h1>Choose a design direction</h1>
+        <p class="step-helper">Select the style that best fits your brand</p>
+
+        <div class="design-options">
+          <label class="design-option">
+            <input type="radio" name="design" value="editorial" />
+            <div class="design-card">
+              <div class="design-preview">
+                <img src="/samples/editorial-preview.svg" alt="Editorial design preview" />
+              </div>
+              <h3>Editorial</h3>
+              <p class="design-description">Clean, professional, and content-focused</p>
+              <a href="#" class="sample-link" target="_blank" rel="noopener">View sample →</a>
+            </div>
+          </label>
+
+          <label class="design-option">
+            <input type="radio" name="design" value="playful" />
+            <div class="design-card">
+              <div class="design-preview">
+                <img src="/samples/playful-preview.svg" alt="Playful design preview" />
+              </div>
+              <h3>Playful</h3>
+              <p class="design-description">Vibrant, engaging, and creative</p>
+              <a href="#" class="sample-link" target="_blank" rel="noopener">View sample →</a>
+            </div>
+          </label>
+
+          <label class="design-option">
+            <input type="radio" name="design" value="minimal" />
+            <div class="design-card">
+              <div class="design-preview">
+                <img src="/samples/minimal-preview.svg" alt="Minimal design preview" />
+              </div>
+              <h3>Minimal</h3>
+              <p class="design-description">Simple, elegant, and distraction-free</p>
+              <a href="#" class="sample-link" target="_blank" rel="noopener">View sample →</a>
+            </div>
+          </label>
+        </div>
+
+        <div class="step-navigation">
+          <button class="btn-back" id="step5-back">Back</button>
+          <button class="btn-next" id="step5-next" disabled>Next</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 6: Revenue Strategy -->
+    <div class="onboarding-step" id="step-6" data-step="6" style="display: none;">
+      <div class="step-content">
+        <h1>How do you currently get leads at the top of your funnel?</h1>
+        <p class="step-helper">Select all that apply</p>
+
+        <div class="acquisition-channels">
+          <label class="channel-option">
+            <input type="checkbox" name="acquisition" value="meta-ads" />
+            <div class="channel-card">
+              <span class="channel-name">Meta ads</span>
+            </div>
+          </label>
+
+          <label class="channel-option">
+            <input type="checkbox" name="acquisition" value="cold-email" />
+            <div class="channel-card">
+              <span class="channel-name">Cold email</span>
+            </div>
+          </label>
+
+          <label class="channel-option">
+            <input type="checkbox" name="acquisition" value="referrals" />
+            <div class="channel-card">
+              <span class="channel-name">Referrals</span>
+            </div>
+          </label>
+        </div>
+
+        <div class="additional-notes">
+          <label for="acquisition-notes">Anything else we should know?</label>
+          <textarea
+            id="acquisition-notes"
+            placeholder="Tell us about your current lead generation strategy, challenges, or goals..."
+            rows="4"
+          ></textarea>
+        </div>
+
+        <div class="step-navigation">
+          <button class="btn-back" id="step6-back">Back</button>
+          <button class="btn-submit" id="step6-submit">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thank You Page -->
+    <div class="onboarding-step thank-you-page" id="thank-you" style="display: none;">
+      <div class="step-content">
+        <div class="success-icon">
+          <svg viewBox="0 0 52 52" width="80" height="80">
+            <circle cx="26" cy="26" r="25" fill="none" stroke="#5D5DED" stroke-width="2"/>
+            <path fill="none" stroke="#5D5DED" stroke-width="3" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+          </svg>
+        </div>
+
+        <h1>We're building your custom newsletter funnel + plan now</h1>
+
+        <p class="thank-you-message">
+          Thank you for completing our onboarding! Our team is reviewing your inputs and creating a personalized newsletter strategy tailored to your business.
+        </p>
+
+        <div class="next-steps">
+          <h2>What happens next?</h2>
+          <ol class="next-steps-list">
+            <li>We'll analyze your ideal customer profile and goals</li>
+            <li>Our team will craft a custom newsletter funnel strategy</li>
+            <li>We'll reach out at <strong><a href="mailto:evan@withpotions.com">evan@withpotions.com</a></strong> with your final plan</li>
+          </ol>
+        </div>
+
+        <div class="cta-section">
+          <p class="cta-text">Ready to get started right away?</p>
+          <a href="https://calendly.com/d/cs2v-38g-5dp/potions-onboarding-call" target="_blank" rel="noopener" class="btn-book-call">
+            📅 Book a call to discuss implementation
+          </a>
+        </div>
+
+        <div class="summary-section" id="summary-section">
+          <h2>Your Selections</h2>
+          <div class="summary-grid" id="summary-grid">
+            <!-- Summary will be inserted here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- JavaScript Modules -->
+<script src="<%= baseUrl %>js/onboarding/state-manager.js" defer></script>
+<script src="<%= baseUrl %>js/onboarding/voice-input.js" defer></script>
+<script src="<%= baseUrl %>js/onboarding/topic-chips.js" defer></script>
+<script src="<%= baseUrl %>js/onboarding/section-selection.js" defer></script>
+<script src="<%= baseUrl %>js/onboarding/recommendations-adapter.js" defer></script>
+<script src="<%= baseUrl %>js/onboarding/app.js" defer></script>

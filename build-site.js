@@ -276,6 +276,26 @@ const pages = [
             navTargetPage: '/', // Normal page: nav points to homepage
             hideHeaderFooter: true
         }
+    },
+    {
+        name: 'newsletter-funnel-onboarding',
+        template: 'pages/newsletter-funnel-onboarding.ejs',
+        output: 'newsletter-funnel-onboarding.html',
+        data: {
+            title: 'Free Newsletter Funnel + Plan Generator | Potions',
+            description: 'Get your custom newsletter funnel plan in minutes. Answer a few questions and our team will build your personalized strategy.',
+            keywords: 'Newsletter, Lead Generation, Newsletter Funnel, Marketing Strategy, Newsletter Planning',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: ['onboarding.css'],
+            showBlogLink: false,
+            tracking: true,
+            scripts: [], // Scripts are loaded in the template itself
+            canonicalUrl: 'https://withpotions.com/newsletter-funnel-onboarding.html',
+            navTargetPage: '/',
+            hideHeaderFooter: true // Clean flow without header/footer
+        }
     }
 ];
 
