@@ -113,6 +113,7 @@ class OnboardingApp {
    */
   initializeStep0() {
     const nextBtn = document.getElementById('step0-next');
+    const backBtn = document.getElementById('step0-back');
     const emailInput = document.getElementById('email-input');
 
     if (!nextBtn || !emailInput) return;
@@ -128,6 +129,32 @@ class OnboardingApp {
       this.stateManager.updateField('email', emailInput.value.trim());
       validateStep0();
     });
+
+    // Back button - return to cover page
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        // Hide current step
+        const step0 = document.getElementById('step-0');
+        if (step0) {
+          step0.style.display = 'none';
+        }
+
+        // Hide progress bar
+        const progressBar = document.querySelector('.progress-bar-container');
+        if (progressBar) {
+          progressBar.style.display = 'none';
+        }
+
+        // Show cover page
+        const coverPage = document.getElementById('cover-page');
+        if (coverPage) {
+          coverPage.style.display = 'block';
+        }
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
 
     nextBtn.addEventListener('click', async () => {
       if (this.stateManager.validateCurrentStep()) {

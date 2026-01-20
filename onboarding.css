@@ -256,7 +256,7 @@
 }
 
 .voice-textarea {
-  width: 100%;
+  width: 80%;
   padding: 1rem;
   border: 2px solid #333;
   border-radius: 8px;
@@ -1358,6 +1358,18 @@
 /* ==================== */
 
 @media (max-width: 768px) {
+  .additional-notes textarea {
+    width: 80%;
+    margin: auto;
+    display: block;
+  }
+
+  .voice-textarea {
+    width: 80%;
+    display: block;
+    margin: auto;
+  }
+
   .onboarding-wrapper {
     padding: 1rem 0.5rem;
   }
@@ -1397,7 +1409,7 @@
   }
 
   .cover-resource-link {
-    width: 100%;
+    /*width: 100%;*/
     justify-content: center;
   }
 
@@ -1430,6 +1442,10 @@
 
   .btn-add-topic {
     width: 100%;
+  }
+
+  .custom-channel-input-group {
+    flex-direction: column;
   }
 
   .sections-grid {
@@ -1473,7 +1489,10 @@
 
   .btn-back,
   .btn-next,
-  .btn-submit {
+  .btn-submit,
+  .btn-book-call,
+  .btn-start-over,
+  .btn-add-channel {
     width: 100%;
   }
 
@@ -1543,5 +1562,10 @@
 
   .section-card h3 {
     font-size: 1rem;
+  }
+  .resource-link, .btn-book-call {
+    width: 80%;
+    display: block;
+    margin:auto;
   }
 }
