@@ -6,16 +6,18 @@
 class StateManager {
   constructor() {
     this.currentStep = 0;
-    this.totalSteps = 7;
+    this.totalSteps = 9;
     this.state = {
       email: '',
       icp: '',
+      emailListSize: '',
       goal: '',
       topics: [],
       contentSources: {}, // { linkedin: 'url', twitter: 'url', etc. }
       designDirection: '',
       acquisitionChannels: [],
-      acquisitionNotes: ''
+      acquisitionNotes: '',
+      annualRevenue: ''
     };
 
     this.loadState();
@@ -82,12 +84,14 @@ class StateManager {
     this.state = {
       email: '',
       icp: '',
+      emailListSize: '',
       goal: '',
       topics: [],
       contentSources: {},
       designDirection: '',
       acquisitionChannels: [],
-      acquisitionNotes: ''
+      acquisitionNotes: '',
+      annualRevenue: ''
     };
     this.currentStep = 0;
     sessionStorage.removeItem('onboarding_state');
@@ -260,17 +264,21 @@ class StateManager {
       case 1:
         return this.state.icp && this.state.icp.trim().length > 0;
       case 2:
-        return this.state.goal && this.state.goal.trim().length > 0;
+        return this.state.emailListSize && this.state.emailListSize.length > 0;
       case 3:
-        return this.state.topics && this.state.topics.length >= 1 && this.state.topics.length <= 3;
+        return this.state.goal && this.state.goal.trim().length > 0;
       case 4:
+        return this.state.topics && this.state.topics.length >= 1 && this.state.topics.length <= 3;
+      case 5:
         // Require at least one content source selection (including "none")
         return this.state.contentSources && Object.keys(this.state.contentSources).length >= 1;
-      case 5:
-        return this.state.designDirection && this.state.designDirection.length > 0;
       case 6:
+        return this.state.designDirection && this.state.designDirection.length > 0;
+      case 7:
         // Require at least one acquisition channel
         return this.state.acquisitionChannels && this.state.acquisitionChannels.length >= 1;
+      case 8:
+        return this.state.annualRevenue && this.state.annualRevenue.length > 0;
       default:
         return false;
     }

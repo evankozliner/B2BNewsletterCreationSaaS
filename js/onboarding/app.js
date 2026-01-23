@@ -27,12 +27,14 @@ class OnboardingApp {
         stepCompleted: stepCompleted,
         email: state.email || '',
         icp: state.icp || '',
+        emailListSize: state.emailListSize || '',
         goal: state.goal || '',
         topics: state.topics || [],
         contentSources: state.contentSources || {},
         designDirection: state.designDirection || '',
         acquisitionChannels: state.acquisitionChannels || [],
-        acquisitionNotes: state.acquisitionNotes || ''
+        acquisitionNotes: state.acquisitionNotes || '',
+        annualRevenue: state.annualRevenue || ''
       };
 
       console.log('Sending to Zapier:', payload);
@@ -69,6 +71,8 @@ class OnboardingApp {
     this.initializeStep4();
     this.initializeStep5();
     this.initializeStep6();
+    this.initializeStep7();
+    this.initializeStep8();
     this.initializeThankYou();
 
     // Restore state from session
@@ -223,24 +227,69 @@ class OnboardingApp {
   }
 
   /**
-   * Initialize Step 2: Goal
+   * Initialize Step 2: Email List Size
    */
   initializeStep2() {
     const backBtn = document.getElementById('step2-back');
     const nextBtn = document.getElementById('step2-next');
+    const radios = document.querySelectorAll('input[name="email-list-size"]');
+
+    if (!nextBtn) return;
+
+    // Handle radio selection
+    const handleSelectionChange = () => {
+      const selected = document.querySelector('input[name="email-list-size"]:checked');
+      if (selected) {
+        this.stateManager.updateField('emailListSize', selected.value);
+        nextBtn.disabled = false;
+      } else {
+        nextBtn.disabled = true;
+      }
+    };
+
+    radios.forEach(radio => {
+      radio.addEventListener('change', handleSelectionChange);
+    });
+
+    // Navigation
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        this.stateManager.previousStep();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', async () => {
+        if (this.stateManager.validateCurrentStep()) {
+          await this.sendToZapier('step_2_email_list_size');
+          this.stateManager.nextStep();
+        }
+      });
+    }
+
+    // Initial validation
+    handleSelectionChange();
+  }
+
+  /**
+   * Initialize Step 3: Goal
+   */
+  initializeStep3() {
+    const backBtn = document.getElementById('step3-back');
+    const nextBtn = document.getElementById('step3-next');
     const textarea = document.getElementById('goal-input');
 
     if (!nextBtn || !textarea) return;
 
     // Validate and enable/disable next button
-    const validateStep2 = () => {
+    const validateStep3 = () => {
       const value = textarea.value.trim();
       nextBtn.disabled = value.length === 0;
     };
 
     textarea.addEventListener('input', () => {
       this.stateManager.updateField('goal', textarea.value);
-      validateStep2();
+      validateStep3();
     });
 
     if (backBtn) {
@@ -251,21 +300,21 @@ class OnboardingApp {
 
     nextBtn.addEventListener('click', async () => {
       if (this.stateManager.validateCurrentStep()) {
-        await this.sendToZapier('step_2_goal');
+        await this.sendToZapier('step_3_goal');
         this.stateManager.nextStep();
       }
     });
 
     // Initial validation
-    validateStep2();
+    validateStep3();
   }
 
   /**
-   * Initialize Step 3: Topics
+   * Initialize Step 4: Topics
    */
-  initializeStep3() {
-    const backBtn = document.getElementById('step3-back');
-    const nextBtn = document.getElementById('step3-next');
+  initializeStep4() {
+    const backBtn = document.getElementById('step4-back');
+    const nextBtn = document.getElementById('step4-next');
     const addTopicBtn = document.getElementById('add-topic-btn');
     const customTopicInput = document.getElementById('custom-topic-input');
 
@@ -303,8 +352,8 @@ class OnboardingApp {
 
     // Listen for topic selection changes
     document.addEventListener('topicsChanged', (e) => {
-      // Only handle if we're on Step 3
-      if (this.stateManager.currentStep === 3) {
+      // Only handle if we're on Step 4
+      if (this.stateManager.currentStep === 4) {
         const topics = e.detail.topics;
         this.stateManager.updateField('topics', topics);
 
@@ -353,7 +402,7 @@ class OnboardingApp {
     if (nextBtn) {
       nextBtn.addEventListener('click', async () => {
         if (this.stateManager.validateCurrentStep()) {
-          await this.sendToZapier('step_3_topics');
+          await this.sendToZapier('step_4_topics');
           this.stateManager.nextStep();
         }
       });
@@ -361,11 +410,11 @@ class OnboardingApp {
   }
 
   /**
-   * Initialize Step 4: Content Sources
+   * Initialize Step 5: Content Sources
    */
-  initializeStep4() {
-    const backBtn = document.getElementById('step4-back');
-    const nextBtn = document.getElementById('step4-next');
+  initializeStep5() {
+    const backBtn = document.getElementById('step5-back');
+    const nextBtn = document.getElementById('step5-next');
     const checkboxes = document.querySelectorAll('input[name="content-source"]');
     const urlInputs = document.querySelectorAll('.source-url-input');
     const noneCheckbox = document.querySelector('input[name="content-source"][value="none"]');
@@ -458,7 +507,7 @@ class OnboardingApp {
 
     if (nextBtn) {
       nextBtn.addEventListener('click', async () => {
-        await this.sendToZapier('step_4_content_sources');
+        await this.sendToZapier('step_5_content_sources');
         this.stateManager.nextStep();
       });
     }
@@ -489,11 +538,11 @@ class OnboardingApp {
   }
 
   /**
-   * Initialize Step 5: Design Direction
+   * Initialize Step 6: Design Direction
    */
-  initializeStep5() {
-    const backBtn = document.getElementById('step5-back');
-    const nextBtn = document.getElementById('step5-next');
+  initializeStep6() {
+    const backBtn = document.getElementById('step6-back');
+    const nextBtn = document.getElementById('step6-next');
     const designRadios = document.querySelectorAll('input[name="design"]');
 
     if (!nextBtn) return;
@@ -523,7 +572,7 @@ class OnboardingApp {
     if (nextBtn) {
       nextBtn.addEventListener('click', async () => {
         if (this.stateManager.validateCurrentStep()) {
-          await this.sendToZapier('step_5_design_direction');
+          await this.sendToZapier('step_6_design_direction');
           this.stateManager.nextStep();
         }
       });
@@ -534,11 +583,11 @@ class OnboardingApp {
   }
 
   /**
-   * Initialize Step 6: Acquisition Channels
+   * Initialize Step 7: Acquisition Channels
    */
-  initializeStep6() {
-    const backBtn = document.getElementById('step6-back');
-    const submitBtn = document.getElementById('step6-submit');
+  initializeStep7() {
+    const backBtn = document.getElementById('step7-back');
+    const nextBtn = document.getElementById('step7-next');
     const addChannelBtn = document.getElementById('add-channel-btn');
     const customChannelInput = document.getElementById('custom-channel-input');
     const notesTextarea = document.getElementById('acquisition-notes');
@@ -570,24 +619,24 @@ class OnboardingApp {
       this.channelChipsManager.setSelectedTopics(savedChannels);
     }
 
-    // Initial validation - disable submit if no channels selected
-    if (submitBtn) {
-      submitBtn.disabled = !savedChannels || savedChannels.length === 0;
+    // Initial validation - disable next if no channels selected
+    if (nextBtn) {
+      nextBtn.disabled = !savedChannels || savedChannels.length === 0;
     }
 
     // Listen for channel selection changes
     // Note: TopicChipsManager emits 'topicsChanged' event
-    // This will be called for both Step 3 (topics) and Step 6 (channels) changes
-    // We only update acquisitionChannels when on Step 6
+    // This will be called for both Step 4 (topics) and Step 7 (channels) changes
+    // We only update acquisitionChannels when on Step 7
     const channelChangeHandler = (e) => {
-      // Only handle if we're on Step 6
-      if (this.stateManager.currentStep === 6) {
+      // Only handle if we're on Step 7
+      if (this.stateManager.currentStep === 7) {
         const channels = e.detail.topics;
         this.stateManager.updateField('acquisitionChannels', channels);
 
-        // Enable/disable submit button based on selection
-        if (submitBtn) {
-          submitBtn.disabled = channels.length === 0;
+        // Enable/disable next button based on selection
+        if (nextBtn) {
+          nextBtn.disabled = channels.length === 0;
         }
       }
     };
@@ -637,12 +686,59 @@ class OnboardingApp {
       });
     }
 
-    if (submitBtn) {
-      submitBtn.addEventListener('click', async () => {
-        await this.sendToZapier('step_6_acquisition_channels');
-        await this.submitOnboarding();
+    if (nextBtn) {
+      nextBtn.addEventListener('click', async () => {
+        if (this.stateManager.validateCurrentStep()) {
+          await this.sendToZapier('step_7_acquisition_channels');
+          this.stateManager.nextStep();
+        }
       });
     }
+  }
+
+  /**
+   * Initialize Step 8: Annual Revenue
+   */
+  initializeStep8() {
+    const backBtn = document.getElementById('step8-back');
+    const submitBtn = document.getElementById('step8-submit');
+    const radios = document.querySelectorAll('input[name="annual-revenue"]');
+
+    if (!submitBtn) return;
+
+    // Handle radio selection
+    const handleSelectionChange = () => {
+      const selected = document.querySelector('input[name="annual-revenue"]:checked');
+      if (selected) {
+        this.stateManager.updateField('annualRevenue', selected.value);
+        submitBtn.disabled = false;
+      } else {
+        submitBtn.disabled = true;
+      }
+    };
+
+    radios.forEach(radio => {
+      radio.addEventListener('change', handleSelectionChange);
+    });
+
+    // Navigation
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        this.stateManager.previousStep();
+      });
+    }
+
+    if (submitBtn) {
+      submitBtn.addEventListener('click', async () => {
+        if (this.stateManager.validateCurrentStep()) {
+          await this.sendToZapier('step_8_annual_revenue');
+          await this.submitOnboarding();
+        }
+      });
+    }
+
+    // Initial validation
+    handleSelectionChange();
   }
 
   /**
@@ -703,7 +799,7 @@ class OnboardingApp {
    * Submit onboarding data
    */
   async submitOnboarding() {
-    const submitBtn = document.getElementById('step6-submit');
+    const submitBtn = document.getElementById('step8-submit');
 
     if (submitBtn) {
       submitBtn.disabled = true;
@@ -752,6 +848,14 @@ class OnboardingApp {
     // ICP
     this.addSummaryItem(summaryGrid, 'Ideal Customer Profile', data.icp);
 
+    // Email List Size
+    if (data.emailListSize) {
+      const sizeLabel = data.emailListSize.split('-').map(word =>
+        word.charAt(0).toUpperCase() + word.slice(1)
+      ).join(' ');
+      this.addSummaryItem(summaryGrid, 'Email List Size', sizeLabel);
+    }
+
     // Goal
     this.addSummaryItem(summaryGrid, 'Newsletter Goal', data.goal);
 
@@ -786,6 +890,14 @@ class OnboardingApp {
     // Notes
     if (data.acquisitionNotes && data.acquisitionNotes.trim().length > 0) {
       this.addSummaryItem(summaryGrid, 'Additional Notes', data.acquisitionNotes);
+    }
+
+    // Annual Revenue
+    if (data.annualRevenue) {
+      const revenueLabel = data.annualRevenue.split('-').map(word =>
+        word.charAt(0).toUpperCase() + word.slice(1)
+      ).join(' ');
+      this.addSummaryItem(summaryGrid, 'Annual Revenue', revenueLabel);
     }
   }
 
