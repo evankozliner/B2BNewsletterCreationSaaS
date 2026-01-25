@@ -7,7 +7,6 @@ class OnboardingApp {
   constructor() {
     this.stateManager = new StateManager();
     this.voiceHandler = new VoiceInputHandler();
-    this.topicChipsManager = null;
     this.channelChipsManager = null;
     this.apiAdapter = new RecommendationsAdapter();
     this.zapierWebhookUrl = 'https://hooks.zapier.com/hooks/catch/23601498/uqofiji/';
@@ -29,12 +28,10 @@ class OnboardingApp {
         icp: state.icp || '',
         emailListSize: state.emailListSize || '',
         goal: state.goal || '',
-        topics: state.topics || [],
+        problemsSolved: state.problemsSolved || '',
         contentSources: state.contentSources || {},
-        designDirection: state.designDirection || '',
         acquisitionChannels: state.acquisitionChannels || [],
-        acquisitionNotes: state.acquisitionNotes || '',
-        annualRevenue: state.annualRevenue || ''
+        acquisitionNotes: state.acquisitionNotes || ''
       };
 
       console.log('Sending to Zapier:', payload);
@@ -63,7 +60,6 @@ class OnboardingApp {
 
     // Initialize components
     this.initializeCoverPage();
-    this.initializeStep0();
     this.initializeVoiceInputs();
     this.initializeStep1();
     this.initializeStep2();
@@ -71,9 +67,10 @@ class OnboardingApp {
     this.initializeStep4();
     this.initializeStep5();
     this.initializeStep6();
-    this.initializeStep7();
-    this.initializeStep8();
     this.initializeThankYou();
+
+    // Check for URL parameters and pre-fill email if provided
+    this.checkUrlParameters();
 
     // Restore state from session
     this.stateManager.restoreInputs();
@@ -84,6 +81,46 @@ class OnboardingApp {
     });
 
     console.log('Onboarding app initialized');
+  }
+
+  /**
+   * Check URL parameters and validate email
+   */
+  checkUrlParameters() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const emailParam = urlParams.get('email');
+
+    if (emailParam && this.stateManager.isValidEmail(emailParam)) {
+      console.log('Valid email parameter found:', emailParam);
+      // Store email in state
+      this.stateManager.updateField('email', emailParam);
+    } else {
+      // Missing or invalid email parameter
+      console.error('Missing or invalid email parameter in URL');
+
+      // Disable the Get Started button and show an error
+      const startBtn = document.getElementById('btn-start');
+      const coverPage = document.getElementById('cover-page');
+
+      if (startBtn) {
+        startBtn.disabled = true;
+        startBtn.textContent = 'Invalid or Missing Email';
+      }
+
+      // Show error message on cover page
+      if (coverPage) {
+        const errorMsg = document.createElement('p');
+        errorMsg.style.color = '#ff4444';
+        errorMsg.style.marginTop = '20px';
+        errorMsg.style.textAlign = 'center';
+        errorMsg.textContent = 'Error: This page requires a valid email parameter in the URL (e.g., ?email=you@example.com)';
+
+        const coverContent = coverPage.querySelector('.step-content');
+        if (coverContent) {
+          coverContent.appendChild(errorMsg);
+        }
+      }
+    }
   }
 
   /**
@@ -106,73 +143,14 @@ class OnboardingApp {
           progressBar.style.display = 'block';
         }
 
-        // Go to step 0
-        this.stateManager.goToStep(0);
+        // Go to step 1
+        this.stateManager.goToStep(1);
       });
     }
   }
 
   /**
-   * Initialize Step 0: Email
-   */
-  initializeStep0() {
-    const nextBtn = document.getElementById('step0-next');
-    const backBtn = document.getElementById('step0-back');
-    const emailInput = document.getElementById('email-input');
-
-    if (!nextBtn || !emailInput) return;
-
-    // Validate and enable/disable next button
-    const validateStep0 = () => {
-      const value = emailInput.value.trim();
-      const isValid = this.stateManager.isValidEmail(value);
-      nextBtn.disabled = !isValid;
-    };
-
-    emailInput.addEventListener('input', () => {
-      this.stateManager.updateField('email', emailInput.value.trim());
-      validateStep0();
-    });
-
-    // Back button - return to cover page
-    if (backBtn) {
-      backBtn.addEventListener('click', () => {
-        // Hide current step
-        const step0 = document.getElementById('step-0');
-        if (step0) {
-          step0.style.display = 'none';
-        }
-
-        // Hide progress bar
-        const progressBar = document.querySelector('.progress-bar-container');
-        if (progressBar) {
-          progressBar.style.display = 'none';
-        }
-
-        // Show cover page
-        const coverPage = document.getElementById('cover-page');
-        if (coverPage) {
-          coverPage.style.display = 'block';
-        }
-
-        // Scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-
-    nextBtn.addEventListener('click', async () => {
-      if (this.stateManager.validateCurrentStep()) {
-        await this.sendToZapier('step_0_email');
-        this.stateManager.nextStep();
-      }
-    });
-
-    // Initial validation
-    validateStep0();
-  }
-
-  /**
-   * Initialize voice inputs for steps 1 and 2
+   * Initialize voice inputs for steps 1, 3, and 4
    */
   initializeVoiceInputs() {
     // Step 1: ICP
@@ -184,7 +162,17 @@ class OnboardingApp {
       this.voiceHandler.initialize(icpMic, icpTextarea, icpStatus);
     }
 
-    // Step 2: Goal
+    // Step 3: Problems Solved
+    const problemsMic = document.getElementById('problems-mic');
+    const problemsTextarea = document.getElementById('problems-input');
+    const problemsStatus = document.getElementById('problems-status');
+
+    if (problemsMic && problemsTextarea && problemsStatus) {
+      const problemsVoiceHandler = new VoiceInputHandler();
+      problemsVoiceHandler.initialize(problemsMic, problemsTextarea, problemsStatus);
+    }
+
+    // Step 4: Goal
     const goalMic = document.getElementById('goal-mic');
     const goalTextarea = document.getElementById('goal-input');
     const goalStatus = document.getElementById('goal-status');
@@ -272,12 +260,12 @@ class OnboardingApp {
   }
 
   /**
-   * Initialize Step 3: Goal
+   * Initialize Step 3: Problems Solved
    */
   initializeStep3() {
     const backBtn = document.getElementById('step3-back');
     const nextBtn = document.getElementById('step3-next');
-    const textarea = document.getElementById('goal-input');
+    const textarea = document.getElementById('problems-input');
 
     if (!nextBtn || !textarea) return;
 
@@ -288,7 +276,7 @@ class OnboardingApp {
     };
 
     textarea.addEventListener('input', () => {
-      this.stateManager.updateField('goal', textarea.value);
+      this.stateManager.updateField('problemsSolved', textarea.value);
       validateStep3();
     });
 
@@ -300,7 +288,7 @@ class OnboardingApp {
 
     nextBtn.addEventListener('click', async () => {
       if (this.stateManager.validateCurrentStep()) {
-        await this.sendToZapier('step_3_goal');
+        await this.sendToZapier('step_3_problems_solved');
         this.stateManager.nextStep();
       }
     });
@@ -310,103 +298,41 @@ class OnboardingApp {
   }
 
   /**
-   * Initialize Step 4: Topics
+   * Initialize Step 4: Newsletter Goal
    */
   initializeStep4() {
     const backBtn = document.getElementById('step4-back');
     const nextBtn = document.getElementById('step4-next');
-    const addTopicBtn = document.getElementById('add-topic-btn');
-    const customTopicInput = document.getElementById('custom-topic-input');
+    const textarea = document.getElementById('goal-input');
 
-    // Initialize topic chips manager
-    this.topicChipsManager = new TopicChipsManager('#topic-cloud', 3);
+    if (!nextBtn || !textarea) return;
 
-    // Set common topics (no API call needed)
-    const commonTopics = [
-      // Agency owners
-      { id: 'marketing-strategies', label: 'Marketing Strategies' },
-      { id: 'client-acquisition', label: 'Client Acquisition' },
-      { id: 'agency-growth', label: 'Agency Growth' },
-      { id: 'real-estate-trends', label: 'Real Estate Trends' },
-      { id: 'property-marketing', label: 'Property Marketing' },
+    // Validate and enable/disable next button
+    const validateStep4 = () => {
+      const value = textarea.value.trim();
+      nextBtn.disabled = value.length === 0;
+    };
 
-      // Tech startups
-      { id: 'product-updates', label: 'Product Updates' },
-      { id: 'community-updates', label: 'Community Updates' },
-      { id: 'startup-growth', label: 'Startup Growth' },
-      { id: 'tech-trends', label: 'Tech Trends' },
-
-      // Political/General
-      { id: 'political-news', label: 'Political News' },
-      { id: 'industry-news', label: 'Industry News' },
-      { id: 'thought-leadership', label: 'Thought Leadership' }
-    ];
-
-    this.topicChipsManager.setSuggestedTopics(commonTopics);
-
-    // Restore selected topics if any
-    const savedTopics = this.stateManager.getField('topics');
-    if (savedTopics && savedTopics.length > 0) {
-      this.topicChipsManager.setSelectedTopics(savedTopics);
-    }
-
-    // Listen for topic selection changes
-    document.addEventListener('topicsChanged', (e) => {
-      // Only handle if we're on Step 4
-      if (this.stateManager.currentStep === 4) {
-        const topics = e.detail.topics;
-        this.stateManager.updateField('topics', topics);
-
-        if (nextBtn) {
-          nextBtn.disabled = topics.length === 0;
-        }
-      }
+    textarea.addEventListener('input', () => {
+      this.stateManager.updateField('goal', textarea.value);
+      validateStep4();
     });
 
-    // Add custom topic
-    if (addTopicBtn && customTopicInput) {
-      const addCustomTopic = () => {
-        const value = customTopicInput.value.trim();
-        if (value) {
-          const result = this.topicChipsManager.addCustomTopic(value);
-          if (result.success) {
-            customTopicInput.value = '';
-          } else {
-            alert(result.error);
-          }
-        }
-      };
-
-      addTopicBtn.addEventListener('click', addCustomTopic);
-
-      customTopicInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          addCustomTopic();
-        }
-      });
-
-      // Enable/disable add button based on input
-      customTopicInput.addEventListener('input', () => {
-        addTopicBtn.disabled = customTopicInput.value.trim().length === 0;
-      });
-    }
-
-    // Navigation
     if (backBtn) {
       backBtn.addEventListener('click', () => {
         this.stateManager.previousStep();
       });
     }
 
-    if (nextBtn) {
-      nextBtn.addEventListener('click', async () => {
-        if (this.stateManager.validateCurrentStep()) {
-          await this.sendToZapier('step_4_topics');
-          this.stateManager.nextStep();
-        }
-      });
-    }
+    nextBtn.addEventListener('click', async () => {
+      if (this.stateManager.validateCurrentStep()) {
+        await this.sendToZapier('step_4_goal');
+        this.stateManager.nextStep();
+      }
+    });
+
+    // Initial validation
+    validateStep4();
   }
 
   /**
@@ -538,56 +464,11 @@ class OnboardingApp {
   }
 
   /**
-   * Initialize Step 6: Design Direction
+   * Initialize Step 6: Acquisition Channels
    */
   initializeStep6() {
     const backBtn = document.getElementById('step6-back');
-    const nextBtn = document.getElementById('step6-next');
-    const designRadios = document.querySelectorAll('input[name="design"]');
-
-    if (!nextBtn) return;
-
-    // Handle design selection
-    const handleDesignChange = () => {
-      const selected = document.querySelector('input[name="design"]:checked');
-      if (selected) {
-        this.stateManager.updateField('designDirection', selected.value);
-        nextBtn.disabled = false;
-      } else {
-        nextBtn.disabled = true;
-      }
-    };
-
-    designRadios.forEach(radio => {
-      radio.addEventListener('change', handleDesignChange);
-    });
-
-    // Navigation
-    if (backBtn) {
-      backBtn.addEventListener('click', () => {
-        this.stateManager.previousStep();
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', async () => {
-        if (this.stateManager.validateCurrentStep()) {
-          await this.sendToZapier('step_6_design_direction');
-          this.stateManager.nextStep();
-        }
-      });
-    }
-
-    // Initial validation
-    handleDesignChange();
-  }
-
-  /**
-   * Initialize Step 7: Acquisition Channels
-   */
-  initializeStep7() {
-    const backBtn = document.getElementById('step7-back');
-    const nextBtn = document.getElementById('step7-next');
+    const submitBtn = document.getElementById('step6-submit');
     const addChannelBtn = document.getElementById('add-channel-btn');
     const customChannelInput = document.getElementById('custom-channel-input');
     const notesTextarea = document.getElementById('acquisition-notes');
@@ -619,24 +500,23 @@ class OnboardingApp {
       this.channelChipsManager.setSelectedTopics(savedChannels);
     }
 
-    // Initial validation - disable next if no channels selected
-    if (nextBtn) {
-      nextBtn.disabled = !savedChannels || savedChannels.length === 0;
+    // Initial validation - disable submit if no channels selected
+    if (submitBtn) {
+      submitBtn.disabled = !savedChannels || savedChannels.length === 0;
     }
 
     // Listen for channel selection changes
-    // Note: TopicChipsManager emits 'topicsChanged' event
-    // This will be called for both Step 4 (topics) and Step 7 (channels) changes
-    // We only update acquisitionChannels when on Step 7
+    // Note: TopicChipsManager emits 'topicsChanged' event (reused for channels)
+    // We only update acquisitionChannels when on Step 6
     const channelChangeHandler = (e) => {
-      // Only handle if we're on Step 7
-      if (this.stateManager.currentStep === 7) {
+      // Only handle if we're on Step 6
+      if (this.stateManager.currentStep === 6) {
         const channels = e.detail.topics;
         this.stateManager.updateField('acquisitionChannels', channels);
 
-        // Enable/disable next button based on selection
-        if (nextBtn) {
-          nextBtn.disabled = channels.length === 0;
+        // Enable/disable submit button based on selection
+        if (submitBtn) {
+          submitBtn.disabled = channels.length === 0;
         }
       }
     };
@@ -686,59 +566,14 @@ class OnboardingApp {
       });
     }
 
-    if (nextBtn) {
-      nextBtn.addEventListener('click', async () => {
-        if (this.stateManager.validateCurrentStep()) {
-          await this.sendToZapier('step_7_acquisition_channels');
-          this.stateManager.nextStep();
-        }
-      });
-    }
-  }
-
-  /**
-   * Initialize Step 8: Annual Revenue
-   */
-  initializeStep8() {
-    const backBtn = document.getElementById('step8-back');
-    const submitBtn = document.getElementById('step8-submit');
-    const radios = document.querySelectorAll('input[name="annual-revenue"]');
-
-    if (!submitBtn) return;
-
-    // Handle radio selection
-    const handleSelectionChange = () => {
-      const selected = document.querySelector('input[name="annual-revenue"]:checked');
-      if (selected) {
-        this.stateManager.updateField('annualRevenue', selected.value);
-        submitBtn.disabled = false;
-      } else {
-        submitBtn.disabled = true;
-      }
-    };
-
-    radios.forEach(radio => {
-      radio.addEventListener('change', handleSelectionChange);
-    });
-
-    // Navigation
-    if (backBtn) {
-      backBtn.addEventListener('click', () => {
-        this.stateManager.previousStep();
-      });
-    }
-
     if (submitBtn) {
       submitBtn.addEventListener('click', async () => {
         if (this.stateManager.validateCurrentStep()) {
-          await this.sendToZapier('step_8_annual_revenue');
+          await this.sendToZapier('step_6_acquisition_channels');
           await this.submitOnboarding();
         }
       });
     }
-
-    // Initial validation
-    handleSelectionChange();
   }
 
   /**
@@ -762,7 +597,7 @@ class OnboardingApp {
       const response = await this.apiAdapter.getSectionRecommendations({
         icp: state.icp,
         goal: state.goal,
-        topics: state.topics
+        problemsSolved: state.problemsSolved
       });
 
       // Set sections
@@ -859,9 +694,9 @@ class OnboardingApp {
     // Goal
     this.addSummaryItem(summaryGrid, 'Newsletter Goal', data.goal);
 
-    // Topics
-    if (data.topics && data.topics.length > 0) {
-      this.addSummaryList(summaryGrid, 'Selected Topics', data.topics);
+    // Problems Solved
+    if (data.problemsSolved && data.problemsSolved.trim().length > 0) {
+      this.addSummaryItem(summaryGrid, 'Problems Your Business Solves', data.problemsSolved);
     }
 
     // Content Sources
@@ -871,12 +706,6 @@ class OnboardingApp {
         return `${platformLabel}: ${url}`;
       });
       this.addSummaryList(summaryGrid, 'Content Sources', sourcesList);
-    }
-
-    // Design Direction
-    if (data.designDirection) {
-      const designLabel = data.designDirection.charAt(0).toUpperCase() + data.designDirection.slice(1);
-      this.addSummaryItem(summaryGrid, 'Design Direction', designLabel);
     }
 
     // Acquisition Channels
@@ -890,14 +719,6 @@ class OnboardingApp {
     // Notes
     if (data.acquisitionNotes && data.acquisitionNotes.trim().length > 0) {
       this.addSummaryItem(summaryGrid, 'Additional Notes', data.acquisitionNotes);
-    }
-
-    // Annual Revenue
-    if (data.annualRevenue) {
-      const revenueLabel = data.annualRevenue.split('-').map(word =>
-        word.charAt(0).toUpperCase() + word.slice(1)
-      ).join(' ');
-      this.addSummaryItem(summaryGrid, 'Annual Revenue', revenueLabel);
     }
   }
 
@@ -964,22 +785,19 @@ class OnboardingApp {
     this.stateManager.clearState();
 
     // Reset managers
-    if (this.topicChipsManager) {
-      this.topicChipsManager.clearSelections();
-    }
     if (this.channelChipsManager) {
       this.channelChipsManager.clearSelections();
     }
 
     // Clear all form inputs
-    const emailInput = document.getElementById('email-input');
     const icpInput = document.getElementById('icp-input');
     const goalInput = document.getElementById('goal-input');
+    const problemsInput = document.getElementById('problems-input');
     const notesInput = document.getElementById('acquisition-notes');
 
-    if (emailInput) emailInput.value = '';
     if (icpInput) icpInput.value = '';
     if (goalInput) goalInput.value = '';
+    if (problemsInput) problemsInput.value = '';
     if (notesInput) notesInput.value = '';
 
     // Clear content sources
@@ -991,10 +809,6 @@ class OnboardingApp {
       input.value = '';
       input.disabled = true;
     });
-
-    // Clear design selection
-    const designRadios = document.querySelectorAll('input[name="design"]');
-    designRadios.forEach(radio => radio.checked = false);
 
     // Hide all steps and thank you page
     const allSteps = document.querySelectorAll('.onboarding-step');

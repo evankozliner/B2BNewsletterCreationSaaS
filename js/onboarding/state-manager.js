@@ -5,19 +5,17 @@
 
 class StateManager {
   constructor() {
-    this.currentStep = 0;
-    this.totalSteps = 9;
+    this.currentStep = 1;
+    this.totalSteps = 6;
     this.state = {
       email: '',
       icp: '',
       emailListSize: '',
       goal: '',
-      topics: [],
+      problemsSolved: '',
       contentSources: {}, // { linkedin: 'url', twitter: 'url', etc. }
-      designDirection: '',
       acquisitionChannels: [],
-      acquisitionNotes: '',
-      annualRevenue: ''
+      acquisitionNotes: ''
     };
 
     this.loadState();
@@ -86,14 +84,12 @@ class StateManager {
       icp: '',
       emailListSize: '',
       goal: '',
-      topics: [],
+      problemsSolved: '',
       contentSources: {},
-      designDirection: '',
       acquisitionChannels: [],
-      acquisitionNotes: '',
-      annualRevenue: ''
+      acquisitionNotes: ''
     };
-    this.currentStep = 0;
+    this.currentStep = 1;
     sessionStorage.removeItem('onboarding_state');
     sessionStorage.removeItem('onboarding_current_step');
   }
@@ -102,12 +98,12 @@ class StateManager {
    * Navigate to a specific step
    */
   goToStep(stepNumber) {
-    if (stepNumber < 0 || stepNumber > this.totalSteps) {
+    if (stepNumber < 1 || stepNumber > this.totalSteps) {
       console.error('Invalid step number:', stepNumber);
       return false;
     }
 
-    // Hide ALL steps first
+    // Hide ALL steps first (including old step-0 if it exists)
     for (let i = 0; i <= this.totalSteps; i++) {
       const stepEl = document.getElementById(`step-${i}`);
       if (stepEl) {
@@ -143,7 +139,7 @@ class StateManager {
    * Go to the previous step
    */
   previousStep() {
-    if (this.currentStep > 0) {
+    if (this.currentStep > 1) {
       return this.goToStep(this.currentStep - 1);
     }
     return false;
@@ -194,11 +190,7 @@ class StateManager {
    * Restore form inputs from state
    */
   restoreInputs() {
-    // Restore email
-    const emailInput = document.getElementById('email-input');
-    if (emailInput && this.state.email) {
-      emailInput.value = this.state.email;
-    }
+    // Email is now passed via URL parameter, no need to restore
 
     // Restore text inputs
     const icpInput = document.getElementById('icp-input');
@@ -211,31 +203,18 @@ class StateManager {
       goalInput.value = this.state.goal;
     }
 
+    const problemsInput = document.getElementById('problems-input');
+    if (problemsInput && this.state.problemsSolved) {
+      problemsInput.value = this.state.problemsSolved;
+    }
+
     const notesInput = document.getElementById('acquisition-notes');
     if (notesInput && this.state.acquisitionNotes) {
       notesInput.value = this.state.acquisitionNotes;
     }
 
-    // Restore design direction
-    if (this.state.designDirection) {
-      const designRadio = document.querySelector(`input[name="design"][value="${this.state.designDirection}"]`);
-      if (designRadio) {
-        designRadio.checked = true;
-      }
-    }
-
-    // Restore acquisition channels
-    if (this.state.acquisitionChannels && this.state.acquisitionChannels.length > 0) {
-      this.state.acquisitionChannels.forEach(channel => {
-        const checkbox = document.querySelector(`input[name="acquisition"][value="${channel}"]`);
-        if (checkbox) {
-          checkbox.checked = true;
-        }
-      });
-    }
-
     // Navigate to saved step if user has started the form
-    if (this.currentStep > 0) {
+    if (this.currentStep > 1) {
       // Hide cover page and show progress bar
       const coverPage = document.getElementById('cover-page');
       const progressBar = document.querySelector('.progress-bar-container');
@@ -258,27 +237,24 @@ class StateManager {
    */
   validateCurrentStep() {
     switch (this.currentStep) {
-      case 0:
-        // Email validation
-        return this.state.email && this.isValidEmail(this.state.email);
       case 1:
+        // ICP validation
         return this.state.icp && this.state.icp.trim().length > 0;
       case 2:
+        // Email List Size validation
         return this.state.emailListSize && this.state.emailListSize.length > 0;
       case 3:
-        return this.state.goal && this.state.goal.trim().length > 0;
+        // Problems Solved validation
+        return this.state.problemsSolved && this.state.problemsSolved.trim().length > 0;
       case 4:
-        return this.state.topics && this.state.topics.length >= 1 && this.state.topics.length <= 3;
+        // Goal validation
+        return this.state.goal && this.state.goal.trim().length > 0;
       case 5:
-        // Require at least one content source selection (including "none")
+        // Content Sources validation - require at least one content source selection (including "none")
         return this.state.contentSources && Object.keys(this.state.contentSources).length >= 1;
       case 6:
-        return this.state.designDirection && this.state.designDirection.length > 0;
-      case 7:
-        // Require at least one acquisition channel
+        // Acquisition Channels validation - require at least one acquisition channel
         return this.state.acquisitionChannels && this.state.acquisitionChannels.length >= 1;
-      case 8:
-        return this.state.annualRevenue && this.state.annualRevenue.length > 0;
       default:
         return false;
     }

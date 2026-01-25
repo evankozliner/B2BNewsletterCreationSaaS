@@ -65,7 +65,7 @@
       <div class="progress-bar">
         <div class="progress-fill" id="progressFill"></div>
       </div>
-      <div class="progress-text" id="progressText">Step 1 of 9</div>
+      <div class="progress-text" id="progressText">Step 1 of 6</div>
     </div>
 
     <!-- Cover Page -->
@@ -95,31 +95,6 @@
               ✨ See sample newsletters
             </a>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Step 0: Email Capture -->
-    <div class="onboarding-step" id="step-0" data-step="0" style="display: none;">
-      <div class="step-content">
-        <h1>Get Your Free Newsletter Funnel + Plan</h1>
-        <p class="step-helper">Enter your email and we'll send your custom newsletter strategy plan when it's ready</p>
-
-        <div class="email-section">
-          <label for="email-input" class="email-label">Work Email</label>
-          <input
-            type="email"
-            id="email-input"
-            class="email-input"
-            placeholder="you@company.com"
-            required
-          />
-          <p class="email-privacy">We respect your privacy. No spam, ever.</p>
-        </div>
-
-        <div class="step-navigation">
-          <button class="btn-back" id="step0-back">Back</button>
-          <button class="btn-next" id="step0-next" disabled>Continue</button>
         </div>
       </div>
     </div>
@@ -155,7 +130,7 @@
     <!-- Step 2: Email List Size -->
     <div class="onboarding-step" id="step-2" data-step="2" style="display: none;">
       <div class="step-content">
-        <h1>What's your current email list size of ICP?</h1>
+        <h1>What's your current email list size of ICP? (Approximately)</h1>
         <p class="step-helper">This helps us understand the best growth approach for you</p>
 
         <div class="design-options">
@@ -209,8 +184,39 @@
       </div>
     </div>
 
-    <!-- Step 3: Newsletter Goal -->
+    <!-- Step 3: Problems Solved -->
     <div class="onboarding-step" id="step-3" data-step="3" style="display: none;">
+      <div class="step-content">
+        <h1>What problem(s) does your business solve for your ICP?</h1>
+        <p class="step-helper">Prefer to speak? Use the mic.</p>
+
+        <div class="textarea-container">
+          <textarea
+            id="problems-input"
+            class="voice-textarea"
+            placeholder="Example: We help marketing agencies automate their client reporting, saving them 10+ hours per week on manual data gathering..."
+            rows="6"
+          ></textarea>
+          <button class="mic-button" id="problems-mic" aria-label="Use voice input">
+            <svg class="mic-icon" viewBox="0 0 24 24" width="24" height="24">
+              <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+              <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+            </svg>
+            <span class="mic-text">Tap to speak</span>
+          </button>
+        </div>
+
+        <div class="voice-status" id="problems-status"></div>
+
+        <div class="step-navigation">
+          <button class="btn-back" id="step3-back">Back</button>
+          <button class="btn-next" id="step3-next">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Newsletter Goal -->
+    <div class="onboarding-step" id="step-4" data-step="4" style="display: none;">
       <div class="step-content">
         <h1>What's the goal of your newsletter?</h1>
         <p class="step-helper">Prefer to speak? Use the mic.</p>
@@ -243,47 +249,8 @@
         </div>
 
         <div class="step-navigation">
-          <button class="btn-back" id="step3-back">Back</button>
-          <button class="btn-next" id="step3-next">Next</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Step 4: Topics -->
-    <div class="onboarding-step" id="step-4" data-step="4" style="display: none;">
-      <div class="step-content">
-        <h1>Select 1-3 topics</h1>
-        <p class="step-helper">Choose topics that align with your newsletter's focus. Our team may suggest additional topics when we build your custom plan.</p>
-
-        <div class="topics-container" id="topics-container">
-          <div class="custom-topic-section">
-            <p class="custom-topic-label">Add your own topic:</p>
-            <div class="custom-topic-input-group">
-              <input
-                type="text"
-                id="custom-topic-input"
-                placeholder="Enter a custom topic..."
-                maxlength="50"
-              />
-              <button class="btn-add-topic" id="add-topic-btn">Add</button>
-            </div>
-          </div>
-
-          <div class="common-topics-section">
-            <p class="common-topics-label">Or choose from common topics:</p>
-            <div class="topic-cloud" id="topic-cloud">
-              <!-- Topic chips will be inserted here -->
-            </div>
-          </div>
-
-          <div class="selected-topics-summary" id="selected-topics-summary">
-            <span class="topics-count">0 of 3 selected</span>
-          </div>
-        </div>
-
-        <div class="step-navigation" id="step4-nav">
           <button class="btn-back" id="step4-back">Back</button>
-          <button class="btn-next" id="step4-next" disabled>Next</button>
+          <button class="btn-next" id="step4-next">Next</button>
         </div>
       </div>
     </div>
@@ -366,59 +333,8 @@
       </div>
     </div>
 
-    <!-- Step 6: Design Direction -->
+    <!-- Step 6: Revenue Strategy -->
     <div class="onboarding-step" id="step-6" data-step="6" style="display: none;">
-      <div class="step-content">
-        <h1>Choose a design direction</h1>
-        <p class="step-helper">Select the style that best fits your brand</p>
-
-        <div class="design-options">
-          <label class="design-option">
-            <input type="radio" name="design" value="editorial" />
-            <div class="design-card">
-              <div class="design-preview">
-                <img src="/samples/editorial-preview.svg" alt="Editorial design preview" />
-              </div>
-              <h3>Editorial</h3>
-              <p class="design-description">Clean, professional, and content-focused</p>
-              <a href="/samples/external-samples/marketing_survival_guide.html" class="sample-link" target="_blank" rel="noopener">View sample →</a>
-            </div>
-          </label>
-
-          <label class="design-option">
-            <input type="radio" name="design" value="playful" />
-            <div class="design-card">
-              <div class="design-preview">
-                <img src="/samples/playful-preview.svg" alt="Playful design preview" />
-              </div>
-              <h3>Playful</h3>
-              <p class="design-description">Vibrant, engaging, and creative</p>
-              <a href="/samples/external-samples/million_dollar_mistake.html" class="sample-link" target="_blank" rel="noopener">View sample →</a>
-            </div>
-          </label>
-
-          <label class="design-option">
-            <input type="radio" name="design" value="minimal" />
-            <div class="design-card">
-              <div class="design-preview">
-                <img src="/samples/minimal-preview.svg" alt="Minimal design preview" />
-              </div>
-              <h3>Minimal</h3>
-              <p class="design-description">Simple, elegant, and distraction-free</p>
-              <a href="/samples/external-samples/growth_hacks.html" class="sample-link" target="_blank" rel="noopener">View sample →</a>
-            </div>
-          </label>
-        </div>
-
-        <div class="step-navigation">
-          <button class="btn-back" id="step6-back">Back</button>
-          <button class="btn-next" id="step6-next" disabled>Next</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Step 7: Revenue Strategy -->
-    <div class="onboarding-step" id="step-7" data-step="7" style="display: none;">
       <div class="step-content">
         <h1>How do you currently get leads at the top of your funnel?</h1>
         <p class="step-helper">Select at least one channel (or add your own)</p>
@@ -459,58 +375,8 @@
         </div>
 
         <div class="step-navigation">
-          <button class="btn-back" id="step7-back">Back</button>
-          <button class="btn-next" id="step7-next" disabled>Next</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Step 8: Annual Revenue -->
-    <div class="onboarding-step" id="step-8" data-step="8" style="display: none;">
-      <div class="step-content">
-        <h1>What's your approximate annual revenue?</h1>
-        <p class="step-helper">This helps us understand the best growth approach for you</p>
-
-        <div class="design-options">
-          <label class="design-option">
-            <input type="radio" name="annual-revenue" value="under-50k" />
-            <div class="design-card">
-              <h3>< $50k</h3>
-            </div>
-          </label>
-
-          <label class="design-option">
-            <input type="radio" name="annual-revenue" value="50k-100k" />
-            <div class="design-card">
-              <h3>$50k - $100k</h3>
-            </div>
-          </label>
-
-          <label class="design-option">
-            <input type="radio" name="annual-revenue" value="100k-500k" />
-            <div class="design-card">
-              <h3>$100k - $500k</h3>
-            </div>
-          </label>
-
-          <label class="design-option">
-            <input type="radio" name="annual-revenue" value="500k-1m" />
-            <div class="design-card">
-              <h3>$500k - $1M</h3>
-            </div>
-          </label>
-
-          <label class="design-option">
-            <input type="radio" name="annual-revenue" value="1m+" />
-            <div class="design-card">
-              <h3>$1M+</h3>
-            </div>
-          </label>
-        </div>
-
-        <div class="step-navigation">
-          <button class="btn-back" id="step8-back">Back</button>
-          <button class="btn-submit" id="step8-submit">Submit</button>
+          <button class="btn-back" id="step6-back">Back</button>
+          <button class="btn-submit" id="step6-submit" disabled>Submit</button>
         </div>
       </div>
     </div>
@@ -534,17 +400,9 @@
         <div class="next-steps">
           <h2>What happens next?</h2>
           <ol class="next-steps-list">
-            <li>We'll analyze your ideal customer profile and goals</li>
-            <li>Our team will craft a custom newsletter funnel strategy</li>
-            <li>We'll reach out at <strong><a href="mailto:evan@withpotions.com">evan@withpotions.com</a></strong> with your final plan</li>
+            <li>We will look at your responses and business to recommend a custom funnel for you</li>
+            <li>Attend your onboarding call and we will discuss your newsletter funnel</li>
           </ol>
-        </div>
-
-        <div class="cta-section">
-          <p class="cta-text">Ready to get started right away?</p>
-          <a href="https://calendly.com/d/cs2v-38g-5dp/potions-onboarding-call" target="_blank" rel="noopener" class="btn-book-call">
-            📅 Book a call
-          </a>
         </div>
 
         <div class="resources-section">
