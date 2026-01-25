@@ -353,21 +353,23 @@ class OnboardingApp {
       }
     };
 
-    // Handle checkbox changes - enable/disable URL input
+    // Handle checkbox changes
     checkboxes.forEach(checkbox => {
       checkbox.addEventListener('change', () => {
         const source = checkbox.value;
-        const urlInput = document.querySelector(`.source-url-input[data-source="${source}"]`);
 
         // If "none" is selected, uncheck all others
         if (source === 'none' && checkbox.checked) {
           checkboxes.forEach(cb => {
             if (cb.value !== 'none') {
               cb.checked = false;
-              const otherUrlInput = document.querySelector(`.source-url-input[data-source="${cb.value}"]`);
-              if (otherUrlInput) {
-                otherUrlInput.disabled = true;
-                otherUrlInput.value = '';
+              // Clear "other" input if it exists
+              if (cb.value === 'other') {
+                const otherInput = document.querySelector('.source-url-input[data-source="other"]');
+                if (otherInput) {
+                  otherInput.disabled = true;
+                  otherInput.value = '';
+                }
               }
             }
           });
@@ -379,11 +381,14 @@ class OnboardingApp {
           }
         }
 
-        if (urlInput) {
-          urlInput.disabled = !checkbox.checked;
-
-          if (!checkbox.checked) {
-            urlInput.value = '';
+        // Enable/disable "other" text input
+        if (source === 'other') {
+          const otherInput = document.querySelector('.source-url-input[data-source="other"]');
+          if (otherInput) {
+            otherInput.disabled = !checkbox.checked;
+            if (!checkbox.checked) {
+              otherInput.value = '';
+            }
           }
         }
 
@@ -405,17 +410,16 @@ class OnboardingApp {
       Object.keys(savedSources).forEach(source => {
         const checkbox = document.querySelector(`input[name="content-source"][value="${source}"]`);
 
-        if (source === 'none') {
-          // Special handling for "none" - just check it
-          if (checkbox) {
-            checkbox.checked = true;
-          }
-        } else {
-          const urlInput = document.querySelector(`.source-url-input[data-source="${source}"]`);
-          if (checkbox && urlInput && savedSources[source]) {
-            checkbox.checked = true;
-            urlInput.disabled = false;
-            urlInput.value = savedSources[source];
+        if (checkbox) {
+          checkbox.checked = true;
+
+          // Handle "other" with text input
+          if (source === 'other' && savedSources[source] !== 'true') {
+            const otherInput = document.querySelector('.source-url-input[data-source="other"]');
+            if (otherInput) {
+              otherInput.disabled = false;
+              otherInput.value = savedSources[source];
+            }
           }
         }
       });
@@ -449,14 +453,23 @@ class OnboardingApp {
     checkboxes.forEach(checkbox => {
       const source = checkbox.value;
 
-      // Handle "none" option specially - no URL needed
+      // Handle "none" option - no additional input needed
       if (source === 'none') {
         contentSources[source] = 'true';
-      } else {
+      }
+      // Handle "other" - requires text input
+      else if (source === 'other') {
         const urlInput = document.querySelector(`.source-url-input[data-source="${source}"]`);
         if (urlInput && urlInput.value.trim()) {
           contentSources[source] = urlInput.value.trim();
+        } else {
+          // Store as true even if no description provided
+          contentSources[source] = 'true';
         }
+      }
+      // Handle standard platforms (linkedin, blog, podcast) - just store true
+      else {
+        contentSources[source] = 'true';
       }
     });
 
@@ -570,11 +583,12 @@ class OnboardingApp {
       submitBtn.addEventListener('click', async () => {
         if (this.stateManager.validateCurrentStep()) {
           await this.sendToZapier('step_6_acquisition_channels');
-          await this.submitOnboarding();
+          await this.handleFinalSubmit();
         }
       });
     }
   }
+
 
   /**
    * Load section recommendations from API
@@ -631,10 +645,10 @@ class OnboardingApp {
   }
 
   /**
-   * Submit onboarding data
+   * Handle final submission from Step 6
    */
-  async submitOnboarding() {
-    const submitBtn = document.getElementById('step8-submit');
+  async handleFinalSubmit() {
+    const submitBtn = document.getElementById('step6-submit');
 
     if (submitBtn) {
       submitBtn.disabled = true;
@@ -701,9 +715,17 @@ class OnboardingApp {
 
     // Content Sources
     if (data.contentSources && Object.keys(data.contentSources).length > 0) {
-      const sourcesList = Object.entries(data.contentSources).map(([platform, url]) => {
+      const sourcesList = Object.entries(data.contentSources).map(([platform, value]) => {
         const platformLabel = platform.charAt(0).toUpperCase() + platform.slice(1);
-        return `${platformLabel}: ${url}`;
+
+        // For "other" with a description, show the description
+        if (platform === 'other' && value !== 'true') {
+          return `Other: ${value}`;
+        }
+        // For all other platforms, just show the platform name
+        else {
+          return platformLabel;
+        }
       });
       this.addSummaryList(summaryGrid, 'Content Sources', sourcesList);
     }
