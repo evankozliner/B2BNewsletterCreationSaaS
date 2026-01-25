@@ -88,7 +88,13 @@ class OnboardingApp {
    */
   checkUrlParameters() {
     const urlParams = new URLSearchParams(window.location.search);
-    const emailParam = urlParams.get('email');
+    let emailParam = urlParams.get('email');
+
+    // Fix: URLSearchParams decodes '+' as space, but '+' is valid in email addresses
+    // Replace spaces with '+' to restore the original email
+    if (emailParam) {
+      emailParam = emailParam.replace(/ /g, '+');
+    }
 
     if (emailParam && this.stateManager.isValidEmail(emailParam)) {
       console.log('Valid email parameter found:', emailParam);
