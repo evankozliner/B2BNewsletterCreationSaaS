@@ -278,6 +278,46 @@ const pages = [
         }
     },
     {
+        name: 'dfy-newsletter-97',
+        template: 'pages/dfy-newsletter-97.ejs',
+        output: 'dfy-newsletter-97.html',
+        data: {
+            title: 'Get Your Done-For-You Newsletter for $97 | Potions',
+            description: 'Get a custom, professionally written and designed newsletter for just $97. One-time payment, no recurring fees.',
+            keywords: 'Done For You Newsletter, DFY Newsletter, Custom Newsletter, Newsletter Service',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: true,
+            scripts: ['hamburger.js'],
+            canonicalUrl: 'https://withpotions.com/dfy-newsletter-97.html',
+            navTargetPage: '/', // Normal page: nav points to homepage
+            hideHeaderFooter: true
+        }
+    },
+    {
+        name: 'dfy-newsletter-97-thank-you',
+        template: 'pages/dfy-newsletter-97-thank-you.ejs',
+        output: 'dfy-newsletter-97-thank-you.html',
+        data: {
+            title: 'Thank You for Your Purchase! | Potions',
+            description: 'Payment successful! Book your strategy call and we\'ll deliver your custom newsletter within 7 days.',
+            keywords: 'Thank You, Newsletter Purchase, Strategy Call',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: true,
+            scripts: [],
+            canonicalUrl: 'https://withpotions.com/dfy-newsletter-97-thank-you.html',
+            navTargetPage: '/', // Normal page: nav points to homepage
+            hideHeaderFooter: true
+        }
+    },
+    {
         name: 'newsletter-funnel-onboarding',
         template: 'pages/newsletter-funnel-onboarding.ejs',
         output: 'newsletter-funnel-onboarding.html',
