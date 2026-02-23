@@ -318,6 +318,25 @@ const pages = [
         }
     },
     {
+        name: '500',
+        template: 'pages/500.ejs',
+        output: '500.html',
+        data: {
+            title: 'Something Went Wrong - Potions',
+            description: 'Something went wrong on our end. Please try again later.',
+            keywords: 'Error, 500, Server Error',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: [],
+            showBlogLink: false,
+            tracking: false,
+            scripts: ['hamburger.js'],
+            canonicalUrl: 'https://withpotions.com/500.html',
+            navTargetPage: '/'
+        }
+    },
+    {
         name: 'newsletter-funnel-onboarding',
         template: 'pages/newsletter-funnel-onboarding.ejs',
         output: 'newsletter-funnel-onboarding.html',
