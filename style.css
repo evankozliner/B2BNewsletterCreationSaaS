@@ -1443,3 +1443,176 @@ footer {
   }
 }
 
+/* ========================================
+   Contact Modal (Index Page)
+   ======================================== */
+.contact-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-modal {
+  background: #fff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.contact-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #666;
+  padding: 0;
+  line-height: 1;
+}
+
+.contact-modal-close:hover {
+  color: #333;
+  background: none;
+}
+
+.contact-modal-step h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 1.75rem;
+}
+
+.contact-modal-step > p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* Shared form styles (modal + book page) */
+.contact-form-group {
+  margin-bottom: 1.25rem;
+}
+
+.contact-form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.contact-form-group .iti {
+  width: 100%;
+}
+
+.contact-form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #333;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.contact-form-group input:focus {
+  outline: none;
+  border-color: #5D5DED;
+}
+
+.contact-form-submit {
+  width: 100%;
+  background-color: #5D5DED;
+  color: #fff;
+  border: 2px solid #000;
+  padding: 14px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.contact-form-submit:hover {
+  background-color: #4848d8;
+}
+
+/* Calendly inside modal */
+.contact-modal-calendly {
+  min-height: 700px;
+}
+
+.contact-modal-calendly iframe {
+  min-height: 700px !important;
+}
+
+/* Modal responsive */
+@media (max-width: 768px) {
+  .contact-modal {
+    width: 95%;
+    max-height: 95vh;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .contact-modal-calendly {
+    min-height: 600px;
+  }
+}
+
+/* ========================================
+   Book Page Inline Form
+   ======================================== */
+.booking-contact-form-section {
+  padding: 3rem 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #F5C7EB;
+}
+
+.booking-contact-form-card {
+  max-width: 500px;
+  width: 100%;
+  background: white;
+  border: 5px solid black;
+  border-radius: 10px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.booking-contact-form-card h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.75rem;
+}
+
+.booking-contact-subtitle {
+  color: #555;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.booking-contact-form-card .contact-form-group {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .booking-contact-form-card {
+    padding: 2rem 1.5rem;
+  }
+}
+

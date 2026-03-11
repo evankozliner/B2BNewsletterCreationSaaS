@@ -19,6 +19,8 @@
     <!-- Preload critical CSS -->
     <link rel="preload" href="style.css" as="style" />
     <link rel="stylesheet" href="style.css" />
+    <!-- intl-tel-input CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.8.2/build/css/intlTelInput.css" />
     <!-- Preload critical font -->
     <link rel="preload" href="webfonts/prosa-light.woff2" as="font" type="font/woff2" crossorigin />
     <!-- Preload hero background image -->
@@ -84,7 +86,7 @@
               <h1>Done-For-You<br/><span class="highlight">Newsletter</span> Systems.</h1>
               <p class="value-prop">Keep your leads warm, finish all your email content in 15 minutes, and finally drive revenue with your newsletter.</p>
               <div class="hero-buttons">
-                  <a href="https://dzlivd9t4eb.typeform.com/to/kMeO3tlp"><button class="get-started">Try it Free!</button></a>
+                  <a href="#" onclick="openContactModal(); return false;"><button class="get-started">Try it Free!</button></a>
               </div>
           </div>
     </section>
@@ -119,7 +121,7 @@
                 <h2>SAVE TIME</h2>
                 <p>With just a few minutes of your time, we'll design and write a newsletter that your audience will love.</p>
                 <p>Your competition will think you're cheating.</p>
-                <a href="https://dzlivd9t4eb.typeform.com/to/kMeO3tlp"><button>Scale faster</button></a>
+                <a href="#" onclick="openContactModal(); return false;"><button>Scale faster</button></a>
             </div>
         </div>
     </section>
@@ -133,7 +135,7 @@
                 <h2>MONETIZE</h2>
                 <p>Get warm leads delivered to your inbox each week. Want to monetize with ads or subscriptions? We can help there too.</p>
                 <p>We just can't make money appear out of thin air...yet.</p>
-                <a href="https://dzlivd9t4eb.typeform.com/to/kMeO3tlp"><button>Start earning</button></a>
+                <a href="#" onclick="openContactModal(); return false;"><button>Start earning</button></a>
             </div>
         </div>
     </section>
@@ -147,7 +149,7 @@
                 <h2>LEARN</h2>
                 <p>Our newsletter improves as your audience interacts with it. And we manage your list for you.</p>
                 <p>Who doesn't like waking up to more sales every week?</p>
-                <a href="https://dzlivd9t4eb.typeform.com/to/kMeO3tlp"><button>Be smarter</button></a>
+                <a href="#" onclick="openContactModal(); return false;"><button>Be smarter</button></a>
             </div>
         </div>
     </section>
@@ -757,7 +759,7 @@
                     <p class="cta-subtext">See how Jacob saved 30+ hours a month and drove 5-figure client expansions</p>
                     <div class="cta-buttons">
                         <a href="blog/stat-digital-case-study.html"><button class="read-case-study">Read the Case Study</button></a>
-                        <a href="https://dzlivd9t4eb.typeform.com/to/kMeO3tlp"><button class="start-trial secondary">Get a Free Sample</button></a>
+                        <a href="#" onclick="openContactModal(); return false;"><button class="start-trial secondary">Get a Free Sample</button></a>
                     </div>
                 </div>
             </div>
@@ -901,31 +903,125 @@
 
     </main>
 
+<!-- Contact Modal -->
+<div id="contactModal" class="contact-modal-overlay" style="display:none;">
+  <div class="contact-modal">
+    <button class="contact-modal-close" onclick="closeContactModal()">&times;</button>
+
+    <!-- Step 1: Form -->
+    <div id="contactModalStep1" class="contact-modal-step">
+      <h2>Get Started</h2>
+      <p>Enter your details and we'll get you set up with a free consultation.</p>
+      <form id="contactModalForm" onsubmit="submitContactModal(event)">
+        <div class="contact-form-group">
+          <label for="contactEmail">Email *</label>
+          <input type="email" id="contactEmail" name="email" required placeholder="you@company.com">
+        </div>
+        <div class="contact-form-group">
+          <label for="contactPhone">Phone Number *</label>
+          <input type="tel" id="contactPhone" name="phone" required placeholder="(555) 123-4567">
+        </div>
+        <button type="submit" class="contact-form-submit">Next</button>
+      </form>
+    </div>
+
+    <!-- Step 2: Calendly -->
+    <div id="contactModalStep2" class="contact-modal-step" style="display:none;">
+      <h2>Pick a Time</h2>
+      <div id="contactModalCalendly" class="contact-modal-calendly"></div>
+    </div>
+  </div>
+</div>
+
 <script>
-  const urlParams = new URLSearchParams(window.location.search);
-  
-  // List of UTM and other tracking parameters to preserve
-  const trackingParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid', 'ref'];
-  
-  // Extract only the tracking parameters that exist
-  const filteredParams = new URLSearchParams();
-  trackingParams.forEach(param => {
-    if (urlParams.has(param)) {
-      filteredParams.set(param, urlParams.get(param));
-    }
-  });
-  
-  // Add the filtered parameters to all typeform links
-  if ([...filteredParams].length > 0) {
-    document.querySelectorAll('a[href*="typeform.com"]').forEach(link => {
-      const originalUrl = new URL(link.href);
-      filteredParams.forEach((value, key) => {
-        originalUrl.searchParams.set(key, value);
-      });
-      link.href = originalUrl.toString();
+var iti; // intl-tel-input instance for modal phone input
+
+function openContactModal() {
+  var modal = document.getElementById('contactModal');
+  modal.style.display = 'flex';
+  document.getElementById('contactModalStep1').style.display = 'block';
+  document.getElementById('contactModalStep2').style.display = 'none';
+  document.body.style.overflow = 'hidden';
+
+  // Init intl-tel-input once the input is visible so it can measure correctly
+  if (!iti) {
+    iti = intlTelInput(document.getElementById('contactPhone'), {
+      initialCountry: "auto",
+      geoIpLookup: function(callback) {
+        fetch("https://ipapi.co/json")
+          .then(function(res) { return res.json(); })
+          .then(function(data) { callback(data.country_code); })
+          .catch(function() { callback("us"); });
+      },
+      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.8.2/build/js/utils.js"
     });
   }
+}
+
+function closeContactModal() {
+  document.getElementById('contactModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// Close on backdrop click
+document.getElementById('contactModal').addEventListener('click', function(e) {
+  if (e.target === this) closeContactModal();
+});
+
+function submitContactModal(e) {
+  e.preventDefault();
+  var email = document.getElementById('contactEmail').value;
+  var phone = iti.getNumber(); // E.164 format from intl-tel-input
+
+  sessionStorage.setItem('contact_email', email);
+  sessionStorage.setItem('contact_phone', phone);
+
+  // Gather UTM params
+  var urlParams = new URLSearchParams(window.location.search);
+  var source = {};
+  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid', 'ref'].forEach(function(p) {
+    if (urlParams.has(p)) source[p] = urlParams.get(p);
+  });
+
+  // Fire-and-forget webhook
+  fetch('ZAPIER_WEBHOOK_URL_HERE', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: email,
+      phone: phone,
+      timestamp: new Date().toISOString(),
+      source: source,
+      page: 'index'
+    })
+  }).catch(function() {});
+
+  // Show Calendly step
+  document.getElementById('contactModalStep1').style.display = 'none';
+  document.getElementById('contactModalStep2').style.display = 'block';
+
+  var calendlyContainer = document.getElementById('contactModalCalendly');
+  calendlyContainer.innerHTML = '';
+  Calendly.initInlineWidget({
+    url: 'https://calendly.com/d/cs2v-38g-5dp/potions-onboarding-call?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=5D5DED',
+    parentElement: calendlyContainer,
+    prefill: {
+      email: email,
+      customAnswers: {
+        a1: phone
+      }
+    }
+  });
+}
+
+// Listen for Calendly event_scheduled to close modal
+window.addEventListener('message', function(e) {
+  if (e.data.event && e.data.event === 'calendly.event_scheduled') {
+    closeContactModal();
+  }
+});
 </script>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var heroAnimation = lottie.loadAnimation({
@@ -1087,13 +1183,14 @@ updatePrices();
     </footer>
 
 
+    <!-- intl-tel-input JS (loaded before page scripts) -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.8.2/build/js/intlTelInput.min.js"></script>
+
     
         
     <script src="faq.js" defer></script>
         
     <script src="hamburger.js" defer></script>
-        
-    <script src="https://embed.typeform.com/next/embed.js" defer></script>
         
     
 

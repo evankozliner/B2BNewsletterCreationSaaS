@@ -23,7 +23,7 @@ const pages = [
             additionalCSS: [],
             showBlogLink: false,
             tracking: true,
-            scripts: ['faq.js', 'hamburger.js', 'https://embed.typeform.com/next/embed.js'],
+            scripts: ['faq.js', 'hamburger.js'],
             canonicalUrl: 'https://withpotions.com/',
             navTargetPage: '' // Marketing page: nav stays within this page
         }

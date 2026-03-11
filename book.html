@@ -19,6 +19,8 @@
     <!-- Preload critical CSS -->
     <link rel="preload" href="style.css" as="style" />
     <link rel="stylesheet" href="style.css" />
+    <!-- intl-tel-input CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.8.2/build/css/intlTelInput.css" />
     <!-- Preload critical font -->
     <link rel="preload" href="webfonts/prosa-light.woff2" as="font" type="font/woff2" crossorigin />
     <!-- Preload hero background image -->
@@ -74,7 +76,7 @@
                   </div>
               </div>
 
-              <a href="#calendar" class="book-call-btn">
+              <a href="#contact-form" class="book-call-btn">
                   <button class="cta-book-call">Book a Call</button>
               </a>
 
@@ -87,15 +89,33 @@
           </div>
       </section>
 
-      <!-- Calendly Section -->
-      <section class="booking-calendar-section" id="calendar">
+      <!-- Contact Form Section -->
+      <section class="booking-contact-form-section" id="contact-form">
+          <div class="booking-contact-form-card">
+              <h2>Don’t Delay Your Appointment!</h2>
+              <p class="booking-contact-subtitle">Once full, we won’t take on new projects for the next 3 months.</p>
+              <form id="bookContactForm" onsubmit="submitBookForm(event)">
+                  <div class="contact-form-group">
+                      <label for="bookEmail">Email *</label>
+                      <input type="email" id="bookEmail" name="email" required placeholder="you@company.com">
+                  </div>
+                  <div class="contact-form-group">
+                      <label for="bookPhone">Phone Number *</label>
+                      <input type="tel" id="bookPhone" name="phone" required placeholder="(555) 123-4567">
+                  </div>
+                  <button type="submit" class="contact-form-submit">Continue to Scheduling</button>
+              </form>
+          </div>
+      </section>
+
+      <!-- Calendly Section (hidden until form submitted) -->
+      <section class="booking-calendar-section" id="calendar" style="display:none;">
           <div class="calendar-container">
-              <h2>Don't Delay Your Appointment!</h2>
+              <h2>Don’t Delay Your Appointment!</h2>
               <p class="calendar-subtitle">Once full, we won’t take on new projects for the next 3 months.</p>
 
-              <!-- Calendly inline widget begin -->
-              <div class="calendly-inline-widget" data-url="https://calendly.com/d/cs2v-38g-5dp/potions-onboarding-call?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=5D5DED" style="min-width:320px;height:750px;"></div>
-              <!-- Calendly inline widget end -->
+              <!-- Calendly inline widget (initialized dynamically with prefill) -->
+              <div id="bookCalendlyWidget" style="min-width:320px;height:750px;"></div>
           </div>
       </section>
 
@@ -529,7 +549,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (bookCallBtn) {
     bookCallBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      document.querySelector('#calendar').scrollIntoView({
+      document.querySelector('#contact-form').scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
@@ -588,6 +608,70 @@ document.addEventListener('DOMContentLoaded', function() {
   // Rotate every 5 seconds
   setInterval(rotateTestimonial, 5000);
 
+  // Init intl-tel-input on book page phone input
+  var bookIti = intlTelInput(document.getElementById('bookPhone'), {
+    initialCountry: "auto",
+    geoIpLookup: function(callback) {
+      fetch("https://ipapi.co/json")
+        .then(function(res) { return res.json(); })
+        .then(function(data) { callback(data.country_code); })
+        .catch(function() { callback("us"); });
+    },
+    utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.8.2/build/js/utils.js"
+  });
+
+  // Book page form submission
+  window.submitBookForm = function(e) {
+    e.preventDefault();
+    var email = document.getElementById('bookEmail').value;
+    var phone = bookIti.getNumber(); // E.164 format from intl-tel-input
+
+    sessionStorage.setItem('contact_email', email);
+    sessionStorage.setItem('contact_phone', phone);
+
+    // Gather UTM params
+    var currentParams = new URLSearchParams(window.location.search);
+    var source = {};
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid', 'ref'].forEach(function(p) {
+      if (currentParams.has(p)) source[p] = currentParams.get(p);
+    });
+
+    // Fire-and-forget webhook
+    fetch('ZAPIER_WEBHOOK_URL_HERE', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        phone: phone,
+        timestamp: new Date().toISOString(),
+        source: source,
+        page: 'book'
+      })
+    }).catch(function() {});
+
+    // Hide form, show calendar
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('calendar').style.display = 'block';
+
+    // Initialize Calendly with prefill
+    Calendly.initInlineWidget({
+      url: 'https://calendly.com/d/cs2v-38g-5dp/potions-onboarding-call?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=5D5DED',
+      parentElement: document.getElementById('bookCalendlyWidget'),
+      prefill: {
+        email: email,
+        customAnswers: {
+          a1: phone
+        }
+      }
+    });
+
+    // Scroll to calendar
+    document.getElementById('calendar').scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  };
+
   // Calendly event listener for booking confirmation
   window.addEventListener('message', function(e) {
     if (e.data.event && e.data.event.indexOf('calendly') === 0) {
@@ -629,6 +713,9 @@ document.addEventListener('DOMContentLoaded', function() {
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 
+
+    <!-- intl-tel-input JS (loaded before page scripts) -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.8.2/build/js/intlTelInput.min.js"></script>
 
     
         

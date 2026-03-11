@@ -29,6 +29,8 @@
     <!-- Preload critical CSS -->
     <link rel="preload" href="<%= baseUrl %><%= styleSheet %>" as="style" />
     <link rel="stylesheet" href="<%= baseUrl %><%= styleSheet %>" />
+    <!-- intl-tel-input CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.8.2/build/css/intlTelInput.css" />
     <!-- Preload critical font -->
     <link rel="preload" href="<%= baseUrl %>webfonts/prosa-light.woff2" as="font" type="font/woff2" crossorigin />
     <!-- Preload hero background image -->
@@ -178,6 +180,9 @@
 <% if (typeof hideHeaderFooter === 'undefined' || !hideHeaderFooter) { %>
 <%- include('partials/footer', { baseUrl }) %>
 <% } %>
+
+    <!-- intl-tel-input JS (loaded before page scripts) -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.8.2/build/js/intlTelInput.min.js"></script>
 
     <% if (scripts && scripts.length > 0) { %>
         <% scripts.forEach(script => { %>
