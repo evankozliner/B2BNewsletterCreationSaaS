@@ -1169,7 +1169,8 @@ footer {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
-  min-width: 120px;
+  min-width: 100px;
+  white-space: nowrap;
 }
 
 .toggle-btn.active {
