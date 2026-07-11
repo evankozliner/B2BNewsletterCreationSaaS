@@ -1,0 +1,724 @@
+/* Potions Pricing Calculator Styles
+ * Extends onboarding.css — assumes onboarding.css is already loaded.
+ * Uses the same .onboarding-wrapper / .onboarding-container / .onboarding-step
+ * shell classes for visual consistency.
+ */
+
+/* ==================== */
+/* Dev Mode Banner      */
+/* ==================== */
+
+.dev-banner {
+  display: none;
+  background-color: #ff4444;
+  color: white;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+
+body.dev-mode-active {
+  padding-top: 2rem;
+}
+
+/* ==================== */
+/* Pricing Step Widths  */
+/* ==================== */
+
+/* Step 1 has more content — allow a wider container */
+#pricing-step-1 {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==================== */
+/* Billing Toggle       */
+/* ==================== */
+
+.billing-toggle-section {
+  margin-bottom: 2rem;
+}
+
+.billing-toggle-label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.billing-toggle {
+  display: inline-flex;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.billing-btn {
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Prosa-Light', Helvetica, Arial, sans-serif;
+  color: #666;
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.billing-btn:hover {
+  color: #333;
+}
+
+.billing-btn.active {
+  background-color: white;
+  color: #5D5DED;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+/* ==================== */
+/* List Size Selector   */
+/* ==================== */
+
+.list-size-section {
+  margin-bottom: 2rem;
+}
+
+.list-size-label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.list-size-select {
+  padding: 0.75rem 1rem;
+  border: 2px solid #333;
+  border-radius: 8px;
+  font-family: 'Prosa-Light', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  color: #333;
+  background-color: white;
+  cursor: pointer;
+  min-width: 260px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.list-size-select:focus {
+  outline: none;
+  border-color: #5D5DED;
+}
+
+/* ==================== */
+/* Core Price Row       */
+/* ==================== */
+
+.core-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border: 3px solid #5D5DED;
+  border-radius: 10px;
+  background-color: #f8f7ff;
+  margin-bottom: 1.5rem;
+}
+
+.core-row-info {
+  flex: 1;
+}
+
+.core-row-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.core-row-sub {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.core-row-price {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.core-price-amount {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #5D5DED;
+}
+
+.core-price-period {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.2rem;
+}
+
+/* ==================== */
+/* Add-ons Section      */
+/* ==================== */
+
+.addons-section-label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.addons-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.addon-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border: 3px solid #333;
+  border-radius: 10px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.addon-row:hover {
+  border-color: #5D5DED;
+}
+
+.addon-row.selected {
+  border-color: #5D5DED;
+  background-color: #f8f7ff;
+}
+
+.addon-checkbox-col {
+  padding-top: 2px;
+  flex-shrink: 0;
+}
+
+.addon-checkbox {
+  width: 22px;
+  height: 22px;
+  accent-color: #5D5DED;
+  cursor: pointer;
+}
+
+.addon-info-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.addon-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  flex-wrap: wrap;
+}
+
+.sale-badge {
+  display: inline-block;
+  background-color: #22c55e;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.addon-description {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.addon-description li {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  padding: 0.2rem 0;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.addon-description li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #5D5DED;
+  font-weight: bold;
+}
+
+.addon-price-col {
+  text-align: right;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.original-price {
+  display: block;
+  text-decoration: line-through;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.sale-price {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #5D5DED;
+}
+
+.addon-price-amount {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.addon-price-period {
+  display: block;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.15rem;
+}
+
+.addon-price-onetime {
+  display: block;
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 0.15rem;
+  font-style: italic;
+}
+
+/* ==================== */
+/* Price Summary Bar    */
+/* ==================== */
+
+.price-summary-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background-color: #333;
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.price-summary-label {
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.price-summary-total {
+  text-align: right;
+}
+
+.price-summary-recurring {
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: block;
+}
+
+.price-summary-period {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  display: block;
+}
+
+.price-summary-onetime {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+/* ==================== */
+/* Order Summary (Step 2) */
+/* ==================== */
+
+.order-summary-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.order-summary-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.order-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #e0e0e0;
+  gap: 1rem;
+}
+
+.order-summary-item:last-child {
+  border-bottom: none;
+}
+
+.order-item-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+.order-item-sub {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 0.2rem;
+}
+
+.order-item-price {
+  font-weight: 700;
+  color: #333;
+  white-space: nowrap;
+  font-size: 1rem;
+}
+
+.order-summary-divider {
+  border: none;
+  border-top: 2px solid #333;
+  margin: 0 0 1rem 0;
+}
+
+.order-summary-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.order-summary-total-label {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.order-summary-total-amount {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #5D5DED;
+}
+
+.order-summary-onetime-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.btn-pay-now {
+  display: block;
+  width: 100%;
+  padding: 1.25rem 2rem;
+  background-color: #5D5DED;
+  border: 2px solid #5D5DED;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Prosa-Light', Helvetica, Arial, sans-serif;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.btn-pay-now:hover:not(:disabled) {
+  background-color: #4848d8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(93, 93, 237, 0.3);
+}
+
+.btn-pay-now:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-pay-now.loading {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.pay-security-note {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #888;
+}
+
+.dev-skip-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #ff4444;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* ==================== */
+/* Email Capture (Step 3) */
+/* ==================== */
+
+.email-capture-form {
+  margin-bottom: 2rem;
+}
+
+.pricing-email-input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 2px solid #333;
+  border-radius: 8px;
+  font-family: 'Prosa-Light', Helvetica, Arial, sans-serif;
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease;
+  margin-bottom: 0.5rem;
+  box-sizing: border-box;
+}
+
+.pricing-email-input:focus {
+  outline: none;
+  border-color: #5D5DED;
+}
+
+.email-privacy-note {
+  font-size: 0.875rem;
+  color: #888;
+  margin-bottom: 1.5rem;
+}
+
+.btn-finish-setup {
+  display: block;
+  width: 100%;
+  padding: 1.25rem 2rem;
+  background-color: #5D5DED;
+  border: 2px solid #5D5DED;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Prosa-Light', Helvetica, Arial, sans-serif;
+}
+
+.btn-finish-setup:hover:not(:disabled) {
+  background-color: #4848d8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(93, 93, 237, 0.3);
+}
+
+.btn-finish-setup:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.email-submit-error {
+  color: #ff4444;
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+  display: none;
+}
+
+/* ==================== */
+/* Welcome Step (Step 4) */
+/* ==================== */
+
+.welcome-page {
+  text-align: center;
+}
+
+.inbox-instruction {
+  background-color: #f9f9f9;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.inbox-instruction h3 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+}
+
+.inbox-instruction p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.inbox-instruction strong {
+  color: #333;
+}
+
+/* ==================== */
+/* Mobile Responsive    */
+/* ==================== */
+
+@media (max-width: 768px) {
+  .core-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .core-row-price {
+    text-align: left;
+  }
+
+  .addon-row {
+    flex-wrap: wrap;
+  }
+
+  .addon-price-col {
+    text-align: left;
+    width: 100%;
+    padding-top: 0;
+    padding-left: calc(22px + 1.25rem); /* align with info col */
+  }
+
+  .price-summary-bar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .price-summary-total {
+    text-align: center;
+  }
+
+  .billing-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .list-size-select {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .order-summary-item {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .addon-row {
+    padding: 1rem;
+  }
+
+  .billing-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   Two-payment section layout (Step 2)
+   ───────────────────────────────────────────── */
+.payment-section {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.payment-section-onetime {
+  background: #fafafa;
+}
+
+.payment-section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.payment-section-number {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #5D5DED;
+  background: #efefff;
+  padding: 2px 8px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.payment-section-type {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #111;
+}
+
+.payment-section-note {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0.5rem 0 0;
+}
+
+/* Locked pay button (one-time section, before payment 1 completes) */
+.btn-pay-locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+
+/* Step 2b: Payment 1 confirmed banner */
+.payment-confirmed-banner {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}

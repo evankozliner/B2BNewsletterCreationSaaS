@@ -355,6 +355,26 @@ const pages = [
             navTargetPage: '/',
             hideHeaderFooter: true // Clean flow without header/footer
         }
+    },
+    {
+        name: 'pricing-calculator',
+        template: 'pages/pricing-calculator.ejs',
+        output: 'pricing-calculator.html',
+        data: {
+            title: 'Build Your Potions Plan | Potions',
+            description: 'Configure your Potions newsletter plan and add-ons. See live pricing and check out in one step.',
+            keywords: 'Potions pricing, newsletter pricing, B2B newsletter plan',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: ['onboarding.css', 'css/pricing-calculator.css'],
+            showBlogLink: false,
+            tracking: true,
+            scripts: [],
+            canonicalUrl: 'https://withpotions.com/pricing-calculator.html',
+            navTargetPage: '/',
+            hideHeaderFooter: true
+        }
     }
 ];
 
