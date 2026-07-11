@@ -355,6 +355,26 @@ const pages = [
             navTargetPage: '/',
             hideHeaderFooter: true // Clean flow without header/footer
         }
+    },
+    {
+        name: 'post-signup',
+        template: 'pages/post-signup.ejs',
+        output: 'post-signup.html',
+        data: {
+            title: 'Welcome to Potions',
+            description: 'Complete your Potions account setup.',
+            keywords: 'Potions, Newsletter, Signup, Onboarding',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: ['onboarding.css', 'css/pricing-calculator.css'],
+            showBlogLink: false,
+            tracking: true,
+            scripts: [],
+            canonicalUrl: 'https://withpotions.com/post-signup.html',
+            navTargetPage: '/',
+            hideHeaderFooter: true
+        }
     }
 ];
 
