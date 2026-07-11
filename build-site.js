@@ -355,6 +355,46 @@ const pages = [
             navTargetPage: '/',
             hideHeaderFooter: true // Clean flow without header/footer
         }
+    },
+    {
+        name: 'post-signup',
+        template: 'pages/post-signup.ejs',
+        output: 'post-signup.html',
+        data: {
+            title: 'Welcome to Potions',
+            description: 'Complete your Potions account setup.',
+            keywords: 'Potions, Newsletter, Signup, Onboarding',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: ['onboarding.css', 'css/pricing-calculator.css'],
+            showBlogLink: false,
+            tracking: true,
+            scripts: [],
+            canonicalUrl: 'https://withpotions.com/post-signup.html',
+            navTargetPage: '/',
+            hideHeaderFooter: true
+        }
+    },
+    {
+        name: 'pricing-calculator',
+        template: 'pages/pricing-calculator.ejs',
+        output: 'pricing-calculator.html',
+        data: {
+            title: 'Build Your Potions Plan | Potions',
+            description: 'Configure your Potions newsletter plan and add-ons. See live pricing and check out in one step.',
+            keywords: 'Potions pricing, newsletter pricing, B2B newsletter plan',
+            author: 'Potions',
+            baseUrl: '',
+            styleSheet: 'style.css',
+            additionalCSS: ['onboarding.css', 'css/pricing-calculator.css'],
+            showBlogLink: false,
+            tracking: true,
+            scripts: [], // Scripts are loaded in the template itself
+            canonicalUrl: 'https://withpotions.com/pricing-calculator.html',
+            navTargetPage: '/',
+            hideHeaderFooter: true // Clean checkout flow
+        }
     }
 ];
 

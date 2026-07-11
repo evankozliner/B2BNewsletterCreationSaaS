@@ -1,0 +1,228 @@
+<!-- Dev mode banner -->
+<div id="dev-banner" class="dev-banner" style="display:none;">
+  DEV MODE — Stripe checkout is bypassed
+</div>
+
+<!-- Pricing Calculator -->
+<div class="onboarding-wrapper">
+  <div class="onboarding-container">
+
+    <!-- Progress Bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar">
+        <div class="progress-fill" id="pricing-progress-fill" style="width: 25%;"></div>
+      </div>
+      <div class="progress-text" id="pricing-progress-text">Step 1 of 4</div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Step 1: Configure your plan                 -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="onboarding-step pricing-step" id="pricing-step-1">
+      <div class="step-content">
+
+        <h1>Build your Potions plan</h1>
+        <p class="step-helper">Select the features that fit your goals. Your price updates live.</p>
+
+        <!-- Billing period toggle -->
+        <div class="billing-toggle-section">
+          <span class="billing-toggle-label">Billing period</span>
+          <div class="billing-toggle" id="billing-toggle">
+            <button class="billing-btn" data-billing="monthly">Monthly</button>
+            <button class="billing-btn active" data-billing="quarterly">Quarterly</button>
+            <button class="billing-btn" data-billing="annual">Annual</button>
+          </div>
+        </div>
+
+        <!-- List size -->
+        <div class="list-size-section">
+          <span class="list-size-label">Subscriber list size</span>
+          <select class="list-size-select" id="list-size-select">
+            <!-- Options populated by JS from config -->
+          </select>
+        </div>
+
+        <!-- Core newsletter row (always included) -->
+        <div class="core-row">
+          <div class="core-row-info">
+            <div class="core-row-name">Potions Newsletter (included)</div>
+            <div class="core-row-sub">Weekly done-for-you newsletter, custom design, dedicated Slack, 1-on-1 calls</div>
+          </div>
+          <div class="core-row-price">
+            <span class="core-price-amount" id="core-price-amount">$199/mo</span>
+            <span class="core-price-period" id="core-price-period">billed quarterly</span>
+          </div>
+        </div>
+
+        <!-- Add-ons -->
+        <span class="addons-section-label">Add-ons (optional)</span>
+        <div class="addons-table" id="addons-table">
+          <!-- Rows populated by JS -->
+        </div>
+
+        <!-- Running total -->
+        <div class="price-summary-bar">
+          <span class="price-summary-label">Your total</span>
+          <div class="price-summary-total">
+            <span class="price-summary-recurring" id="price-summary-recurring">$199/mo</span>
+            <span class="price-summary-period" id="price-summary-period">billed quarterly</span>
+            <span class="price-summary-onetime" id="price-summary-onetime" style="display:none;"></span>
+          </div>
+        </div>
+
+        <button class="btn-next" id="btn-step1-next">Review &amp; Pay &rarr;</button>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Step 2: Review & Pay                        -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="onboarding-step pricing-step" id="pricing-step-2" style="display:none;">
+      <div class="step-content">
+
+        <h1>Review your order</h1>
+        <p class="step-helper">Confirm your selection before checking out with Stripe.</p>
+
+        <!-- Order summary (populated by JS) -->
+        <div id="order-summary"></div>
+
+        <!-- Checkout error -->
+        <div id="checkout-error" class="email-submit-error" style="display:none;"></div>
+
+        <!-- Pay button -->
+        <button class="btn-pay-now" id="btn-pay-now">
+          Pay Now &rarr;
+        </button>
+        <p id="dev-skip-note" class="dev-skip-note" style="display:none;">
+          DEV MODE: clicking "Pay Now" skips Stripe and jumps to step 3
+        </p>
+        <p class="pay-security-note">Secure checkout powered by Stripe</p>
+
+        <div class="step-navigation" style="margin-top: 1.5rem;">
+          <button class="btn-back" id="btn-step2-back">&larr; Back</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Step 2b: One-time add-on payment            -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="onboarding-step pricing-step" id="pricing-step-2b" style="display:none;">
+      <div class="step-content">
+
+        <div class="payment-confirmed-banner">
+          ✓ Payment 1 confirmed — subscription is active
+        </div>
+        <h1>Payment 2 of 2</h1>
+        <p class="step-helper">Complete your one-time add-ons below. Each opens a quick Stripe checkout.</p>
+
+        <!-- One-time add-on payment buttons (populated by JS) -->
+        <div id="onetime-payment-items"></div>
+
+        <p class="pay-security-note">Secure checkout powered by Stripe</p>
+
+        <div class="step-navigation" style="margin-top: 1.5rem;">
+          <button class="btn-back" id="btn-skip-onetime">Skip for now &rarr;</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Step 3: Email capture (post-payment)        -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="onboarding-step pricing-step" id="pricing-step-3" style="display:none;">
+      <div class="step-content">
+
+        <h1>One last thing</h1>
+        <p class="step-helper">What email should we use for your Potions account?</p>
+
+        <div class="email-capture-form">
+          <input
+            type="email"
+            id="email-input"
+            class="pricing-email-input"
+            placeholder="you@yourcompany.com"
+            autocomplete="email"
+          />
+          <p class="email-privacy-note">
+            This becomes your Potions login and the address where we send your
+            newsletter drafts, educational content, and account updates.
+          </p>
+          <button class="btn-finish-setup" id="btn-finish-setup" disabled>
+            Finish Setup &rarr;
+          </button>
+          <div id="email-submit-error" class="email-submit-error"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- Step 4: Welcome!                            -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="onboarding-step pricing-step welcome-page" id="pricing-step-4" style="display:none;">
+      <div class="step-content">
+
+        <!-- Success icon -->
+        <div class="success-icon">
+          <svg viewBox="0 0 52 52" width="80" height="80">
+            <circle cx="26" cy="26" r="25" fill="none" stroke="#5D5DED" stroke-width="2"/>
+            <path fill="none" stroke="#5D5DED" stroke-width="3" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+          </svg>
+        </div>
+
+        <h1>You're all set!</h1>
+
+        <p class="thank-you-message">
+          Welcome to Potions. We're excited to build your newsletter with you.
+          You'll hear from us within one business day to kick things off.
+        </p>
+
+        <!-- Inbox instruction -->
+        <div class="inbox-instruction">
+          <h3>Important: find our welcome email</h3>
+          <p>
+            We just sent you a welcome email. If you don't see it in your inbox,
+            check your <strong>Promotions</strong> or <strong>Spam</strong> folder and
+            drag it to your <strong>Primary inbox</strong> — this ensures you receive
+            your newsletter drafts and updates without interruption.
+          </p>
+        </div>
+
+        <!-- What's next -->
+        <div class="next-steps">
+          <h2>What happens next?</h2>
+          <ol class="next-steps-list">
+            <li>Our team will review your account and reach out within one business day</li>
+            <li>We'll schedule your onboarding call to align on voice, audience, and goals</li>
+            <li>Your first newsletter draft lands in your inbox within 7 days of your call</li>
+          </ol>
+        </div>
+
+        <!-- Resources -->
+        <div class="resources-section">
+          <h2>See what we can do</h2>
+          <div class="resource-links">
+            <a href="https://withpotions.com/blog/stat-digital-case-study.html" target="_blank" rel="noopener" class="resource-link">
+              <span class="link-icon">&#128218;</span>
+              <span class="link-text">Read our case study</span>
+            </a>
+            <a href="https://withpotions.com/samples.html" target="_blank" rel="noopener" class="resource-link">
+              <span class="link-icon">&#10024;</span>
+              <span class="link-text">See sample newsletters</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /.onboarding-container -->
+</div><!-- /.onboarding-wrapper -->
+
+<!-- Scripts loaded here (like the onboarding funnel) so they can reference the DOM -->
+<script src="<%= baseUrl %>js/pricing/config.js" defer></script>
+<script src="<%= baseUrl %>js/pricing/app.js" defer></script>
