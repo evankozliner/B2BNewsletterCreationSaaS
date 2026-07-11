@@ -1,0 +1,92 @@
+<!-- Post-Signup Flow -->
+<div class="onboarding-wrapper">
+  <div class="onboarding-container">
+
+    <!-- Progress Bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar">
+        <div class="progress-fill" id="signup-progress-fill" style="width: 50%;"></div>
+      </div>
+      <div class="progress-text" id="signup-progress-text">Step 1 of 2</div>
+    </div>
+
+    <!-- Step 1: Email capture -->
+    <div class="onboarding-step pricing-step" id="signup-step-1">
+      <div class="step-content">
+
+        <h1>One last thing</h1>
+        <p class="step-helper">What email should we use for your Potions account?</p>
+
+        <div class="email-capture-form">
+          <input
+            type="email"
+            id="email-input"
+            class="pricing-email-input"
+            placeholder="you@yourcompany.com"
+            autocomplete="email"
+          />
+          <p class="email-privacy-note">
+            This becomes your Potions login and the address where we send your
+            newsletter drafts, educational content, and account updates.
+          </p>
+          <button class="btn-finish-setup" id="btn-submit-email" disabled>
+            Continue &rarr;
+          </button>
+          <div id="email-submit-error" class="email-submit-error"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Step 2: Inbox instructions -->
+    <div class="onboarding-step pricing-step welcome-page" id="signup-step-2" style="display:none;">
+      <div class="step-content">
+
+        <h1>Important next steps</h1>
+
+        <p class="thank-you-message">
+          We just sent you an onboarding email. If you don't see it in your inbox,
+          check your <strong>Promotions</strong> or <strong>Spam</strong> folder and
+          drag it to your <strong>Primary inbox</strong> — this ensures you receive
+          your newsletter drafts and updates without interruption.
+        </p>
+
+        <div class="inbox-instruction-image">
+          <img
+            src="https://6ade94d361.sdkmedia.net/pub/2aeo/wbgkd1zy/guh/6b2/cq4/How-to-manually-move-emails-from-Promotions-to-Primary-One-time.png"
+            alt="How to move emails from Promotions to Primary inbox"
+          />
+        </div>
+
+        <!-- What's next -->
+        <div class="next-steps">
+          <h2>What happens next?</h2>
+          <ol class="next-steps-list">
+            <li>Our team will review your account and reach out within one business day</li>
+            <li>We'll schedule your onboarding call to align on voice, audience, and goals</li>
+            <li>Your first newsletter draft lands in your inbox within 7 days of your call</li>
+          </ol>
+        </div>
+
+        <!-- Resources -->
+        <div class="resources-section">
+          <h2>See what we can do</h2>
+          <div class="resource-links">
+            <a href="https://withpotions.com/blog/stat-digital-case-study.html" target="_blank" rel="noopener" class="resource-link">
+              <span class="link-icon">&#128218;</span>
+              <span class="link-text">Read our case study</span>
+            </a>
+            <a href="https://withpotions.com/samples.html" target="_blank" rel="noopener" class="resource-link">
+              <span class="link-icon">&#10024;</span>
+              <span class="link-text">See sample newsletters</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /.onboarding-container -->
+</div><!-- /.onboarding-wrapper -->
+
+<script src="<%= baseUrl %>js/post-signup/app.js" defer></script>

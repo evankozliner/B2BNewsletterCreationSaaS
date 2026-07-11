@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Complete your Potions account setup."
+    />
+    
+    <meta property="og:image" content="https://withpotions.com/PotionsPreview.png" />
+    
+    <meta
+      name="keywords"
+      content="Potions, Newsletter, Signup, Onboarding"
+    />
+    <meta name="author" content="Potions" />
+    <meta http-equiv="Permissions-Policy" content="payment=(self https://calendly.com)" />
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="style.css" as="style" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Preload critical font -->
+    <link rel="preload" href="webfonts/prosa-light.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Preload hero background image -->
+    <!-- <link rel="preload" href="landing-page-banner.webp" as="image" fetchpriority="high" /> -->
+    
+        
+    <link rel="stylesheet" href="onboarding.css" />
+        
+    <link rel="stylesheet" href="css/pricing-calculator.css" />
+        
+    
+<!--     <link rel="icon" href="https://withpotions.com/airplane.svg" /> -->
+<!--     <link rel="icon" href="https://withpotions.com/airplane.ico" /> -->
+<!--     <link rel="canonical" href="https://withpotions.com/post-signup.html" /> -->
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <title>
+      Welcome to Potions
+    </title>
+
+    <script src="lottie.min.js" defer></script>
+
+    
+
+  </head>
+  <body>
+  
+  <!-- Google Tag Manager (noscript) -->
+<!--<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W879CWPC"-->
+<!--height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>-->
+<!-- End Google Tag Manager (noscript) -->
+
+
+    
+    <!-- Post-Signup Flow -->
+<div class="onboarding-wrapper">
+  <div class="onboarding-container">
+
+    <!-- Progress Bar -->
+    <div class="progress-bar-container">
+      <div class="progress-bar">
+        <div class="progress-fill" id="signup-progress-fill" style="width: 50%;"></div>
+      </div>
+      <div class="progress-text" id="signup-progress-text">Step 1 of 2</div>
+    </div>
+
+    <!-- Step 1: Email capture -->
+    <div class="onboarding-step pricing-step" id="signup-step-1">
+      <div class="step-content">
+
+        <h1>One last thing</h1>
+        <p class="step-helper">What email should we use for your Potions account?</p>
+
+        <div class="email-capture-form">
+          <input
+            type="email"
+            id="email-input"
+            class="pricing-email-input"
+            placeholder="you@yourcompany.com"
+            autocomplete="email"
+          />
+          <p class="email-privacy-note">
+            This becomes your Potions login and the address where we send your
+            newsletter drafts, educational content, and account updates.
+          </p>
+          <button class="btn-finish-setup" id="btn-submit-email" disabled>
+            Continue &rarr;
+          </button>
+          <div id="email-submit-error" class="email-submit-error"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Step 2: Inbox instructions -->
+    <div class="onboarding-step pricing-step welcome-page" id="signup-step-2" style="display:none;">
+      <div class="step-content">
+
+        <h1>Important next steps</h1>
+
+        <p class="thank-you-message">
+          We just sent you an onboarding email. If you don't see it in your inbox,
+          check your <strong>Promotions</strong> or <strong>Spam</strong> folder and
+          drag it to your <strong>Primary inbox</strong> — this ensures you receive
+          your newsletter drafts and updates without interruption.
+        </p>
+
+        <div class="inbox-instruction-image">
+          <img
+            src="https://6ade94d361.sdkmedia.net/pub/2aeo/wbgkd1zy/guh/6b2/cq4/How-to-manually-move-emails-from-Promotions-to-Primary-One-time.png"
+            alt="How to move emails from Promotions to Primary inbox"
+          />
+        </div>
+
+        <!-- What's next -->
+        <div class="next-steps">
+          <h2>What happens next?</h2>
+          <ol class="next-steps-list">
+            <li>Our team will review your account and reach out within one business day</li>
+            <li>We'll schedule your onboarding call to align on voice, audience, and goals</li>
+            <li>Your first newsletter draft lands in your inbox within 7 days of your call</li>
+          </ol>
+        </div>
+
+        <!-- Resources -->
+        <div class="resources-section">
+          <h2>See what we can do</h2>
+          <div class="resource-links">
+            <a href="https://withpotions.com/blog/stat-digital-case-study.html" target="_blank" rel="noopener" class="resource-link">
+              <span class="link-icon">&#128218;</span>
+              <span class="link-text">Read our case study</span>
+            </a>
+            <a href="https://withpotions.com/samples.html" target="_blank" rel="noopener" class="resource-link">
+              <span class="link-icon">&#10024;</span>
+              <span class="link-text">See sample newsletters</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /.onboarding-container -->
+</div><!-- /.onboarding-wrapper -->
+
+<script src="js/post-signup/app.js" defer></script>
+
+
+
+    
+
+    
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W879CWPC');</script>
+<!-- End Google Tag Manager -->
+
+  <script>!function () {var reb2b = window.reb2b = window.reb2b || [];if (reb2b.invoked) return;reb2b.invoked = true;reb2b.methods = ["identify", "collect"];reb2b.factory = function (method) {return function () {var args = Array.prototype.slice.call(arguments);args.unshift(method);reb2b.push(args);return reb2b;};};for (var i = 0; i < reb2b.methods.length; i++) {var key = reb2b.methods[i];reb2b[key] = reb2b.factory(key);}reb2b.load = function (key) {var script = document.createElement("script");script.type = "text/javascript";script.async = true;script.src = "https://s3-us-west-2.amazonaws.com/b2bjsstore/b/" + key + "/reb2b.js.gz";var first = document.getElementsByTagName("script")[0];first.parentNode.insertBefore(script, first);};reb2b.SNIPPET_VERSION = "1.0.1";reb2b.load("QOQRJHY0GM62");}();</script>
+
+      <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+// Capture and store fbclid for conversion tracking
+(function() {
+  var urlParams = new URLSearchParams(window.location.search);
+  var fbclid = urlParams.get('fbclid');
+
+  if (fbclid) {
+    // Store fbclid in sessionStorage for tracking across pages
+    sessionStorage.setItem('_fbclid', fbclid);
+  }
+
+  // Retrieve stored fbclid
+  var storedFbclid = sessionStorage.getItem('_fbclid');
+
+  // Helper function to get cookie value
+  function getCookie(name) {
+    var value = '; ' + document.cookie;
+    var parts = value.split('; ' + name + '=');
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+  }
+
+  // Build advanced matching object
+  var advancedMatching = {};
+
+  // Add external_id (fbclid) if available
+  if (storedFbclid) {
+    advancedMatching.external_id = storedFbclid;
+  }
+
+  // Initialize pixel with advanced matching
+  fbq('init', '1619668331969779', advancedMatching);
+})();
+
+// Track PageView with client user agent and fbp
+(function() {
+  // Helper function to get cookie value
+  function getCookie(name) {
+    var value = '; ' + document.cookie;
+    var parts = value.split('; ' + name + '=');
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+  }
+
+  var eventData = {};
+  var fbp = getCookie('_fbp');
+  var fbc = getCookie('_fbc');
+
+  if (fbp) {
+    eventData.fbp = fbp;
+  }
+  if (fbc) {
+    eventData.fbc = fbc;
+  }
+
+  fbq('track', 'PageView', eventData, {
+    client_user_agent: navigator.userAgent
+  });
+})();
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1619668331969779&ev=PageView&noscript=1"
+alt=""
+/></noscript>
+<!-- End Meta Pixel Code -->
+    
+</body>
+</html>
