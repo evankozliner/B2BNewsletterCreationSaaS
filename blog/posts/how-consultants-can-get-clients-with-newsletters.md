@@ -432,6 +432,8 @@ In addition to curating top industry news stories, we like to make it as effortl
 
 Then, our [AI and writing team](https://withpotions.com/) turns those insights into an actionable story that sounds exactly like them.
 
+A [specialized AI teammate](https://www.delegento.com/) can help you turn ideas into campaigns and content directly from the tools they already use.
+
 
 ![approve_potions.gif](https://withpotions.com/blog/assets/best-newsletter-services/approve_potions.gif)
 
