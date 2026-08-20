@@ -852,7 +852,8 @@ footer {
     }
 
     .filter-tag:hover {
-      background: #eeeefc;
+      background: black;
+      color: white;
     }
 
     .filter-tag.active {
@@ -887,7 +888,8 @@ footer {
     }
 
     .page-btn:hover:not(:disabled) {
-      background: #eeeefc;
+      background: black;
+      color: white;
     }
 
     .page-btn.active {
