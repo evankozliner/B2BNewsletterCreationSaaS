@@ -22,14 +22,32 @@ document.addEventListener('DOMContentLoaded', function () {
             .map(function (btn) { return btn.dataset.tag; });
     }
 
+    // Rank of a card for the current selection, from data-featured="tag:1,tag:2".
+    // Lower ranks come first when their tag is selected; unranked cards keep DOM order.
+    function featuredRank(card, selected) {
+        if (!card.dataset.featured) return Infinity;
+        var rank = Infinity;
+        card.dataset.featured.split(',').forEach(function (entry) {
+            var parts = entry.split(':');
+            if (selected.indexOf(parts[0].trim()) !== -1) {
+                rank = Math.min(rank, parseInt(parts[1], 10) || Infinity);
+            }
+        });
+        return rank;
+    }
+
     function matchingCards() {
         var selected = selectedTags();
-        return cards.filter(function (card) {
+        var matching = cards.filter(function (card) {
             var cardTags = card.dataset.tags.split(/\s+/);
             return selected.length === 0 || selected.some(function (tag) {
                 return cardTags.indexOf(tag) !== -1;
             });
         });
+        return matching
+            .map(function (card, i) { return { card: card, rank: featuredRank(card, selected), i: i }; })
+            .sort(function (a, b) { return (a.rank - b.rank) || (a.i - b.i); })
+            .map(function (entry) { return entry.card; });
     }
 
     function render() {
@@ -44,6 +62,11 @@ document.addEventListener('DOMContentLoaded', function () {
         var pageCards = matching.slice(start, start + PAGE_SIZE);
         cards.forEach(function (card) {
             card.classList.toggle('sample-card-hidden', pageCards.indexOf(card) === -1);
+        });
+        // Featured ranks can promote a card past its DOM position, so place the
+        // visible cards in their computed order.
+        pageCards.forEach(function (card) {
+            pagination.parentNode.insertBefore(card, pagination);
         });
 
         renderPagination(totalPages);
