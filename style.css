@@ -827,6 +827,43 @@ footer {
         text-decoration: none;
     }
 
+    .sample-card-link.sample-card-hidden {
+        display: none;
+    }
+
+    .samples-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .filter-tag {
+      background: white;
+      border: 3px solid black;
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      color: black;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .filter-tag:hover {
+      background: #eeeefc;
+    }
+
+    .filter-tag.active {
+      background: #5D5DED;
+      color: white;
+    }
+
+    .filter-tag.active:hover {
+      background: #4a4ad4;
+    }
+
 @media (max-width: 755px) {
     .sample-card {
       flex-direction: column;

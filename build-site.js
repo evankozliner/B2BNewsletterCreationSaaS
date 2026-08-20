@@ -42,7 +42,7 @@ const pages = [
             additionalCSS: [],
             showBlogLink: false,
             tracking: true,
-            scripts: ['hamburger.js'],
+            scripts: ['hamburger.js', 'samples-filter.js'],
             canonicalUrl: 'https://withpotions.com/samples.html',
             navTargetPage: '/' // Normal page: nav points to homepage
         }
