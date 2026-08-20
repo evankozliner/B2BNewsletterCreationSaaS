@@ -831,6 +831,30 @@ footer {
         display: none;
     }
 
+    /* Card whose description contains its own links: the main link is
+       stretched over the whole card, inline links sit above it. */
+    .sample-card {
+        position: relative;
+    }
+    .sample-card-stretched {
+        color: black;
+        text-decoration: none;
+    }
+    .sample-card-stretched::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    .sample-inline-link {
+        position: relative;
+        z-index: 1;
+        color: #5D5DED;
+        text-decoration: underline;
+    }
+
     .samples-filter {
       display: flex;
       flex-wrap: wrap;
