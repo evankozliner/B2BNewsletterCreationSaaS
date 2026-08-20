@@ -864,6 +864,42 @@ footer {
       background: #4a4ad4;
     }
 
+    .samples-pagination {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 32px;
+    }
+
+    .page-btn {
+      background: white;
+      border: 3px solid black;
+      border-radius: 12px;
+      min-width: 46px;
+      padding: 8px 12px;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      color: black;
+      cursor: pointer;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .page-btn:hover:not(:disabled) {
+      background: #eeeefc;
+    }
+
+    .page-btn.active {
+      background: #5D5DED;
+      color: white;
+    }
+
+    .page-btn:disabled {
+      opacity: 0.35;
+      cursor: default;
+    }
+
 @media (max-width: 755px) {
     .sample-card {
       flex-direction: column;
