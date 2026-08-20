@@ -811,6 +811,8 @@ footer {
     .sample-card img {
       width: 50%;
       height: auto;
+      max-height: 170px;
+      object-fit: cover;
     }
 
     .sample-description {
