@@ -539,6 +539,26 @@ h2 {
         z-index: -1;
         pointer-events: none;
     }
+
+    .g2-badge {
+        gap: 6px;
+        padding: 5px 14px;
+        border-width: 2px;
+        font-size: 15px;
+    }
+
+    .g2-logo {
+        width: 18px;
+        height: 18px;
+    }
+
+    .g2-stars {
+        letter-spacing: 1px;
+    }
+
+    .g2-rating {
+        display: none;
+    }
 }
 
 .text p {
