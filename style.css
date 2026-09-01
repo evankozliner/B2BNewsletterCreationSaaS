@@ -272,7 +272,7 @@ body {
     padding: 8px 16px;
     background-color: white;
     border: 3px solid black;
-    border-radius: 999px;
+    border-radius: 10px;
     text-decoration: none;
     color: black;
     font-size: 16px;
